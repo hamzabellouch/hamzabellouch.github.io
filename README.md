@@ -7,7 +7,7 @@ Welcome to my personal GitHub.io platform!
 </p>
 
 <div align="center">
-<img width="640" height="359" alt="hamzabellouch" src="https://github.com/user-attachments/assets/2f1633f1-ac50-48c9-8679-65b365a78827" />
+<img alt="hamzabellouch" src="https://github.com/user-attachments/assets/2f1633f1-ac50-48c9-8679-65b365a78827" />
 </div>
 
 ## Overview
