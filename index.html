@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Three.js CDN for 3D visual effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Google Fonts & Google Sans typography CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/google-sans');
+
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+            src: url('https://cdn.jsdelivr.net/fontsource/fonts/google-sans:vf@latest/latin-wght-normal.woff2') format('woff2-variations');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            font-family: 'Google Sans', 'Plus Jakarta Sans', sans-serif;
+            background-color: #030307;
+            color: #ffffff;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Ambient light dispersion effect */
+        .ambient-glow {
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(110, 86, 248, 0.12) 0%, rgba(13, 10, 36, 0.03) 50%, transparent 75%);
+            filter: blur(80px);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: opacity 1.2s ease;
+        }
+
+        /* Dynamic subtle text glow */
+        .text-glow {
+            text-shadow: 0 0 18px rgba(255, 255, 255, 0.35),
+                         0 0 45px rgba(120, 119, 255, 0.22);
+            letter-spacing: 0.35em;
+        }
+
+        /* Glassmorphism subtle pill */
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        /* Pulse ring animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.6; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.6; }
+        }
+
+        .pulsing-dot {
+            animation: pulse-ring 2.8s infinite ease-in-out;
+        }
+
+        /* Smooth canvas positioning */
+        #webgl-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: auto;
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .interactive-element {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="relative flex items-center justify-center min-h-screen bg-[#030307] overflow-hidden">
+
+    <!-- Interactive Background Glow that follows the cursor -->
+    <div id="ambient-orb" class="ambient-glow top-1/2 left-1/2"></div>
+
+    <!-- ThreeJS WebGL Canvas -->
+    <canvas id="webgl-canvas"></canvas>
+
+    <!-- Minimalist Content Overlay -->
+    <main class="content-layer w-full h-full flex flex-col items-center justify-between p-8 sm:p-14 select-none">
+        
+        <!-- Top Status Indicator (Repositioned to the far left) -->
+        <header class="w-full flex justify-start items-center">
+            <div class="glass-badge interactive-element px-4 py-1.5 rounded-full flex items-center gap-2.5 transition-all duration-300 hover:border-white/20">
+                <span id="status-bulb" class="w-2 h-2 rounded-full bg-rose-500 shadow-[0_0_12px_#f43f5e] pulsing-dot transition-all duration-700"></span>
+                <span class="text-[11px] uppercase tracking-[0.25em] text-white/70 font-light">In Progress</span>
+            </div>
+        </header>
+
+        <!-- Center Coming Soon Minimalist Title -->
+        <div class="flex flex-col items-center justify-center text-center my-auto">
+            <h1 class="text-3xl sm:text-5xl md:text-7xl font-black tracking-[0.28em] uppercase text-white/95 text-glow transition-all duration-700 hover:tracking-[0.32em] cursor-default font-['Google_Sans',sans-serif]">
+                COMING SOON
+            </h1>
+        </div>
+
+        <!-- Dynamic 7-Color Rainbow Spectrum Indicator & Copyright Capsule -->
+        <footer class="w-full flex justify-center items-center gap-3 flex-wrap">
+            <div class="glass-badge interactive-element px-4 py-2 rounded-full flex items-center gap-3">
+                <span class="text-[10px] uppercase tracking-[0.25em] text-white/40 mr-1 hidden sm:inline font-light">Spectrum</span>
+                <span data-color-idx="0" class="spectrum-dot w-2 h-2 rounded-full bg-rose-500 transition-all duration-700 scale-125 opacity-100 shadow-[0_0_8px_#f43f5e]"></span>
+                <span data-color-idx="1" class="spectrum-dot w-2 h-2 rounded-full bg-orange-500 transition-all duration-700 opacity-30"></span>
+                <span data-color-idx="2" class="spectrum-dot w-2 h-2 rounded-full bg-amber-400 transition-all duration-700 opacity-30"></span>
+                <span data-color-idx="3" class="spectrum-dot w-2 h-2 rounded-full bg-emerald-400 transition-all duration-700 opacity-30"></span>
+                <span data-color-idx="4" class="spectrum-dot w-2 h-2 rounded-full bg-cyan-400 transition-all duration-700 opacity-30"></span>
+                <span data-color-idx="5" class="spectrum-dot w-2 h-2 rounded-full bg-indigo-400 transition-all duration-700 opacity-30"></span>
+                <span data-color-idx="6" class="spectrum-dot w-2 h-2 rounded-full bg-purple-400 transition-all duration-700 opacity-30"></span>
+            </div>
+
+            <!-- Custom Copyright Capsule -->
+            <div class="glass-badge interactive-element px-4 py-2 rounded-full flex items-center">
+                <span class="text-xs text-white/40 tracking-widest font-medium">hamzabellouch © 2026</span>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const canvas = document.getElementById('webgl-canvas');
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x030307, 0.016);
+
+        // Camera setup oriented directly inside the starry mist
+        const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0, 32);
+
+        // High-performance WebGL renderer
+        const renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            antialias: true,
+            alpha: true,
+            powerPreference: "high-performance"
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // 7 Rainbow Spectrum Colors: Red, Orange, Yellow, Green, Cyan, Indigo, Violet
+        const rainbowThemes = [
+            { 
+                name: 'Red',
+                fogDense: new THREE.Color(0xdc2626),
+                fogMist: new THREE.Color(0x881337),
+                starColor: new THREE.Color(0xffe4e6),
+                hex: '#f43f5e',
+                glow: 'rgba(244, 63, 94, 0.20)'
+            },
+            { 
+                name: 'Orange',
+                fogDense: new THREE.Color(0xea580c),
+                fogMist: new THREE.Color(0x7c2d12),
+                starColor: new THREE.Color(0xffedd5),
+                hex: '#f97316',
+                glow: 'rgba(249, 115, 22, 0.20)'
+            },
+            { 
+                name: 'Yellow',
+                fogDense: new THREE.Color(0xd97706),
+                fogMist: new THREE.Color(0x78350f),
+                starColor: new THREE.Color(0xfef9c3),
+                hex: '#facc15',
+                glow: 'rgba(250, 204, 21, 0.20)'
+            },
+            { 
+                name: 'Green',
+                fogDense: new THREE.Color(0x10b981),
+                fogMist: new THREE.Color(0x064e3b),
+                starColor: new THREE.Color(0xd1fae5),
+                hex: '#34d399',
+                glow: 'rgba(52, 211, 153, 0.20)'
+            },
+            { 
+                name: 'Cyan',
+                fogDense: new THREE.Color(0x06b6d4),
+                fogMist: new THREE.Color(0x0e7490),
+                starColor: new THREE.Color(0xcffafe),
+                hex: '#22d3ee',
+                glow: 'rgba(34, 211, 238, 0.20)'
+            },
+            { 
+                name: 'Indigo',
+                fogDense: new THREE.Color(0x6366f1),
+                fogMist: new THREE.Color(0x312e81),
+                starColor: new THREE.Color(0xe0e7ff),
+                hex: '#6366f1',
+                glow: 'rgba(99, 102, 241, 0.20)'
+            },
+            { 
+                name: 'Violet',
+                fogDense: new THREE.Color(0xa855f7),
+                fogMist: new THREE.Color(0x581c87),
+                starColor: new THREE.Color(0xf3e8ff),
+                hex: '#c084fc',
+                glow: 'rgba(192, 132, 252, 0.20)'
+            }
+        ];
+
+        function createStarTexture() {
+            const texCanvas = document.createElement('canvas');
+            texCanvas.width = 64;
+            texCanvas.height = 64;
+            const ctx = texCanvas.getContext('2d');
+            const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            grad.addColorStop(0.18, 'rgba(255, 255, 255, 0.85)');
+            grad.addColorStop(0.55, 'rgba(255, 255, 255, 0.25)');
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, 64, 64);
+            const texture = new THREE.Texture(texCanvas);
+            texture.needsUpdate = true;
+            return texture;
+        }
+
+        // Procedural soft cloud puff texture with multi-layered organic dissipation
+        function createFogTexture() {
+            const texCanvas = document.createElement('canvas');
+            texCanvas.width = 256;
+            texCanvas.height = 256;
+            const ctx = texCanvas.getContext('2d');
+
+            ctx.clearRect(0, 0, 256, 256);
+
+            // Primary diffuse gradient
+            const grad1 = ctx.createRadialGradient(128, 128, 8, 128, 128, 120);
+            grad1.addColorStop(0, 'rgba(255, 255, 255, 0.40)');
+            grad1.addColorStop(0.35, 'rgba(255, 255, 255, 0.18)');
+            grad1.addColorStop(0.7, 'rgba(255, 255, 255, 0.04)');
+            grad1.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = grad1;
+            ctx.fillRect(0, 0, 256, 256);
+
+            // Secondary softer offset lobe for wispy, smoky asymmetry
+            const grad2 = ctx.createRadialGradient(105, 115, 6, 105, 115, 95);
+            grad2.addColorStop(0, 'rgba(255, 255, 255, 0.16)');
+            grad2.addColorStop(0.6, 'rgba(255, 255, 255, 0.03)');
+            grad2.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = grad2;
+            ctx.fillRect(0, 0, 256, 256);
+
+            const texture = new THREE.Texture(texCanvas);
+            texture.needsUpdate = true;
+            return texture;
+        }
+
+        const starTexture = createStarTexture();
+        const fogTexture = createFogTexture();
+
+        const fogGroup = new THREE.Group();
+        scene.add(fogGroup);
+
+        // Volumetric mist puffs drifting through space
+        const fogPuffCount = 380;
+        const fogPositions = new Float32Array(fogPuffCount * 3);
+        const fogColors = new Float32Array(fogPuffCount * 3);
+        const fogMixes = new Float32Array(fogPuffCount);
+        const fogVelocities = new Float32Array(fogPuffCount * 3);
+
+        for (let f = 0; f < fogPuffCount; f++) {
+            const f3 = f * 3;
+            // Spread across a broad panoramic cloud volume
+            fogPositions[f3] = (Math.random() - 0.5) * 85;
+            fogPositions[f3 + 1] = (Math.random() - 0.5) * 55;
+            fogPositions[f3 + 2] = (Math.random() - 0.5) * 55 - 5;
+
+            // Gentle micro-current velocities for natural fog drifting
+            fogVelocities[f3] = (Math.random() - 0.5) * 0.008;
+            fogVelocities[f3 + 1] = (Math.random() - 0.5) * 0.006;
+            fogVelocities[f3 + 2] = (Math.random() - 0.5) * 0.005;
+
+            fogMixes[f] = Math.random();
+        }
+
+        const fogGeometry = new THREE.BufferGeometry();
+        fogGeometry.setAttribute('position', new THREE.BufferAttribute(fogPositions, 3));
+        fogGeometry.setAttribute('color', new THREE.BufferAttribute(fogColors, 3));
+
+        const fogMaterial = new THREE.PointsMaterial({
+            size: 26,
+            map: fogTexture,
+            vertexColors: true,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            opacity: 0.22
+        });
+
+        const fogSystem = new THREE.Points(fogGeometry, fogMaterial);
+        fogGroup.add(fogSystem);
+
+        const starCount = 3800;
+        const starPositions = new Float32Array(starCount * 3);
+        const starColors = new Float32Array(starCount * 3);
+        const starBaseScales = new Float32Array(starCount);
+        const starPhases = new Float32Array(starCount);
+
+        for (let s = 0; s < starCount; s++) {
+            const s3 = s * 3;
+            // Disperse stars seamlessly throughout the fog volume and background
+            starPositions[s3] = (Math.random() - 0.5) * 110;
+            starPositions[s3 + 1] = (Math.random() - 0.5) * 80;
+            starPositions[s3 + 2] = (Math.random() - 0.5) * 90 - 15;
+
+            starBaseScales[s] = Math.random() * 0.65 + 0.25;
+            starPhases[s] = Math.random() * Math.PI * 2;
+        }
+
+        const starGeometry = new THREE.BufferGeometry();
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+        starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+
+        const starMaterial = new THREE.PointsMaterial({
+            size: 0.52,
+            map: starTexture,
+            vertexColors: true,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+            opacity: 0.88
+        });
+
+        const starSystem = new THREE.Points(starGeometry, starMaterial);
+        fogGroup.add(starSystem);
+
+        const mouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+        const ambientOrb = document.getElementById('ambient-orb');
+        const statusBulb = document.getElementById('status-bulb');
+        const mainTitle = document.getElementById('main-title');
+        const spectrumDots = document.querySelectorAll('.spectrum-dot');
+
+        function updatePointer(clientX, clientY) {
+            mouse.targetX = (clientX / window.innerWidth) * 2 - 1;
+            mouse.targetY = -(clientY / window.innerHeight) * 2 + 1;
+            ambientOrb.style.left = `${clientX}px`;
+            ambientOrb.style.top = `${clientY}px`;
+        }
+
+        window.addEventListener('mousemove', (e) => updatePointer(e.clientX, e.clientY));
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        });
+
+        const clock = new THREE.Clock();
+        const activeFogDense = new THREE.Color();
+        const activeFogMist = new THREE.Color();
+        const activeStarColor = new THREE.Color();
+
+        let lastActiveIdx = -1;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsedTime = clock.getElapsedTime();
+
+            // Continuous hands-free 7-color rainbow progression cycle (~21 seconds full cycle)
+            const cycleDuration = 21.0;
+            const progress = (elapsedTime % cycleDuration) / cycleDuration;
+            const totalThemes = rainbowThemes.length;
+            const virtualIndex = progress * totalThemes;
+            const currentIndex = Math.floor(virtualIndex) % totalThemes;
+            const nextIndex = (currentIndex + 1) % totalThemes;
+            const blendFactor = virtualIndex - Math.floor(virtualIndex);
+
+            // Smooth linear color interpolation between current and next rainbow stop
+            activeFogDense.copy(rainbowThemes[currentIndex].fogDense).lerp(rainbowThemes[nextIndex].fogDense, blendFactor);
+            activeFogMist.copy(rainbowThemes[currentIndex].fogMist).lerp(rainbowThemes[nextIndex].fogMist, blendFactor);
+            activeStarColor.copy(rainbowThemes[currentIndex].starColor).lerp(rainbowThemes[nextIndex].starColor, blendFactor);
+
+            // Update UI indicators and ambient backdrop blur softly
+            if (currentIndex !== lastActiveIdx) {
+                lastActiveIdx = currentIndex;
+                const currentTheme = rainbowThemes[currentIndex];
+                statusBulb.style.backgroundColor = currentTheme.hex;
+                statusBulb.style.boxShadow = `0 0 14px ${currentTheme.hex}`;
+                ambientOrb.style.background = `radial-gradient(circle, ${currentTheme.glow} 0%, rgba(13, 10, 36, 0.04) 50%, transparent 75%)`;
+
+                if (mainTitle) {
+                    mainTitle.style.textShadow = `0 0 18px rgba(255, 255, 255, 0.35), 0 0 45px ${currentTheme.glow}`;
+                }
+
+                // Update spectrum dot indicators
+                spectrumDots.forEach((dot, idx) => {
+                    if (idx === currentIndex) {
+                        dot.style.opacity = '1';
+                        dot.style.transform = 'scale(1.35)';
+                        dot.style.boxShadow = `0 0 10px ${currentTheme.hex}`;
+                    } else {
+                        dot.style.opacity = '0.3';
+                        dot.style.transform = 'scale(1)';
+                        dot.style.boxShadow = 'none';
+                    }
+                });
+            }
+
+            // Real-time organic fog movement & color dissipation
+            const fogPosArray = fogGeometry.attributes.position.array;
+            const fogColArray = fogGeometry.attributes.color.array;
+
+            for (let f = 0; f < fogPuffCount; f++) {
+                const f3 = f * 3;
+                const mix = fogMixes[f];
+
+                // Undulating misty movement with slow sine wave current
+                fogPosArray[f3] += Math.sin(elapsedTime * 0.35 + f) * 0.025;
+                fogPosArray[f3 + 1] += Math.cos(elapsedTime * 0.28 + f) * 0.018;
+
+                // Color interpolation across the volumetric fog
+                fogColArray[f3] = activeFogDense.r + (activeFogMist.r - activeFogDense.r) * mix;
+                fogColArray[f3 + 1] = activeFogDense.g + (activeFogMist.g - activeFogDense.g) * mix;
+                fogColArray[f3 + 2] = activeFogDense.b + (activeFogMist.b - activeFogDense.b) * mix;
+            }
+            fogGeometry.attributes.position.needsUpdate = true;
+            fogGeometry.attributes.color.needsUpdate = true;
+
+            // Twinkling embedded stars shifting with the cosmic mist
+            const starColArray = starGeometry.attributes.color.array;
+            for (let s = 0; s < starCount; s++) {
+                const s3 = s * 3;
+                const twinkle = Math.sin(elapsedTime * 2.2 + starPhases[s]) * 0.3 + 0.7;
+
+                starColArray[s3] = activeStarColor.r * twinkle;
+                starColArray[s3 + 1] = activeStarColor.g * twinkle;
+                starColArray[s3 + 2] = activeStarColor.b * twinkle;
+            }
+            starGeometry.attributes.color.needsUpdate = true;
+
+            // Smooth parallax interaction
+            mouse.x += (mouse.targetX - mouse.x) * 0.035;
+            mouse.y += (mouse.targetY - mouse.y) * 0.035;
+
+            // Slow, majestic deep space drift
+            fogGroup.rotation.y = elapsedTime * 0.018;
+            fogGroup.rotation.x = Math.sin(elapsedTime * 0.012) * 0.08 + mouse.y * 0.12;
+            fogGroup.rotation.z = mouse.x * 0.1;
+
+            camera.position.x = mouse.x * 4.2;
+            camera.position.y = mouse.y * 3.0;
+            camera.lookAt(0, 0, 0);
+
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('load', () => {
+            animate();
+        });
+    </script>
+</body>
+</html>
