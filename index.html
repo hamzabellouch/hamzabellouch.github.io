@@ -34,45 +34,74 @@
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
 
     <!-- Navigation -->
-    <nav class="flex items-center justify-between px-8 py-4 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
-        <div class="flex items-center gap-2">
-            <a href="#" onclick="showPage('home')" class="flex items-center gap-2">
-                <span class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
-            </a>
-        </div>
-        <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
-            <a href="#" onclick="showPage('products')" id="nav-products" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
-            <a href="#" onclick="showPage('blogs')" id="nav-blogs" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
-            <a href="#" onclick="showPage('research')" id="nav-research" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
-            <a href="#" onclick="showPage('support')" id="nav-support" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
-            <a href="#" onclick="showPage('partners')" id="nav-partners" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <!-- Theme Toggle -->
-            <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors">
-                <i class="fa-solid fa-moon hidden dark:block"></i>
-                <i class="fa-solid fa-sun dark:hidden block"></i>
-            </button>
-
-            <!-- Language Dropdown -->
-            <div class="relative group z-50">
-                <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-semibold py-2 px-4 rounded-full transition-colors flex items-center gap-2">
-                    <span id="currentLangText">EN </span> <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+    <nav class="border-b border-gray-100 dark:border-gray-800 transition-colors duration-300 relative z-40">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Mobile Hamburger Button (Only on Mobile) -->
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu" title="Menu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
                 </button>
-                <div class="absolute right-0 mt-1 w-44 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <a href="#" onclick="setLanguage('ar')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-t-xl transition-colors">العربية (AR)</a>
-                    <a href="#" onclick="setLanguage('en')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">English (EN)</a>
-                    <a href="#" onclick="setLanguage('fr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Français (FR)</a>
-                    <a href="#" onclick="setLanguage('es')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Español (ES)</a>
-                    <a href="#" onclick="setLanguage('de')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Deutsch (DE)</a>
-                    <a href="#" onclick="setLanguage('tr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Türkçe (TR)</a>
-                    <a href="#" onclick="setLanguage('ru')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Русский (RU)</a>
-                    <a href="#" onclick="setLanguage('zh')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">中文 (ZH)</a>
-                    <a href="#" onclick="setLanguage('ja')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">日本語 (JA)</a>
-                    <a href="#" onclick="setLanguage('ko')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-b-xl transition-colors">한국어 (KO)</a>
+                <a href="#" onclick="showPage('home'); closeMobileMenu();" class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="#" onclick="showPage('products')" id="nav-products" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
+                <a href="#" onclick="showPage('blogs')" id="nav-blogs" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
+                <a href="#" onclick="showPage('research')" id="nav-research" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
+                <a href="#" onclick="showPage('support')" id="nav-support" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
+                <a href="#" onclick="showPage('partners')" id="nav-partners" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-4">
+                <!-- Theme Toggle -->
+                <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun dark:hidden block"></i>
+                </button>
+
+                <!-- Language Dropdown -->
+                <div class="relative group z-50">
+                    <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-semibold py-2 px-3 sm:px-4 rounded-full transition-colors flex items-center gap-2">
+                        <span id="currentLangText">EN </span> <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </button>
+                    <div class="absolute right-0 mt-1 w-44 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <a href="#" onclick="setLanguage('ar')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-t-xl transition-colors">العربية (AR)</a>
+                        <a href="#" onclick="setLanguage('en')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">English (EN)</a>
+                        <a href="#" onclick="setLanguage('fr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Français (FR)</a>
+                        <a href="#" onclick="setLanguage('es')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Español (ES)</a>
+                        <a href="#" onclick="setLanguage('de')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Deutsch (DE)</a>
+                        <a href="#" onclick="setLanguage('tr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Türkçe (TR)</a>
+                        <a href="#" onclick="setLanguage('ru')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Русский (RU)</a>
+                        <a href="#" onclick="setLanguage('zh')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">中文 (ZH)</a>
+                        <a href="#" onclick="setLanguage('ja')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">日本語 (JA)</a>
+                        <a href="#" onclick="setLanguage('ko')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-b-xl transition-colors">한국어 (KO)</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
+            <a href="#" onclick="showPage('products'); closeMobileMenu();" id="mobile-nav-products" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
+                <span data-i18n="navProducts">Projects</span>
+            </a>
+            <a href="#" onclick="showPage('blogs'); closeMobileMenu();" id="mobile-nav-blogs" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
+                <span data-i18n="navBlog">Blog</span>
+            </a>
+            <a href="#" onclick="showPage('research'); closeMobileMenu();" id="mobile-nav-research" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
+                <span data-i18n="navResearch">Research</span>
+            </a>
+            <a href="#" onclick="showPage('support'); closeMobileMenu();" id="mobile-nav-support" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
+                <span data-i18n="navSupport">Support</span>
+            </a>
+            <a href="#" onclick="showPage('partners'); closeMobileMenu();" id="mobile-nav-partners" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-handshake w-5 text-center text-adguard"></i>
+                <span data-i18n="navPartners">Partner & Sponsors</span>
+            </a>
         </div>
     </nav>
 
@@ -2264,6 +2293,7 @@
             pages.forEach(p => {
                 const el = document.getElementById('page-' + p);
                 const navLink = document.getElementById('nav-' + p);
+                const mobileNavLink = document.getElementById('mobile-nav-' + p);
                 if (el) {
                     if (p === pageId) {
                         el.classList.remove('hidden');
@@ -2278,9 +2308,65 @@
                         navLink.className = 'hover:text-adguard transition-colors';
                     }
                 }
+                if (mobileNavLink) {
+                    if (p === pageId || (pageId.startsWith('blog-detail') && p === 'blogs')) {
+                        mobileNavLink.className = 'flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold bg-blue-50 dark:bg-gray-800 text-adguard transition-colors';
+                    } else {
+                        mobileNavLink.className = 'flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors';
+                    }
+                }
             });
             window.scrollTo(0, 0);
         }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (!menu) return;
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                if (icon) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                }
+            } else {
+                menu.classList.add('hidden');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (menu && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                if (icon) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            }
+        }
+
+        // Close mobile menu on desktop resize or outside click
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                closeMobileMenu();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.getElementById('mobileMenuBtn');
+            if (menu && !menu.classList.contains('hidden')) {
+                if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            }
+        });
 
         function setLanguage(lang) {
             currentLang = lang;
