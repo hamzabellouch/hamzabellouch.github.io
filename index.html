@@ -2282,8 +2282,8 @@
             'research': '/research',
             'support': '/support',
             'partners': '/partners',
-            'blog-detail-1': '/blog-detail-1',
-            'blog-detail-2': '/blog-detail-2',
+            'blog-detail-1': '/blog/links-version-0.0.4-beta',
+            'blog-detail-2': '/blog/announcing-our-official-website-on-github-io',
             'privacy': '/privacy'
         };
 
@@ -2299,9 +2299,15 @@
             'research': 'research',
             'support': 'support',
             'partners': 'partners',
+            'privacy': 'privacy',
             'blog-detail-1': 'blog-detail-1',
+            'blog/links-version-0.0.4-beta': 'blog-detail-1',
+            'blogs/links-version-0.0.4-beta': 'blog-detail-1',
+            'blog/links-v0.0.4-beta': 'blog-detail-1',
             'blog-detail-2': 'blog-detail-2',
-            'privacy': 'privacy'
+            'blog/announcing-our-official-website-on-github-io': 'blog-detail-2',
+            'blogs/announcing-our-official-website-on-github-io': 'blog-detail-2',
+            'blog/announcing-our-official-website-on-github.io': 'blog-detail-2'
         };
 
         // Theme initialization
@@ -2375,14 +2381,26 @@
         }
 
         function resolvePageFromUrl() {
-            let path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+            let path = decodeURIComponent(window.location.pathname).replace(/^\/+|\/+$/g, '').toLowerCase();
             if (path && reverseRouteMap[path]) {
                 return reverseRouteMap[path];
             }
+            if (path && path.startsWith('blogs/')) {
+                let altPath = path.replace(/^blogs\//, 'blog/');
+                if (reverseRouteMap[altPath]) {
+                    return reverseRouteMap[altPath];
+                }
+            }
             if (window.location.hash) {
-                let hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+                let hash = decodeURIComponent(window.location.hash).replace(/^#\/?/, '').toLowerCase();
                 if (hash && reverseRouteMap[hash]) {
                     return reverseRouteMap[hash];
+                }
+                if (hash && hash.startsWith('blogs/')) {
+                    let altHash = hash.replace(/^blogs\//, 'blog/');
+                    if (reverseRouteMap[altHash]) {
+                        return reverseRouteMap[altHash];
+                    }
                 }
             }
             return 'home';
