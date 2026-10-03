@@ -155,7 +155,76 @@ function updateStatusText() {
     }
 }
 
-// 5. Initialize on DOM Load
+// 5. Blog Article Share Button (auto-injected on every article page)
+function initBlogShareButton() {
+    const backSpan = document.querySelector('span[data-i18n="backToBlog"]');
+    if (!backSpan) return;
+    const backLink = backSpan.closest('a');
+    if (!backLink || backLink.closest('[data-share-row]')) return;
+
+    // Wrap "Back to Blog" and place "Share" on the opposite side of the same row
+    const row = document.createElement('div');
+    row.setAttribute('data-share-row', '');
+    row.className = 'mb-8 flex items-center justify-between gap-4';
+
+    backLink.classList.remove('mb-8');
+    backLink.parentNode.insertBefore(row, backLink);
+    row.appendChild(backLink);
+
+    const shareBtn = document.createElement('button');
+    shareBtn.type = 'button';
+    shareBtn.className = 'inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark transition-colors shrink-0';
+    shareBtn.setAttribute('aria-label', 'Share');
+    shareBtn.innerHTML = '<i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span data-i18n="share">Share</span>';
+    row.appendChild(shareBtn);
+
+    shareBtn.addEventListener('click', () => {
+        const label = shareBtn.querySelector('span');
+        const icon = shareBtn.querySelector('i');
+        const url = window.location.origin + window.location.pathname;
+
+        copyToClipboard(url).then(() => {
+            const copiedText = (typeof translations !== 'undefined' && translations[currentLang] && translations[currentLang].shareCopied) || 'Copied!';
+            const shareText = (typeof translations !== 'undefined' && translations[currentLang] && translations[currentLang].share) || 'Share';
+            if (label) label.textContent = copiedText;
+            if (icon) icon.className = 'fa-solid fa-check';
+            shareBtn.classList.add('text-green-600');
+
+            clearTimeout(shareBtn._resetTimer);
+            shareBtn._resetTimer = setTimeout(() => {
+                if (label) label.textContent = shareText;
+                if (icon) icon.className = 'fa-solid fa-share-nodes';
+                shareBtn.classList.remove('text-green-600');
+            }, 2000);
+        });
+    });
+}
+
+function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try {
+            document.execCommand('copy') ? resolve() : reject(new Error('copy failed'));
+        } catch (err) {
+            reject(err);
+        } finally {
+            document.body.removeChild(ta);
+        }
+    });
+}
+
+// 6. Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', () => {
+    initBlogShareButton();
     setLanguage(currentLang);
 });
