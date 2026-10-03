@@ -294,7 +294,7 @@
                 </div>
                 <h2 class="text-2xl font-bold mb-2 dark:text-white">Links</h2>
                 <p class="text-gray-600 dark:text-gray-400 mb-4" data-i18n="descLinks">Links is an open-source Android application designed to scan, generate, and manage custom QR codes and short URLs, featuring link safety inspection and enhanced link security within a modern, clean interface.</p>
-                <button class="text-adguard font-semibold hover:underline" data-i18n="learnMore">Learn more &rarr;</button>
+                <button onclick="showPage('blog-detail-1')" class="text-adguard font-semibold hover:underline cursor-pointer" data-i18n="learnMore">Learn more &rarr;</button>
             </div>
 
             <!-- 6. Gallery -->
@@ -314,7 +314,7 @@
                 </div>
                 <h2 class="text-2xl font-bold mb-2 dark:text-white">Ren Browser</h2>
                 <p class="text-gray-600 dark:text-gray-400 mb-4" data-i18n="descRenBrowser">A fast, privacy-focused Android browser built for lightweight web navigation with built-in protection, tab management, and smooth performance.</p>
-                <button class="text-adguard font-semibold hover:underline" data-i18n="learnMore">Learn more &rarr;</button>
+                <button onclick="showPage('blog-detail-3')" class="text-adguard font-semibold hover:underline cursor-pointer" data-i18n="learnMore">Learn more &rarr;</button>
             </div>
 
             <!-- 8. ARUT -->
@@ -384,7 +384,7 @@
     <!-- 3. BLOG SECTION -->
     <main id="page-blogs" class="hidden max-w-7xl mx-auto px-8 py-16">
         <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white mb-10" data-i18n="blogTitle">Latest from our Blog</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <!-- Article 1 -->
             <article onclick="showPage('blog-detail-1')" class="flex flex-col group cursor-pointer">
                 <div class="overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10]">
@@ -424,6 +424,27 @@
                 <div class="flex items-center gap-2.5 mt-auto">
                     <img src="assets/hamza.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
                     <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog2Author">Hamza Bellouch</span>
+                </div>
+            </article>
+
+            <!-- Article 3 -->
+            <article onclick="showPage('blog-detail-3')" class="flex flex-col group cursor-pointer">
+                <div class="overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10]">
+                    <img src="https://github.com/user-attachments/assets/0836bc54-3591-4c84-8fa3-b8226946cc89" alt="Ren Browser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+                <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog3Meta">
+                    October 3, 2026 · Ren Browser · Major Release · Privacy & Security
+                </div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors flex items-center justify-between gap-3">
+                    <span data-i18n="blog3Title">Ren Browser: The Next-Gen Private & Fast Android Browser</span>
+                    <i class="fa-solid fa-arrow-right text-adguard text-xl rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed mb-6" data-i18n="blog3Desc">
+                    Experience unprecedented privacy and speed with Ren Browser. Built-in ad & tracker blocking, Tor routing, Cloudflare WARP with DoH 1.1.1.1, dynamic UI, bookmarks manager, and zero-leak protection.
+                </p>
+                <div class="flex items-center gap-2.5 mt-auto">
+                    <img src="assets/hamza.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
+                    <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog3Author">Hamza Bellouch</span>
                 </div>
             </article>
         </div>
@@ -603,6 +624,114 @@
                     <i class="fa-brands fa-github text-xl"></i>
                     <span data-i18n="btnGetProtected">GitHub repo</span>
                 </a>
+            </div>
+        </article>
+    </main>
+
+    <!-- 3.3. BLOG POST DETAIL SECTION 3 -->
+    <main id="page-blog-detail-3" class="hidden max-w-4xl mx-auto px-6 py-12 md:py-16">
+        <!-- Back Button -->
+        <button onclick="showPage('blogs')" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group cursor-pointer">
+            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span data-i18n="backToBlog">Back to Blog</span>
+        </button>
+
+        <!-- Article Header -->
+        <div class="space-y-4 mb-8">
+            <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium" data-i18n="blog3Meta">
+                October 3, 2026 · Ren Browser · Major Release · Privacy & Security
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="blog3Title">
+                Ren Browser: The Next-Gen Private & Fast Android Browser
+            </h1>
+            <div class="flex items-center gap-3 pt-2">
+                <img src="assets/hamza.jpg" alt="Hamza Bellouch" class="w-10 h-10 rounded-full object-cover border border-gray-200 dark:border-gray-700">
+                <div>
+                    <div class="font-bold text-sm text-gray-900 dark:text-white" data-i18n="blog3Author">Hamza Bellouch</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400" data-i18n="authorRole3">CEO & Founder of tknoglobal</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="rounded-3xl overflow-hidden mb-10 shadow-lg bg-gray-100 dark:bg-gray-800 aspect-[16/9]">
+            <img src="https://github.com/user-attachments/assets/0836bc54-3591-4c84-8fa3-b8226946cc89" alt="Ren Browser" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
+            <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed" data-i18n="blog3Intro">
+                We are proud to introduce the major release of Ren Browser for Android — a fast, modern, privacy-hardened web browser built from the ground up to give you total control over your digital footprint.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog3Subhead1">
+                Unmatched Privacy, Dual-Engine Routing, and Pure Performance
+            </h2>
+            <p data-i18n="blog3Body1">
+                Ren Browser redefines mobile web browsing by combining high-speed web rendering with hardened privacy tools. Equipped with dual anonymity engines (Tor Network & Cloudflare WARP), cosmetic ad-blocking, and seamless tab restoration, Ren Browser delivers a fluid, untracked browsing experience.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog3Subhead2">
+                Key Highlights & New Capabilities
+            </h2>
+            <ul class="space-y-3 list-none pl-0">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat1">Built-in Instant Ad & Tracker Blocker: Real-time cosmetic ad hiding, automatic EasyList filter updates, and safe anti-adblock detection handling.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat2">Dedicated Ren-Tor Privacy Engine: Multi-hop onion routing, Snowflake & obfs4 anti-censorship bridges, country exit selector, one-tap identity renewal, and zero-leak protection.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat3">Cloudflare WARP & 1.1.1.1 DoH: Fast encrypted edge routing, customizable security modes, WARP+ license support, and intelligent Tor/WARP auto-switching.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat4">Refined Floating Modern UI: Symmetrical navigation bar indicators, expandable floating search bubble disk, and default Material You Dynamic Color harmonization.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat5">Complete Bookmarks & History Manager: Folder organization, seamless import/export across browsers, real-time history search, and instant refresh.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat6">Smart Tab Session Management: Automatic tab restore on startup or unexpected exits, plus a quick-access recently closed tabs list.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat7">Advanced Search & Connectivity: Real-time search suggestions across multiple engines, HTTPS-Only mode, live IP checker, and home screen website shortcuts.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat8">Native Device & Multilingual Support: Camera/mic/storage upload integration, native popups, default browser support, and full Arabic RTL localization.</span>
+                </li>
+            </ul>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog3Subhead3">
+                Open-Source & Privacy You Can Trust
+            </h2>
+            <p data-i18n="blog3Body2">
+                Ren Browser is 100% open-source with zero background telemetry, zero tracking SDKs, and complete on-device execution. Download the APK today, explore the codebase on GitHub, and take back your online privacy.
+            </p>
+
+            <!-- Actions / Feedback Box -->
+            <div class="mt-10 p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-2xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="feedbackTitle3">Ready to experience Ren Browser?</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="feedbackDesc3">Download the latest APK release directly or explore the open-source repository on GitHub.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="https://github.com/hamzabellouch/ren-browser/releases" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-solid fa-download text-lg"></i>
+                        <span data-i18n="btnDownloadApk">Download APK</span>
+                    </a>
+                    <a href="https://github.com/hamzabellouch/ren-browser" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span data-i18n="btnGithubBeta">View on GitHub</span>
+                    </a>
+                </div>
             </div>
         </article>
     </main>
@@ -940,6 +1069,27 @@
                 feedbackTitle2: "Explore our official website on GitHub",
                 feedbackDesc2: "Star our repositories, report issues, or contribute directly on GitHub.",
                 btnGetProtected: "GitHub repo",
+                blog3Meta: "October 3, 2026 · Ren Browser · Major Release · Privacy & Security",
+                blog3Title: "Ren Browser: The Next-Gen Private & Fast Android Browser",
+                blog3Desc: "Experience unprecedented privacy and speed with Ren Browser. Featuring built-in ad & tracker blocking, integrated Tor Network routing, Cloudflare WARP with DoH 1.1.1.1, dynamic UI, bookmarks manager, and zero-leak security.",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "CEO & Founder of tknoglobal",
+                blog3Intro: "We are proud to introduce the major release of Ren Browser for Android — a fast, modern, privacy-hardened web browser built from the ground up to give you total control over your digital footprint.",
+                blog3Subhead1: "Unmatched Privacy, Dual-Engine Routing, and Pure Performance",
+                blog3Body1: "Ren Browser redefines mobile web browsing by combining high-speed web rendering with hardened privacy tools. Equipped with dual anonymity engines (Tor Network & Cloudflare WARP), cosmetic ad-blocking, and seamless tab restoration, Ren Browser delivers a fluid, untracked browsing experience.",
+                blog3Subhead2: "Key Highlights & New Capabilities",
+                blog3Feat1: "Built-in Instant Ad & Tracker Blocker: Real-time cosmetic ad hiding, automatic EasyList filter updates, and safe anti-adblock detection handling.",
+                blog3Feat2: "Dedicated Ren-Tor Privacy Engine: Multi-hop onion routing, Snowflake & obfs4 anti-censorship bridges, country exit selector, one-tap identity renewal, and zero-leak protection.",
+                blog3Feat3: "Cloudflare WARP & 1.1.1.1 DoH: Fast encrypted edge routing, customizable security modes, WARP+ license support, and intelligent Tor/WARP auto-switching.",
+                blog3Feat4: "Refined Floating Modern UI: Symmetrical navigation bar indicators, expandable floating search bubble disk, and default Material You Dynamic Color harmonization.",
+                blog3Feat5: "Complete Bookmarks & History Manager: Folder organization, seamless import/export across browsers, real-time history search, and instant refresh.",
+                blog3Feat6: "Smart Tab Session Management: Automatic tab restore on startup or unexpected exits, plus a quick-access recently closed tabs list.",
+                blog3Feat7: "Advanced Search & Connectivity: Real-time search suggestions across multiple engines, HTTPS-Only mode, live IP checker, and home screen website shortcuts.",
+                blog3Feat8: "Native Device & Multilingual Support: Camera/mic/storage upload integration, native popups, default browser support, and full Arabic RTL localization.",
+                blog3Subhead3: "Open-Source & Privacy You Can Trust",
+                blog3Body2: "Ren Browser is 100% open-source with zero background telemetry, zero tracking SDKs, and complete on-device execution. Download the APK today, explore the codebase on GitHub, and take back your online privacy.",
+                feedbackTitle3: "Ready to experience Ren Browser?",
+                feedbackDesc3: "Download the latest APK release directly or explore the open-source repository on GitHub.",
                 supTitle: "How can we help you?",
                 supSearch: "Search for answers...",
                 kbTitle: "Knowledge Base",
@@ -1080,6 +1230,27 @@
                 feedbackTitle2: "Découvrez notre site officiel sur GitHub",
                 feedbackDesc2: "Ajoutez une étoile au dépôt, signalez des problèmes ou contribuez sur GitHub.",
                 btnGetProtected: "Dépôt GitHub",
+                blog3Meta: "3 octobre 2026 · Ren Browser · Version majeure · Confidentialité & Sécurité",
+                blog3Title: "Ren Browser : Le navigateur Android nouvelle génération, privé et ultra-rapide",
+                blog3Desc: "Découvrez une confidentialité et une vitesse sans précédent avec Ren Browser. Bloqueur de publicités et traqueurs intégré, routage Tor, Cloudflare WARP avec DoH 1.1.1.1, interface dynamique et sécurité zéro fuite.",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "PDG & Fondateur de tknoglobal",
+                blog3Intro: "Nous sommes fiers de présenter la version majeure de Ren Browser pour Android — un navigateur web ultra-rapide et ultra-sécurisé conçu pour vous redonner le contrôle total de vos données personnelles.",
+                blog3Subhead1: "Confidentialité absolue, double moteur de routage et performances pures",
+                blog3Body1: "Ren Browser redéfinit la navigation mobile en combinant un moteur de rendu haute vitesse avec des outils de confidentialité avancés : intégration Tor et Cloudflare WARP, blocage cosmétique des publicités et restauration intelligente des onglets.",
+                blog3Subhead2: "Fonctionnalités et améliorations majeures",
+                blog3Feat1: "Blocage instantané des publicités et traqueurs : Masquage cosmétique en temps réel, mise à jour automatique des filtres EasyList et neutralisation des détecteurs d'adblock.",
+                blog3Feat2: "Moteur de confidentialité Ren-Tor dédié : Routage en oignon, ponts Snowflake et obfs4 contre la censure, sélecteur de pays, renouvellement d'identité en un clic et protection zéro fuite.",
+                blog3Feat3: "Cloudflare WARP & DoH 1.1.1.1 : Routage chiffré ultra-rapide, modes de sécurité personnalisables, support des clés WARP+ et basculement intelligent Tor/WARP.",
+                blog3Feat4: "Interface flottante moderne et raffinée : Barre de navigation équilibrée, bulle de recherche extensible et harmonisation automatique avec Dynamic Color.",
+                blog3Feat5: "Gestionnaire complet de favoris et d'historique : Organisation en dossiers, import/export entre navigateurs, filtrage en temps réel et actualisation instantanée.",
+                blog3Feat6: "Restauration intelligente de session : Réouverture automatique des onglets au démarrage ou après fermeture inattendue et liste des onglets récemment fermés.",
+                blog3Feat7: "Recherche avancée et connectivité : Suggestions en direct sur plusieurs moteurs de recherche, mode HTTPS-Only, vérificateur d'IP et raccourcis sur l'écran d'accueil.",
+                blog3Feat8: "Intégration système native et multilingue : Prise en charge des téléversements photo/caméra, boîte de dialogue native, navigateur par défaut et support arabe RTL complet.",
+                blog3Subhead3: "Open-source et confidentialité garantie",
+                blog3Body2: "Ren Browser est 100% open-source, sans aucune télémétrie ni traceur tiers. Téléchargez le fichier APK dès aujourd'hui et explorez le code source sur GitHub.",
+                feedbackTitle3: "Prêt à essayer Ren Browser ?",
+                feedbackDesc3: "Téléchargez la dernière version de l'APK ou explorez le dépôt open-source sur GitHub.",
                 supTitle: "Comment pouvons-nous vous aider ?",
                 supSearch: "Rechercher des réponses...",
                 kbTitle: "Base de connaissances",
@@ -1220,6 +1391,27 @@
                 feedbackTitle2: "استكشف موقعنا الرسمي على GitHub",
                 feedbackDesc2: "يمكنك متابعة المشروع أو الإبلاغ عن المشاكل أو المساهمة عبر GitHub.",
                 btnGetProtected: "GitHub repo",
+                blog3Meta: "3 أكتوبر 2026 · Ren Browser · إصدار رئيسي · الخصوصية والأمان",
+                blog3Title: "Ren Browser: متصفح الأندرويد فائق السرعة والخصوصية للجيل القادم",
+                blog3Desc: "استمتع بتجربة تصفح لا تضاهى مع Ren Browser. حظر فوري للإعلانات والمتتبعات، توجيه مدمج لشبكة Tor، دعم Cloudflare WARP مع DoH 1.1.1.1، واجهة ديناميكية عصرية، ومدير إشارات مرجعية متكامل مع حماية محكمة من التسريب.",
+                blog3Author: "حمزة بلوش",
+                authorRole3: "الرئيس التنفيذي والمؤسس لـ tknoglobal",
+                blog3Intro: "يسرنا إطلاق التحديث والإصدار الرئيسي لمتصفح Ren Browser لنظام Android — متصفح ويب حديث، فائق السرعة ومحصن بالكامل لحماية خصوصيتك الرقمية ومنحك السيادة الكاملة على بياناتك.",
+                blog3Subhead1: "خصوصية مطلقة، توجيه شبكي مزدوج، وأداء سلس بلا مساومة",
+                blog3Body1: "يعيد متصفح Ren Browser تعريف تصفح الويب عبر الهاتف المحمول من خلال دمج محرك تصفح خفيف وعالي السرعة مع ترسانة متقدمة من أدوات الأمان تشمل محركي الخصوصية (Tor Network و Cloudflare WARP)، والإخفاء التجميلي للإعلانات، والاستعادة الذكية للجلسات.",
+                blog3Subhead2: "أبرز المزايا والتحسينات في هذا الإصدار",
+                blog3Feat1: "حظر فوري مدمج للإعلانات والمتتبعات: إخفاء تجميلي فوري للمساحات الإعلانية، تحديث تلقائي لقوائم فلترة EasyList في الخلفية، وإغلاق آمن لنوافذ كشف مانع الإعلانات.",
+                blog3Feat2: "محرك خصوصية Ren-Tor مخصص: توجيه مجهول عبر شبكة تور، جسور مضادة للحجب مثل Snowflake و obfs4، محدد دولة الخروج (مثل سويسرا أو ألمانيا)، تجديد الهوية بنقرة واحدة، وحماية تامة من تسريب البيانات أو الموقع.",
+                blog3Feat3: "تكامل Cloudflare WARP و 1.1.1.1 DoH: توجيه مشفر عبر سيرفرات Cloudflare، مفاتيح ترخيص WARP+، فاحص اتصال مباشر لعنوان IP، وتبديل تلقائي ذكي بين Tor و WARP.",
+                blog3Feat4: "واجهة عصرية بتصميم انسيابي: شريط تنقل سفلي عائم متوازن الأيقونات، قرص بحث فقاعي قابل للتوسيع فوراً بنقرة واحدة، وتفعيل ألوان Dynamic Color المتناسقة مع خلفية جهازك افتراضياً.",
+                blog3Feat5: "مدير متكامل للإشارات المرجعية والسجل: تنظيم المواقع في مجلدات، استيراد وتصدير الإشارات من وإلى المتصفحات الأخرى، وفلترة بحث وتحديث فوري لسجل التصفح.",
+                blog3Feat6: "إدارة ذكية لعلامات التبويب: استعادة تلقائية للجلسات وعلامات التبويب عند بدء التشغيل أو الإغلاق المفاجئ، مع قائمة سريعة للصفحات المغلقة مؤخراً.",
+                blog3Feat7: "بحث ذكي وأمان اتصال معزز: اقتراحات بحث حية عبر محركات متعددة، وضع HTTPS-Only الإجباري، تخصيص بروكسي مخصص، وإضافة اختصارات المواقع مباشرة للشاشة الرئيسية.",
+                blog3Feat8: "تكامل عتادي ولغوي كامل: رفع الملفات والصور مباشرة من الكاميرا ووحدة التخزين، نوافذ حوار وتنبيهات أصلية، تعيين كمتصفح افتراضي، ودعم كامل للغة العربية واتجاه RTL.",
+                blog3Subhead3: "مفتوح المصدر وخالٍ تماماً من التتبع",
+                blog3Body2: "متصفح Ren Browser مفتوح المصدر بنسبة 100%، ويعمل محلياً بالكامل على جهازك دون أي تتبع أو إعلانات أو خوادم تحليل طرف ثالث. حمل حزمة APK الآن وشاركنا تجربتك وملاحظاتك على GitHub.",
+                feedbackTitle3: "هل أنت مستعد لتجربة Ren Browser؟",
+                feedbackDesc3: "حمّل أحدث إصدار APK مباشرة أو استكشف المشروع المفتوح المصدر على GitHub.",
                 supTitle: "كيف يمكننا مساعدتك؟",
                 supSearch: "ابحث عن إجابات...",
                 kbTitle: "قاعدة المعرفة",
@@ -1360,6 +1552,27 @@
                 feedbackTitle2: "Explora nuestro sitio oficial en GitHub",
                 feedbackDesc2: "Destaca el repositorio, abre incidencias o contribuye en GitHub.",
                 btnGetProtected: "Repositorio GitHub",
+                blog3Meta: "3 de octubre de 2026 · Ren Browser · Versión principal · Privacidad y Seguridad",
+                blog3Title: "Ren Browser: El navegador Android privado y ultrarrápido de última generación",
+                blog3Desc: "Disfrute de una privacidad y velocidad sin precedentes con Ren Browser. Bloqueo nativo de anuncios y rastreadores, enrutamiento Tor, Cloudflare WARP con DoH 1.1.1.1, interfaz dinámica y protección sin fugas.",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "CEO y Fundador de tknoglobal",
+                blog3Intro: "Nos complace presentar el lanzamiento principal de Ren Browser para Android: un navegador moderno, rápido y blindado para brindarle control total sobre su privacidad en línea.",
+                blog3Subhead1: "Privacidad inigualable, enrutamiento dual y rendimiento puro",
+                blog3Body1: "Ren Browser redefine la navegación móvil al combinar un motor ultra-ligero con herramientas de seguridad avanzadas: Tor Network, Cloudflare WARP, bloqueo cosmético de anuncios y restauración inteligente de pestañas.",
+                blog3Subhead2: "Puntos clave y nuevas funciones",
+                blog3Feat1: "Bloqueo instantáneo de anuncios y rastreadores: Ocultación cosmética en tiempo real, actualización automática de filtros EasyList y gestión segura de anti-adblock.",
+                blog3Feat2: "Motor de privacidad Ren-Tor integrado: Enrutamiento en cebolla, puentes anti-censura Snowflake y obfs4, selector de país de salida, cambio de identidad en un toque y protección cero fugas.",
+                blog3Feat3: "Cloudflare WARP y DoH 1.1.1.1: Enrutamiento cifrado de alta velocidad, soporte de claves WARP+, comprobador de IP en vivo y alternancia inteligente Tor/WARP.",
+                blog3Feat4: "Interfaz flotante moderna: Barra de navegación inferior equilibrada, disco de búsqueda expansible y Dynamic Color activado por defecto.",
+                blog3Feat5: "Gestor completo de marcadores e historial: Organización en carpetas, importación/exportación entre navegadores, búsqueda en tiempo real y actualización instantánea.",
+                blog3Feat6: "Restauración inteligente de sesiones: Recuperación automática de pestañas al iniciar o tras cierres inesperados y lista de pestañas cerradas recientemente.",
+                blog3Feat7: "Búsqueda avanzada y seguridad: Sugerencias en directo en múltiples motores, modo Solo-HTTPS, configuración de proxy y accesos directos en la pantalla de inicio.",
+                blog3Feat8: "Integración total con el sistema: Subida de archivos y cámara, diálogos web nativos, navegador predeterminado y soporte completo en árabe RTL e inglés.",
+                blog3Subhead3: "Código abierto y privacidad en la que puede confiar",
+                blog3Body2: "Ren Browser es 100% de código abierto, sin telemetría ni rastreadores. Descargue el APK hoy mismo y explore el código fuente en GitHub.",
+                feedbackTitle3: "¿Listo para probar Ren Browser?",
+                feedbackDesc3: "Descargue la última versión APK o explore el repositorio de código abierto en GitHub.",
                 supTitle: "¿Cómo podemos ayudarte?",
                 supSearch: "Buscar respuestas...",
                 kbTitle: "Base de conocimientos",
@@ -1500,6 +1713,27 @@
                 feedbackTitle2: "Entdecken Sie unsere Webseite auf GitHub",
                 feedbackDesc2: "Geben Sie dem Projekt einen Stern oder beteiligen Sie sich auf GitHub.",
                 btnGetProtected: "GitHub Repository",
+                blog3Meta: "3. Oktober 2026 · Ren Browser · Hauptversion · Datenschutz & Sicherheit",
+                blog3Title: "Ren Browser: Der private und extrem schnelle Android-Browser der nächsten Generation",
+                blog3Desc: "Erleben Sie beispiellose Privatsphäre und Geschwindigkeit mit Ren Browser. Integrierter Werbe- und Tracker-Blocker, Tor-Routing, Cloudflare WARP mit DoH 1.1.1.1, dynamische UI und Zero-Leak-Sicherheit.",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "CEO & Gründer von tknoglobal",
+                blog3Intro: "Wir freuen uns, die Veröffentlichung von Ren Browser für Android bekanntzugeben — ein moderner, blitzschneller und privater Webbrowser, der Ihnen die volle Kontrolle über Ihre digitalen Daten zurückgibt.",
+                blog3Subhead1: "Kompromissloser Datenschutz, Dual-Engine-Routing und maximale Geschwindigkeit",
+                blog3Body1: "Ren Browser setzt neue Maßstäbe für mobiles Surfen durch die Kombination aus extrem schneller Darstellung und erstklassigen Datenschutz-Tools: Tor-Netzwerk, Cloudflare WARP, kosmetische Werbeblockierung und intelligente Tab-Wiederherstellung.",
+                blog3Subhead2: "Wichtigste Highlights und Neuerungen",
+                blog3Feat1: "Integrierter Werbe- und Tracker-Blocker: Kosmetisches Ausblenden von Werbeflächen in Echtzeit, automatische EasyList-Filterupdates und zuverlässige Anti-Adblock-Behandlung.",
+                blog3Feat2: "Eigene Ren-Tor Datenschutz-Engine: Zwiebel-Routing, Snowflake & obfs4 Anti-Zensur-Brücken, Länderauswahl, 1-Klick-Identitätswechsel und Zero-Leak-Schutz.",
+                blog3Feat3: "Cloudflare WARP & DoH 1.1.1.1: Schnelles verschlüsseltes Edge-Routing, WARP+ Lizenzunterstützung, Live-IP-Tester und intelligenter automatischer Wechsel zwischen Tor und WARP.",
+                blog3Feat4: "Moderne schwebende Benutzeroberfläche: Symmetrische Navigationsleiste, erweiterbare Suchblase und standardmäßige Dynamic Color-Harmonisierung.",
+                blog3Feat5: "Vollwertige Lesezeichen- & Verlaufsverwaltung: Ordnerstrukturen, Import/Export mit anderen Browsern, Echtzeit-Suchfilter und Sofort-Aktualisierung.",
+                blog3Feat6: "Smarte Sitzungswiederherstellung: Automatisches Wiederherstellen geöffneter Tabs beim Start und Schnellzugriff auf kürzlich geschlossene Tabs.",
+                blog3Feat7: "Erweiterte Suche & Konnektivität: Live-Suchvorschläge mehrerer Suchmaschinen, reiner HTTPS-Modus, benutzerdefinierte Proxys und Startbildschirm-Verknüpfungen.",
+                blog3Feat8: "Native Systemintegration: Kamera-, Mikrofon- und Dateiuploads, native Systemdialoge, Standard-Browser-Option und vollständige arabische RTL-Lokalisierung.",
+                blog3Subhead3: "Open Source und absolut werbefrei",
+                blog3Body2: "Ren Browser ist zu 100% quelloffen, frei von externer Telemetrie und führt alle Prozesse direkt auf Ihrem Gerät aus. Laden Sie das APK herunter und testen Sie es jetzt.",
+                feedbackTitle3: "Bereit für Ren Browser?",
+                feedbackDesc3: "Laden Sie das neueste APK direkt herunter oder erkunden Sie das Repository auf GitHub.",
                 supTitle: "Wie können wir Ihnen helfen?",
                 supSearch: "Nach Antworten suchen...",
                 kbTitle: "Wissensdatenbank",
@@ -1640,6 +1874,27 @@
                 feedbackTitle2: "Resmi web sitemizi GitHub'da keşfedin",
                 feedbackDesc2: "Depolarımızı inceleyin, sorun bildirin veya GitHub üzerinden katkıda bulunun.",
                 btnGetProtected: "GitHub Deposu",
+                blog3Meta: "3 Ekim 2026 · Ren Browser · Ana Sürüm · Gizlilik ve Güvenlik",
+                blog3Title: "Ren Browser: Yeni Nesil Gizlilik Odaklı ve Hızlı Android Tarayıcısı",
+                blog3Desc: "Ren Browser ile benzersiz gizlilik ve hızın tadını çıkarın. Dahili reklam ve takipçi engelleme, Tor ağı yönlendirmesi, DoH 1.1.1.1 destekli Cloudflare WARP, dinamik arayüz ve sızıntısız güvenlik.",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "tknoglobal CEO'su ve Kurucusu",
+                blog3Intro: "Android için Ren Browser'ın büyük sürümünü duyurmaktan gurur duyuyoruz — dijital gizliliğinizin tam kontrolünü size veren hızlı, modern ve güvenli bir web tarayıcısı.",
+                blog3Subhead1: "Eşsiz Gizlilik, Çift Motorlu Yönlendirme ve Üstün Performans",
+                blog3Body1: "Ren Browser, ultra hızlı web motorunu güçlü gizlilik araçlarıyla birleştirerek mobil web deneyimini yeniden tanımlıyor: Tor Ağı, Cloudflare WARP, kozmetik reklam gizleme ve akıllı sekme kurtarma.",
+                blog3Subhead2: "Öne Çıkan Özellikler ve Yenilikler",
+                blog3Feat1: "Dahili Anında Reklam ve Takipçi Engelleyici: Gerçek zamanlı kozmetik reklam gizleme, otomatik EasyList filtre güncellemeleri ve anti-adblock uyarılarını güvenle kapatma.",
+                blog3Feat2: "Özel Ren-Tor Gizlilik Motoru: Çok atlamalı soğan yönlendirme, Snowflake ve obfs4 sansür önleme köprüleri, ülke seçici, tek dokunuşla kimlik yenileme ve sıfır sızıntı koruması.",
+                blog3Feat3: "Cloudflare WARP ve 1.1.1.1 DoH: Hızlı şifreli uç yönlendirme, WARP+ lisans desteği, canlı IP testi ve Tor/WARP arasında akıllı otomatik geçiş.",
+                blog3Feat4: "Modern Yüzen Arayüz: Dengeli alt gezinme çubuğu, anında genişleyen arama balonu ve varsayılan Dynamic Color duvar kağıdı uyumu.",
+                blog3Feat5: "Kapsamlı Yer İmleri ve Geçmiş Yöneticisi: Klasör desteği, tarayıcılar arası içe/dışa aktarma, canlı arama filtresi ve anında yenileme.",
+                blog3Feat6: "Akıllı Sekme Oturumu Kurtarma: Başlangıçta ve beklenmedik kapanmalarda sekmeleri otomatik geri yükleme ve son kapatılan sekmeler listesi.",
+                blog3Feat7: "Gelişmiş Arama ve Bağlantı: Çoklu arama motorlarında canlı öneriler, Yalnızca HTTPS modu, özel proxy desteği ve ana ekrana kısayol ekleme.",
+                blog3Feat8: "Yerel Cihaz ve Çoklu Dil Desteği: Kamera ve dosya yükleme desteği, yerel bildirim pencereleri, varsayılan tarayıcı seçeneği ve tam Arapça RTL desteği.",
+                blog3Subhead3: "Açık Kaynak ve Güvenebileceğiniz Gizlilik",
+                blog3Body2: "Ren Browser %100 açık kaynaklıdır; hiçbir telemetri veya izleme aracı içermez. APK'yı hemen indirin ve GitHub'daki açık kaynak projemizi inceleyin.",
+                feedbackTitle3: "Ren Browser'ı denemeye hazır mısınız?",
+                feedbackDesc3: "En güncel APK sürümünü doğrudan indirin veya GitHub'da projeyi inceleyin.",
                 supTitle: "Size nasıl yardımcı olabiliriz?",
                 supSearch: "Yanıtları arayın...",
                 kbTitle: "Bilgi Bankası",
@@ -1780,6 +2035,27 @@
                 feedbackTitle2: "Изучите наш сайт на GitHub",
                 feedbackDesc2: "Поставьте звездочку репозиторию или внесите свой вклад на GitHub.",
                 btnGetProtected: "Репозиторий GitHub",
+                blog3Meta: "3 октября 2026 г. · Ren Browser · Главный релиз · Конфиденциальность и безопасность",
+                blog3Title: "Ren Browser: приватный и быстрый Android-браузер нового поколения",
+                blog3Desc: "Испытайте новый уровень приватности и скорости с Ren Browser. Встроенная блокировка рекламы и трекеров, маршрутизация через сеть Tor, Cloudflare WARP с DoH 1.1.1.1, динамический интерфейс и защита от утечек.",
+                blog3Author: "Хамза Беллуш",
+                authorRole3: "Генеральный директор и основатель tknoglobal",
+                blog3Intro: "Мы рады представить крупный релиз Ren Browser для Android — быстрого, современного и надежного веб-браузера, созданного для полного контроля над вашей цифровой конфиденциальностью.",
+                blog3Subhead1: "Абсолютная приватность, двойной движок маршрутизации и высокая скорость",
+                blog3Body1: "Ren Browser меняет представление о мобильном веб-серфинге, сочетая высокую скорость рендеринга с бескомпромиссными инструментами защиты данных: сеть Tor, Cloudflare WARP, косметическое скрытие баннеров и умное восстановление вкладок.",
+                blog3Subhead2: "Ключевые особенности и нововведения",
+                blog3Feat1: "Мгновенная блокировка рекламы и трекеров: Косметическое скрытие рекламных блоков, автообновление фильтров EasyList и безопасный обход анти-adblock окон.",
+                blog3Feat2: "Выделенный движок приватности Ren-Tor: Маршрутизация Tor, мосты Snowflake и obfs4 для обхода цензуры, выбор страны выхода, смена личности в 1 клик и защита от утечек IP.",
+                blog3Feat3: "Cloudflare WARP и DoH 1.1.1.1: Быстрое зашифрованное соединение, поддержка ключей WARP+, онлайн-тестер IP и интеллектуальное автопереключение между Tor и WARP.",
+                blog3Feat4: "Современный плавающий интерфейс: Симметричная панель навигации, быстро раскрывающийся диск поиска и автоматическая гармонизация цветов Dynamic Color.",
+                blog3Feat5: "Менеджер закладок и истории: Организация по папкам, импорт/экспорт закладок, мгновенный фильтр поиска по истории и кнопка обновления.",
+                blog3Feat6: "Надежное восстановление сессий: Автовосстановление открытых вкладок при запуске и список недавно закрытых страниц.",
+                blog3Feat7: "Умный поиск и защита соединений: Поисковые подсказки в реальном времени, режим Только-HTTPS, настройка прокси и ярлыки сайтов на главном экране.",
+                blog3Feat8: "Системная интеграция и локализация: Загрузка файлов и фото с камеры/диска, нативные диалоговые окна, назначение браузером по умолчанию и полная поддержка арабского языка RTL.",
+                blog3Subhead3: "Открытый исходный код и гарантия приватности",
+                blog3Body2: "Ren Browser на 100% бесплатен и открыт. Никакой аналитики и телеметрии — вся обработка происходит исключительно локально на вашем устройстве. Скачайте APK на GitHub.",
+                feedbackTitle3: "Готовы оценить Ren Browser?",
+                feedbackDesc3: "Скачайте новейший APK напрямую или ознакомьтесь с кодом на GitHub.",
                 supTitle: "Чем мы можем помочь?",
                 supSearch: "Поиск ответов...",
                 kbTitle: "База знаний",
@@ -1920,6 +2196,27 @@
                 feedbackTitle2: "在 GitHub 上探索我们的官方网站",
                 feedbackDesc2: "为我们的项目加星标、提交 issue 或直接在 GitHub 上贡献代码。",
                 btnGetProtected: "GitHub 仓库",
+                blog3Meta: "2026年10月3日 · Ren Browser · 重大发布 · 隐私与安全",
+                blog3Title: "Ren Browser：面向未来的次世代隐私与极速 Android 浏览器",
+                blog3Desc: "通过 Ren Browser 体验前所未有的隐私与速度。内置广告与跟踪拦截、集成 Tor 网络路由、DoH 1.1.1.1 加持的 Cloudflare WARP、动态 UI、书签管理及零泄漏安全保护。",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "tknoglobal 首席执行官兼创始人",
+                blog3Intro: "我们非常自豪地推出面向 Android 的 Ren Browser 重大版本——一款现代、极速且高度隐私强化的网页浏览器，让您完全掌控自己的数字足迹。",
+                blog3Subhead1: "极致隐私、双引擎路由与卓越性能",
+                blog3Body1: "Ren Browser 通过将高速渲染引擎与强大的隐私工具相结合重新定义了移动浏览：集成 Tor 网络与 Cloudflare WARP、视觉广告过滤及智能标签页恢复。",
+                blog3Subhead2: "核心亮点与新功能",
+                blog3Feat1: "内置即时广告与跟踪器拦截：实时消除广告空白区域、自动后台更新 EasyList 规则库并安全拦截反广告插件弹窗。",
+                blog3Feat2: "专属 Ren-Tor 隐私引擎：多跳洋葱路由、Snowflake 与 obfs4 反审查网桥、出口国家选择器、一键更换身份及全方位零泄漏保护。",
+                blog3Feat3: "Cloudflare WARP 与 1.1.1.1 DoH：高速加密边缘路由、支持 WARP+ 密钥、实时 IP 诊断及 Tor/WARP 智能自动切换。",
+                blog3Feat4: "现代悬浮式优雅界面：对称底部导航栏、轻触即开的浮动搜索气泡以及默认开启的 Dynamic Color 壁纸取色。",
+                blog3Feat5: "完善的书签与历史记录管理：文件夹层级管理、跨浏览器导入导出、历史记录实时过滤与一键刷新。",
+                blog3Feat6: "弹性标签页会话管理：启动及异常关闭后自动恢复标签页会话，并提供最近关闭网页快速重开列表。",
+                blog3Feat7: "智能搜索与安全连接：多引擎实时搜索建议、强制 HTTPS-Only 模式、自定义代理端点及主屏幕网站快捷方式。",
+                blog3Feat8: "原生系统与多语言支持：支持直接从相机与存储上传文件、原生系统对话框、设为默认浏览器及阿拉伯语 RTL 完整支持。",
+                blog3Subhead3: "完全开源，值得信赖的隐私保护",
+                blog3Body2: "Ren Browser 100% 开源，零遥测、零第三方跟踪代码，完全在本地设备运行。立即下载 APK 安装包并在 GitHub 上探索源码。",
+                feedbackTitle3: "准备好体验 Ren Browser 了吗？",
+                feedbackDesc3: "直接下载最新 APK 发布包，或在 GitHub 上探索开源项目。",
                 supTitle: "我们能为您提供什么帮助？",
                 supSearch: "搜索解答...",
                 kbTitle: "知识库",
@@ -2060,6 +2357,27 @@
                 feedbackTitle2: "GitHub で公式ウェブサイトをチェック",
                 feedbackDesc2: "リポジトリにスターを付けたり、Issue を報告したり、GitHub で貢献してください。",
                 btnGetProtected: "GitHub リポジトリ",
+                blog3Meta: "2026年10月3日 · Ren Browser · メジャーリリース · プライバシーとセキュリティ",
+                blog3Title: "Ren Browser：次世代のプライバシーと高速性を追求したAndroidブラウザ",
+                blog3Desc: "Ren Browser でこれまでにないプライバシーとスピードを体験してください。組み込みの広告・トラッカー遮断、Torネットワーク統合、DoH 1.1.1.1 対応 Cloudflare WARP、動的UI、ブックマーク管理、漏洩防止機能を搭載。",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "tknoglobal CEO兼創設者",
+                blog3Intro: "Android向け Ren Browser のメジャーリリースを発表できることを誇りに思います。デジタルプライバシーを完全にコントロールできる高速で安全なモダンWebブラウザです。",
+                blog3Subhead1: "妥協なきプライバシー、デュアルエンジンルーティング、そして圧倒的なパフォーマンス",
+                blog3Body1: "Ren Browser は高速レンダリングと高度なプライバシー機能を融合し、モバイルブラウジングを再定義します。TorネットワークとCloudflare WARPの統合、広告要素の非表示、スマートなタブ復元を提供します。",
+                blog3Subhead2: "主なハイライトと新機能",
+                blog3Feat1: "組み込みの広告・トラッカー遮断：リアルタイムの要素非表示、EasyListフィルタの自動更新、広告ブロック検知ポップアップの自動無効化。",
+                blog3Feat2: "専用 Ren-Tor プライバシーエンジン：オニオンルーティング、Snowflake & obfs4 検閲回避ブリッジ、出国ノード国選択、ワンタップ身元更新、IP漏洩防止。",
+                blog3Feat3: "Cloudflare WARP & 1.1.1.1 DoH：高速暗号化エッジルーティング、WARP+ キー対応、ライブ接続テスト、Tor/WARP 間のスマート自動切り替え。",
+                blog3Feat4: "洗練されたフローティングUI：対称的なボトムナビゲーション、即座に展開するフローティング検索ディスク、デフォルトの Dynamic Color 配色対応。",
+                blog3Feat5: "充実したブックマーク＆履歴管理：フォルダ整理、ブラウザ間のインポート/エクスポート、履歴のリアルタイム検索と即時更新。",
+                blog3Feat6: "スマートなタブセッション管理：起動時および予期せぬ終了時の自動タブ復元と最近閉じたタブの一覧。",
+                blog3Feat7: "高度な検索と接続性：複数検索エンジンのリアルタイム候補表示、HTTPS-Onlyモード、カスタムプロキシ設定、ホーム画面ショートカット追加。",
+                blog3Feat8: "ネイティブ端末統合と多言語対応：カメラ・ストレージからの直接アップロード、ネイティブダイアログ、デフォルトブラウザ設定、アラビア語RTL完全対応。",
+                blog3Subhead3: "完全オープンソース＆信頼できるプライバシー",
+                blog3Body2: "Ren Browser は 100% オープンソースであり、外部テレメトリや追跡コードは一切ありません。今すぐ APK をダウンロードして GitHub でご確認ください。",
+                feedbackTitle3: "Ren Browser を体験する準備はできましたか？",
+                feedbackDesc3: "最新の APK を直接ダウンロードするか、GitHub でリポジトリをチェックしてください。",
                 supTitle: "どのようなお手伝いが必要ですか？",
                 supSearch: "回答を検索...",
                 kbTitle: "ナレッジベース",
@@ -2200,6 +2518,27 @@
                 feedbackTitle2: "GitHub에서 공식 웹사이트 둘러보기",
                 feedbackDesc2: "저장소에 스타를 누르거나 이슈를 제보하고 기여해 보세요.",
                 btnGetProtected: "GitHub 저장소",
+                blog3Meta: "2026년 10월 3일 · Ren Browser · 메이저 릴리즈 · 개인정보 보호 및 보안",
+                blog3Title: "Ren Browser: 차세대 개인정보 보호 및 초고속 Android 브라우저",
+                blog3Desc: "Ren Browser로 전례 없는 개인정보 보호와 빠른 속도를 경험해 보세요. 내장형 광고 및 트래커 차단, Tor 네트워크 라우팅, DoH 1.1.1.1 지원 Cloudflare WARP, 동적 UI, 북마크 관리자 및 완벽한 누출 방지 보안을 제공합니다.",
+                blog3Author: "Hamza Bellouch",
+                authorRole3: "tknoglobal CEO 겸 설립자",
+                blog3Intro: "디지털 프라이버시를 완벽하게 통제할 수 있도록 설계된 빠르고 현대적인 Android 브라우저인 Ren Browser의 메이저 릴리즈를 선보이게 되어 매우 기쁩니다.",
+                blog3Subhead1: "타협 없는 프라이버시, 듀얼 엔진 라우팅 및 뛰어난 성능",
+                blog3Body1: "Ren Browser는 초고속 웹 렌더링과 강력한 보안 도구를 결합하여 모바일 브라우징을 재정의합니다. Tor 네트워크와 Cloudflare WARP 듀얼 엔진, 광고 프레임 제거 및 스마트 탭 복원을 제공합니다.",
+                blog3Subhead2: "주요 특징 및 새로운 기능",
+                blog3Feat1: "내장형 즉시 광고 및 트래커 차단: 광고 공백 실시간 제거, EasyList 필터 백그라운드 자동 업데이트, 안티 애드블록 팝업 안전 차단.",
+                blog3Feat2: "전용 Ren-Tor 프라이버시 엔진: 다중 홉 오니언 라우팅, Snowflake 및 obfs4 검열 우회 브리지, 출구 국가 선택기, 원터치 신원 갱신 및 IP/위치 누출 방지.",
+                blog3Feat3: "Cloudflare WARP 및 1.1.1.1 DoH: 초고속 암호화 엣지 라우팅, WARP+ 라이선스 키 지원, 실시간 연결 진단 및 Tor/WARP 스마트 자동 전환.",
+                blog3Feat4: "세련된 플로팅 모던 UI: 균형 잡힌 하단 탐색 모음, 탭 한 번으로 확장되는 플로팅 검색 버블, 기본 활성화된 Material You Dynamic Color 색상 조화.",
+                blog3Feat5: "완벽한 북마크 및 방문 기록 관리자: 폴더별 정리, 타 브라우저와의 북마크 가져오기/내보내기, 실시간 검색 필터 및 즉시 새로고침.",
+                blog3Feat6: "스마트 탭 세션 관리: 앱 시작 시 및 예기치 않은 종료 후 탭 세션 자동 복원, 최근 닫은 탭 빠른 재열기.",
+                blog3Feat7: "스마트 검색 및 보안 연결: 다중 검색 엔진 실시간 검색어 추천, HTTPS-Only 모드, 커스텀 프록시 엔드포인트 설정 및 홈 화면 바로가기 추가.",
+                blog3Feat8: "네이티브 기기 연동 및 다국어 지원: 카메라/저장소 직접 업로드, 네이티브 알림 대화상자, 기본 브라우저 설정 및 아랍어 RTL 완벽 지원.",
+                blog3Subhead3: "100% 오픈소스 및 완벽한 프라이버시",
+                blog3Body2: "Ren Browser는 외부 텔레메트리나 추적기 없이 100% 오픈소스로 기기에서 직접 안전하게 실행됩니다. 지금 바로 APK를 다운로드하고 GitHub에서 소스코드를 확인해 보세요.",
+                feedbackTitle3: "Ren Browser를 경험할 준비가 되셨나요?",
+                feedbackDesc3: "최신 APK 빌드를 직접 다운로드하거나 GitHub에서 오픈소스 프로젝트를 확인하세요.",
                 supTitle: "무엇을 도와드릴까요?",
                 supSearch: "답변 검색...",
                 kbTitle: "기술 자료",
@@ -2273,7 +2612,7 @@
 
         let currentLang = 'en';
         let isProtectionActive = true;
-        const pages = ['home', 'products', 'blogs', 'support', 'partners', 'research', 'blog-detail-1', 'blog-detail-2', 'privacy'];
+        const pages = ['home', 'products', 'blogs', 'support', 'partners', 'research', 'blog-detail-1', 'blog-detail-2', 'blog-detail-3', 'privacy'];
 
         const routeMap = {
             'home': '/',
@@ -2284,6 +2623,7 @@
             'partners': '/partners',
             'blog-detail-1': '/blog/links-version-0.0.4-beta',
             'blog-detail-2': '/blog/announcing-our-official-website-on-github-io',
+            'blog-detail-3': '/blog/ren-browser-privacy-speed-release',
             'privacy': '/privacy'
         };
 
@@ -2307,7 +2647,12 @@
             'blog-detail-2': 'blog-detail-2',
             'blog/announcing-our-official-website-on-github-io': 'blog-detail-2',
             'blogs/announcing-our-official-website-on-github-io': 'blog-detail-2',
-            'blog/announcing-our-official-website-on-github.io': 'blog-detail-2'
+            'blog/announcing-our-official-website-on-github.io': 'blog-detail-2',
+            'blog-detail-3': 'blog-detail-3',
+            'blog/ren-browser-privacy-speed-release': 'blog-detail-3',
+            'blogs/ren-browser-privacy-speed-release': 'blog-detail-3',
+            'blog/ren-browser': 'blog-detail-3',
+            'blogs/ren-browser': 'blog-detail-3'
         };
 
         // Theme initialization
