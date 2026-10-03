@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting… | Hamza Bellouch</title>
+
+    <!-- Redirect: old .html URL -> clean title-based slug -->
+    <meta http-equiv="refresh" content="0; url=/blog/links-version-0.0.4-beta/">
+    <link rel="canonical" href="https://hamzabellouch.github.io/blog/links-version-0.0.4-beta/">
+    <script>window.location.replace("/blog/links-version-0.0.4-beta/");</script>
+
+    <!-- Tailwind & Fonts -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        adguard: '#2563eb',
+                        adguardDark: '#1d4ed8',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-100 dark:border-gray-800 transition-colors duration-300 relative z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
+            </div>
+
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
+                <a href="/blog/" class="text-adguard font-bold transition-colors" data-i18n="navBlog">Blog</a>
+                <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
+                <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
+                <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun dark:hidden block"></i>
+                </button>
+                <a href="/blog/links-version-0.0.4-beta/" class="bg-adguard hover:bg-adguardDark text-white text-sm font-semibold py-2 px-4 rounded-full transition-colors flex items-center gap-2">
+                    Continue <i class="fa-solid fa-arrow-right rtl:rotate-180 text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Redirect Fallback Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center justify-center flex-1">
+        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto mb-8">
+            <i class="fa-solid fa-arrows-rotate text-3xl md:text-4xl text-adguard animate-spin"></i>
+        </div>
+        <h1 class="text-2xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Redirecting…</h1>
+        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10">
+            This article has moved to a new, cleaner address.
+        </p>
+        <a href="/blog/links-version-0.0.4-beta/" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+            <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
+            <span>Links version 0.0.4-beta</span>
+        </a>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 px-4 flex flex-wrap justify-center items-center gap-3 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm" dir="ltr">
+            <span>hamzabellouch © 2017–2026</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm" dir="ltr">
+            <span>All Rights Reserved</span>
+        </div>
+        <a href="/privacy/" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-adguard dark:hover:border-adguard text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-adguard dark:hover:text-adguard shadow-sm transition-all duration-300">
+            <span data-i18n="privacyPolicy">Privacy Policy</span>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/translations.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
