@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Hamza Bellouch</title>
+    <title>Support & Help Center | Hamza Bellouch</title>
     
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -51,7 +51,7 @@
                 <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
                 <a href="/blog/" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
                 <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
-                <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
+                <a href="/support/" class="text-adguard font-bold transition-colors" data-i18n="navSupport">Support</a>
                 <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
             </div>
             
@@ -96,7 +96,7 @@
                 <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
                 <span data-i18n="navResearch">Research</span>
             </a>
-            <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+            <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
                 <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
                 <span data-i18n="navSupport">Support</span>
             </a>
@@ -107,32 +107,42 @@
         </div>
     </nav>
 
-    <!-- 404 Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center justify-center flex-1">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto shadow-inner">
-                <i class="fa-solid fa-compass-slash text-5xl md:text-6xl text-adguard animate-pulse"></i>
+    <!-- Main Support Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-16 text-center flex-1 w-full">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6" data-i18n="supTitle">How can we help you?</h1>
+        
+        <!-- Search Input -->
+        <div class="max-w-2xl mx-auto mb-12">
+            <div class="relative">
+                <i class="fa-solid fa-search absolute left-4 rtl:left-auto rtl:right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <input type="text" placeholder="Search for answers..." class="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full py-4 pl-12 pr-4 rtl:pl-4 rtl:pr-12 text-base md:text-lg text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-adguard focus:ring-1 focus:ring-adguard transition-all shadow-sm" data-i18n="supSearch">
             </div>
-            <span class="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 bg-adguard text-white font-extrabold text-xs tracking-wider rounded-full shadow-md uppercase">404</span>
         </div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="error404Title">
-            404 - Page Not Found
-        </h1>
-        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10" data-i18n="error404Desc">
-            Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span data-i18n="error404BtnHome">Back to Home</span>
+
+        <!-- Help Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-6 text-left rtl:text-right">
+            <div class="p-6 md:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg transition-all cursor-pointer group">
+                <i class="fa-solid fa-book text-3xl text-adguard mb-4 group-hover:scale-110 transition-transform"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white" data-i18n="kbTitle">Knowledge Base</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="kbDesc">Detailed guides, documentation, release notes, and FAQs.</p>
+            </div>
+            
+            <a href="https://whatsapp.com/channel/0029Vb7MArw0LKZMpjjqOk2P" target="_blank" rel="noopener noreferrer" class="p-6 md:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg transition-all cursor-pointer group block">
+                <i class="fa-brands fa-whatsapp text-3xl text-[#25D366] mb-4 group-hover:scale-110 transition-transform"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white" data-i18n="forTitle">Community & Support Channel</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="forDesc">Join our official channel for announcements, updates, and community support.</p>
             </a>
-            <a href="/projects/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span data-i18n="error404BtnProjects">Explore Projects</span>
+            
+            <a href="https://github.com/hamzabellouch" target="_blank" rel="noopener noreferrer" class="p-6 md:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg transition-all cursor-pointer group block">
+                <i class="fa-brands fa-github text-3xl text-gray-800 dark:text-gray-200 mb-4 group-hover:scale-110 transition-transform"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">GitHub Issues & Bug Reports</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Report bugs, submit pull requests, or request new features directly on GitHub.</p>
             </a>
-            <a href="/blog/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-newspaper text-adguard"></i>
-                <span data-i18n="error404BtnBlog">Read Blog</span>
+            
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hamzabellouchcontact@gmail.com" target="_blank" rel="noopener noreferrer" class="p-6 md:p-8 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl hover:shadow-lg transition-all cursor-pointer group block">
+                <i class="fa-solid fa-envelope text-3xl text-adguard mb-4 group-hover:scale-110 transition-transform"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Direct Email Support</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Get in touch directly at hamzabellouchcontact@gmail.com for inquiries or collaborations.</p>
             </a>
         </div>
     </main>

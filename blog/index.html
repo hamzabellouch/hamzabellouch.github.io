@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Hamza Bellouch</title>
+    <title>Blog | Hamza Bellouch</title>
     
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -49,7 +49,7 @@
             
             <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
                 <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
-                <a href="/blog/" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
+                <a href="/blog/" class="text-adguard font-bold transition-colors" data-i18n="navBlog">Blog</a>
                 <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
                 <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
                 <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
@@ -88,7 +88,7 @@
                 <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
                 <span data-i18n="navProducts">Projects</span>
             </a>
-            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
                 <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
                 <span data-i18n="navBlog">Blog</span>
             </a>
@@ -107,33 +107,86 @@
         </div>
     </nav>
 
-    <!-- 404 Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center justify-center flex-1">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto shadow-inner">
-                <i class="fa-solid fa-compass-slash text-5xl md:text-6xl text-adguard animate-pulse"></i>
+    <!-- Main Blog Feed Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-16 flex-1 w-full">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-gray-100 dark:border-gray-800 gap-4">
+            <div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white" data-i18n="blogTitle">Latest from our Blog</h1>
+                <p class="text-gray-500 dark:text-gray-400 mt-2 text-base md:text-lg">Product releases, engineering insights, and privacy updates.</p>
             </div>
-            <span class="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 bg-adguard text-white font-extrabold text-xs tracking-wider rounded-full shadow-md uppercase">404</span>
         </div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="error404Title">
-            404 - Page Not Found
-        </h1>
-        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10" data-i18n="error404Desc">
-            Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span data-i18n="error404BtnHome">Back to Home</span>
-            </a>
-            <a href="/projects/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span data-i18n="error404BtnProjects">Explore Projects</span>
-            </a>
-            <a href="/blog/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-newspaper text-adguard"></i>
-                <span data-i18n="error404BtnBlog">Read Blog</span>
-            </a>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <!-- Article 1: Links -->
+            <article class="flex flex-col group">
+                <a href="/blog/links-v0-0-4.html" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <img src="/assets/links-v0.0.4-beta.png" alt="Links version 0.0.4-beta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+                <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog1Meta">
+                    October 2, 2026 · Links · New version · Release notes
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
+                    <a href="/blog/links-v0-0-4.html" class="flex items-center justify-between gap-3">
+                        <span data-i18n="blog1Title">Links version 0.0.4-beta</span>
+                        <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
+                    </a>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog1Desc">
+                    This update brings a redesigned interface that preserves the layout you know. It marks a shift to active development with more features coming soon. We welcome your testing and feedback.
+                </p>
+                <div class="flex items-center gap-2.5 mt-auto pt-2">
+                    <img src="/assets/hamza.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
+                    <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog1Author">Hamza Bellouch</span>
+                </div>
+            </article>
+
+            <!-- Article 2: Official Website -->
+            <article class="flex flex-col group">
+                <a href="/blog/official-website.html" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <img src="/assets/website-preview.png" alt="Official Website on GitHub.io" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+                <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog2Meta">
+                    October 2, 2026 · Website · New version · Release notes
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
+                    <a href="/blog/official-website.html" class="flex items-center justify-between gap-3">
+                        <span data-i18n="blog2Title">Announcing our official website on GitHub.io</span>
+                        <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
+                    </a>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog2Desc">
+                    We are thrilled to launch our official website on GitHub Pages — a unified hub showcasing our open-source tools, detailed documentation, and direct updates.
+                </p>
+                <div class="flex items-center gap-2.5 mt-auto pt-2">
+                    <img src="/assets/hamza.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
+                    <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog2Author">Hamza Bellouch</span>
+                </div>
+            </article>
+
+            <!-- Article 3: Ren Browser -->
+            <article class="flex flex-col group">
+                <a href="/blog/ren-browser.html" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <img src="/assets/ren-browser.png" alt="Ren Browser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </a>
+                <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog3Meta">
+                    October 3, 2026 · Ren Browser · Major Release · Privacy & Security
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
+                    <a href="/blog/ren-browser.html" class="flex items-center justify-between gap-3">
+                        <span data-i18n="blog3Title">Ren Browser: The Next-Gen Private & Fast Android Browser</span>
+                        <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
+                    </a>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog3Desc">
+                    Experience unprecedented privacy and speed with Ren Browser. Built-in ad & tracker blocking, Tor routing, Cloudflare WARP with DoH 1.1.1.1, dynamic UI, bookmarks manager, and zero-leak protection.
+                </p>
+                <div class="flex items-center gap-2.5 mt-auto pt-2">
+                    <img src="/assets/hamza.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
+                    <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog3Author">Hamza Bellouch</span>
+                </div>
+            </article>
+
         </div>
     </main>
 

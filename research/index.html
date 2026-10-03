@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Hamza Bellouch</title>
+    <title>Research | Hamza Bellouch</title>
     
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -50,7 +50,7 @@
             <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
                 <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
                 <a href="/blog/" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
-                <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
+                <a href="/research/" class="text-adguard font-bold transition-colors" data-i18n="navResearch">Research</a>
                 <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
                 <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
             </div>
@@ -92,7 +92,7 @@
                 <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
                 <span data-i18n="navBlog">Blog</span>
             </a>
-            <a href="/research/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+            <a href="/research/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
                 <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
                 <span data-i18n="navResearch">Research</span>
             </a>
@@ -107,33 +107,24 @@
         </div>
     </nav>
 
-    <!-- 404 Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center justify-center flex-1">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto shadow-inner">
-                <i class="fa-solid fa-compass-slash text-5xl md:text-6xl text-adguard animate-pulse"></i>
+    <!-- Main Research Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-20 flex justify-center items-center flex-1">
+        <div class="w-full max-w-xl bg-blue-50 dark:bg-gray-800/60 p-10 md:p-14 rounded-3xl border border-blue-100 dark:border-gray-700 text-center shadow-lg transition-all space-y-6">
+            <div class="w-20 h-20 rounded-full bg-blue-100 dark:bg-gray-700 flex items-center justify-center mx-auto text-adguard shadow-inner">
+                <i class="fa-solid fa-flask-vial text-4xl"></i>
             </div>
-            <span class="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 bg-adguard text-white font-extrabold text-xs tracking-wider rounded-full shadow-md uppercase">404</span>
-        </div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="error404Title">
-            404 - Page Not Found
-        </h1>
-        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10" data-i18n="error404Desc">
-            Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span data-i18n="error404BtnHome">Back to Home</span>
-            </a>
-            <a href="/projects/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span data-i18n="error404BtnProjects">Explore Projects</span>
-            </a>
-            <a href="/blog/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-newspaper text-adguard"></i>
-                <span data-i18n="error404BtnBlog">Read Blog</span>
-            </a>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white" data-i18n="researchComingSoon">
+                Research coming soon
+            </h1>
+            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+                We are actively investigating high-performance C++ media architectures, privacy-preserving networking protocols, and agentic AI pipelines. Check back soon for technical whitepapers and benchmarks.
+            </p>
+            <div class="pt-2">
+                <a href="/projects/" class="inline-flex items-center gap-2 bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all shadow-sm hover:shadow hover:-translate-y-0.5">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span data-i18n="navProducts">Explore Our Projects</span>
+                </a>
+            </div>
         </div>
     </main>
 

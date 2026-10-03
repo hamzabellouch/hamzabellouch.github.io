@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Hamza Bellouch</title>
+    <title>ARUT Windows Toolkit | Hamza Bellouch</title>
     
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -48,7 +48,7 @@
             </div>
             
             <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
-                <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
+                <a href="/projects/" class="text-adguard font-bold transition-colors" data-i18n="navProducts">Projects</a>
                 <a href="/blog/" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
                 <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
                 <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
@@ -84,7 +84,7 @@
 
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
-            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
                 <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
                 <span data-i18n="navProducts">Projects</span>
             </a>
@@ -107,33 +107,81 @@
         </div>
     </nav>
 
-    <!-- 404 Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center justify-center flex-1">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto shadow-inner">
-                <i class="fa-solid fa-compass-slash text-5xl md:text-6xl text-adguard animate-pulse"></i>
+    <!-- Main Project Detail Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+        <!-- Back Link -->
+        <a href="/projects/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span data-i18n="navProducts">Back to Projects</span>
+        </a>
+
+        <!-- Project Header -->
+        <div class="space-y-4 mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
+            <div class="flex flex-wrap items-center gap-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 text-adguard text-xs font-bold">
+                    <i class="fa-brands fa-windows text-blue-500"></i>
+                    <span>Windows</span>
+                </div>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs font-semibold">
+                    <span>Power Utilities · Registry Optimizer · Automation</span>
+                </div>
             </div>
-            <span class="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 bg-adguard text-white font-extrabold text-xs tracking-wider rounded-full shadow-md uppercase">404</span>
+            
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                ARUT Windows Toolkit
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed pt-2" data-i18n="descArut">
+                Advanced Windows utility toolkit designed for power users, offering system automation, system tweaks, registry optimization, and productivity enhancements.
+            </p>
         </div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="error404Title">
-            404 - Page Not Found
-        </h1>
-        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10" data-i18n="error404Desc">
-            Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span data-i18n="error404BtnHome">Back to Home</span>
-            </a>
-            <a href="/projects/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
+
+        <!-- Key Features -->
+        <div class="space-y-6 mb-12">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2.5">
                 <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span data-i18n="error404BtnProjects">Explore Projects</span>
-            </a>
-            <a href="/blog/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-newspaper text-adguard"></i>
-                <span data-i18n="error404BtnBlog">Read Blog</span>
-            </a>
+                <span>Key Capabilities & Features</span>
+            </h2>
+            <ul class="space-y-3.5 list-none pl-0">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Automated system maintenance scripts and temporary file purgers.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Safe Windows Registry tweaker and telemetry debloating modules.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Power-user automation shortcuts for batch renaming, checksum verification, and file hashing.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Context menu customization and lightweight background service management.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Portable executable with zero third-party bundled software.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Action Box -->
+        <div class="p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-3xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+            <div class="space-y-1 text-center sm:text-left rtl:sm:text-right">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ready to get started with ARUT Windows Toolkit?</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Explore the open-source repository or download the latest release.</p>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+                <a href="https://github.com/hamzabellouch/arut/releases" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                    <i class="fa-solid fa-download text-base"></i>
+                    <span>Download / Releases</span>
+                </a>
+                <a href="https://github.com/hamzabellouch/arut" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                    <i class="fa-brands fa-github text-lg"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
         </div>
     </main>
 

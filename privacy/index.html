@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Hamza Bellouch</title>
+    
+    <!-- Tailwind & Fonts -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        adguard: '#2563eb',
+                        adguardDark: '#1d4ed8',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-100 dark:border-gray-800 transition-colors duration-300 relative z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
+                <a href="/blog/" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
+                <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
+                <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
+                <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
+            </div>
+            
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun dark:hidden block"></i>
+                </button>
+
+                <!-- Language Dropdown -->
+                <div class="relative group z-50">
+                    <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-semibold py-2 px-3 sm:px-4 rounded-full transition-colors flex items-center gap-2">
+                        <span id="currentLangText">EN </span> <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </button>
+                    <div id="langDropdownMenu" class="absolute right-0 mt-1 w-44 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <a href="javascript:void(0)" onclick="setLanguage('ar')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-t-xl transition-colors">العربية (AR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('en')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">English (EN)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('fr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Français (FR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('es')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Español (ES)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('de')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Deutsch (DE)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('tr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Türkçe (TR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ru')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Русский (RU)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('zh')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">中文 (ZH)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ja')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">日本語 (JA)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ko')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-b-xl transition-colors">한국어 (KO)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
+                <span data-i18n="navProducts">Projects</span>
+            </a>
+            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
+                <span data-i18n="navBlog">Blog</span>
+            </a>
+            <a href="/research/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
+                <span data-i18n="navResearch">Research</span>
+            </a>
+            <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
+                <span data-i18n="navSupport">Support</span>
+            </a>
+            <a href="/partners/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-handshake w-5 text-center text-adguard"></i>
+                <span data-i18n="navPartners">Partner & Sponsors</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Privacy Policy Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+        <!-- Back Button -->
+        <a href="/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span data-i18n="backToHome">Back to Home</span>
+        </a>
+
+        <!-- Privacy Header -->
+        <div class="space-y-4 mb-10 pb-8 border-b border-gray-200 dark:border-gray-800">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 text-adguard text-xs font-semibold">
+                <i class="fa-solid fa-shield-halved text-sm"></i>
+                <span data-i18n="privBadge">Official Policy & Security Terms</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="privTitle">
+                Privacy Policy
+            </h1>
+            <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium flex items-center gap-2">
+                <i class="fa-regular fa-clock"></i>
+                <span data-i18n="privLastUpdated">Last Updated: October 2, 2026</span>
+            </div>
+            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-normal pt-2" data-i18n="privHeroIntro">
+                At Hamza Bellouch (tknoglobal), privacy is not an afterthought—it is the foundational core of everything we build. All our applications, software suites, tools, and projects operate under strict zero-tracking, zero-ad, and 100% on-device principles.
+            </p>
+        </div>
+
+        <!-- Privacy Policy Content -->
+        <div class="space-y-8 text-gray-700 dark:text-gray-300 leading-relaxed">
+            
+            <!-- Section 0: Rule 0 -->
+            <div class="p-6 md:p-8 bg-red-50/60 dark:bg-red-950/20 rounded-3xl border border-red-200 dark:border-red-800/60 shadow-sm space-y-4">
+                <div class="flex items-center gap-3 text-red-600 dark:red-400">
+                    <i class="fa-solid fa-triangle-exclamation text-2xl shrink-0"></i>
+                    <h2 class="text-xl md:text-2xl font-bold" data-i18n="privRule0Title">
+                        0. Rule 0: Disclaimer on Modified Builds, External Binaries & Unofficial Forks
+                    </h2>
+                </div>
+                <div class="space-y-3 text-sm md:text-base">
+                    <p data-i18n="privRule0Item1">
+                        <strong>Original Source Integrity:</strong> This privacy policy, safety guarantees, and security features apply strictly and exclusively to official, unmodified application binaries, software packages, installers, scripts, extensions, and source code distributed directly through our official repositories (<a href="https://github.com/hamzabellouch" target="_blank" rel="noopener noreferrer" class="text-adguard underline font-semibold">github.com/hamzabellouch</a>) and verified releases.
+                    </p>
+                    <p data-i18n="privRule0Item2">
+                        <strong>Zero Liability for Modified / External Builds:</strong> We (the publisher and maintainer) assume <strong>no responsibility or liability whatsoever</strong> for any modified packages, third-party forks, repackaged binaries, unofficial distribution channels, or altered projects not originating directly from our official repositories. Any installation or use of modified, tampered, or third-party builds is entirely at your own risk, and the publisher assumes no responsibility for any consequences, damages, security compromises, or data breaches that may occur.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 1: Executive Summary -->
+            <div class="space-y-4">
+                <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white" data-i18n="privSec1Title">
+                    1. Executive Summary & Universal Ecosystem Overview
+                </h2>
+                <p data-i18n="privSec1Body">
+                    Our entire software portfolio—encompassing mobile apps, desktop programs, media engines, AI orchestrators, system utilities, security frameworks, command-line tools, and browser extensions across Android, Linux, Windows, and Web—is engineered from the ground up to prioritize user privacy, absolute data sovereignty, and uncompromised performance.
+                </p>
+                <div class="p-5 bg-emerald-50/80 dark:bg-emerald-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800/50 flex items-start gap-3.5 shadow-sm">
+                    <i class="fa-solid fa-shield-halved text-adguard text-xl mt-0.5 shrink-0"></i>
+                    <p class="text-sm md:text-base font-medium text-emerald-900 dark:text-emerald-300" data-i18n="privSec1Commitment">
+                        <strong>Core Privacy Commitment:</strong> All our tools, programs, and applications operate <strong>100% locally on your device</strong>. We do not collect, store, transmit, share, profile, or monetize any personal data, device identifiers, system logs, hardware streams, files, or user inputs to external analytics servers or third parties.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 2: Information Processed On-Device -->
+            <div class="space-y-4">
+                <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white" data-i18n="privSec2Title">
+                    2. Information Processed On-Device
+                </h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="privSec2Intro">
+                    To deliver core functionality, our software reads and processes the following information strictly on your local machine:
+                </p>
+                <ul class="space-y-3 list-none pl-0">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                        <span data-i18n="privSec2Item1"><strong>Hardware & Media Streams:</strong> Any live device input (such as camera feed, audio stream, or GPU frame buffer) is processed strictly in real-time in volatile memory (RAM) and immediately discarded. Streams are never saved, recorded, or transmitted without explicit user command.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                        <span data-i18n="privSec2Item2"><strong>User Inputs, Queries & Files:</strong> Text strings, files, commands, AI prompts, or URLs provided by the user are computed locally or routed strictly to endpoints configured by the user, without any central telemetry or logging.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                        <span data-i18n="privSec2Item3"><strong>Local Storage & Preferences:</strong> User settings, history logs, caches, and customized parameters are stored strictly locally on your machine or device storage.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 3: Permissions -->
+            <div class="space-y-4">
+                <h2 class="text-xl md:text-2xl font-bold text-gray-900 dark:text-white" data-i18n="privSec3Title">
+                    3. System Permissions & Privileges
+                </h2>
+                <p class="text-sm text-gray-500 dark:text-gray-400" data-i18n="privSec3Intro">
+                    Our software only requests operating system privileges strictly required to carry out the specific features requested by the user:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-2 shadow-sm">
+                        <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-microchip text-adguard"></i>
+                            <span data-i18n="privSec3Card1Title">Hardware & Device Access</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card1Desc">
+                            Used strictly in real-time when actively triggered by the user for media playback, capture, or processing. Never accessed or recorded silently in the background.
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-2 shadow-sm">
+                        <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-globe text-adguard"></i>
+                            <span data-i18n="privSec3Card2Title">Network & Connectivity</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card2Desc">
+                            Utilized solely for user-initiated network requests (such as downloading files, resolving endpoints, or checking official updates on GitHub) with zero telemetry sent.
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-2 shadow-sm">
+                        <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-folder-open text-adguard"></i>
+                            <span data-i18n="privSec3Card3Title">File System & Storage</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card3Desc">
+                            Used strictly to read or write files explicitly chosen by the user, manage application cache, and save exported data. No unauthorized disk indexing takes place.
+                        </p>
+                    </div>
+
+                    <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl border border-gray-200 dark:border-gray-700 space-y-2 shadow-sm">
+                        <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-bell text-adguard"></i>
+                            <span data-i18n="privSec3Card4Title">System Notifications & Status</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card4Desc">
+                            Displays user-visible progress indicators, task completions, and essential operational status alerts on supported operating systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 & 5 Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <!-- Section 4 -->
+                <div class="space-y-3">
+                    <h2 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white" data-i18n="privSec4Title">
+                        4. Safe Network & Resource Inspection
+                    </h2>
+                    <p class="text-sm" data-i18n="privSec4Body">
+                        Whenever our utilities inspect or interact with network resources, they inspect only direct protocol responses to fulfill the user's task. Our software never reads, intercepts, or extracts private cookies, authentication credentials, or browsing history.
+                    </p>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="space-y-3">
+                    <h2 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white" data-i18n="privSec5Title">
+                        5. Zero Ads & No Tracking
+                    </h2>
+                    <p class="text-sm" data-i18n="privSec5Body">
+                        Zero third-party analytics SDKs, zero telemetry collectors, and zero ads. We do not participate in behavioral tracking, device fingerprinting, or user profiling across any of our software solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 6 & 7 Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <!-- Section 6 -->
+                <div class="space-y-3">
+                    <h2 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white" data-i18n="privSec6Title">
+                        6. Data Retention & Deletion
+                    </h2>
+                    <p class="text-sm" data-i18n="privSec6Body">
+                        All transient memory buffers are cleared instantly from RAM. Uninstalling any application or deleting its configuration folder permanently and completely purges all local history and preferences.
+                    </p>
+                </div>
+
+                <!-- Section 7 -->
+                <div class="space-y-3">
+                    <h2 class="text-lg md:text-xl font-bold text-gray-900 dark:text-white" data-i18n="privSec7Title">
+                        7. Managing Permissions & User Sovereignty
+                    </h2>
+                    <p class="text-sm" data-i18n="privSec7Body">
+                        You maintain full control over all operating system permissions and tool execution. You can modify or revoke permissions at any time through your operating system settings.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 8: Contact Box -->
+            <div class="p-6 md:p-8 bg-blue-50/70 dark:bg-blue-950/20 rounded-3xl border border-blue-200/80 dark:border-blue-900/50 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
+                <div class="space-y-1 text-center sm:text-left rtl:sm:text-right">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white" data-i18n="privSec8Title">
+                        8. Contact & Developer Support
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec8Body">
+                        If you have questions or feedback regarding this Privacy Policy across any of our software products, feel free to reach out directly.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hamzabellouchcontact@gmail.com" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-solid fa-envelope text-base"></i>
+                        <span data-i18n="privContactBtn">E-mail</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 px-4 flex flex-wrap justify-center items-center gap-3 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm" dir="ltr">
+            <span>hamzabellouch © 2017–2026</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm" dir="ltr">
+            <span>All Rights Reserved</span>
+        </div>
+        <a href="/privacy/" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-adguard dark:hover:border-adguard text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-adguard dark:hover:text-adguard shadow-sm transition-all duration-300">
+            <span data-i18n="privacyPolicy">Privacy Policy</span>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/translations.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

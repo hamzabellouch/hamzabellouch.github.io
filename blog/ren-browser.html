@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Hamza Bellouch</title>
+    <title>Ren Browser: The Next-Gen Private & Fast Android Browser | Hamza Bellouch</title>
     
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -49,7 +49,7 @@
             
             <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
                 <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
-                <a href="/blog/" class="hover:text-adguard transition-colors" data-i18n="navBlog">Blog</a>
+                <a href="/blog/" class="text-adguard font-bold transition-colors" data-i18n="navBlog">Blog</a>
                 <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
                 <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
                 <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
@@ -88,7 +88,7 @@
                 <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
                 <span data-i18n="navProducts">Projects</span>
             </a>
-            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
                 <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
                 <span data-i18n="navBlog">Blog</span>
             </a>
@@ -107,34 +107,112 @@
         </div>
     </nav>
 
-    <!-- 404 Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center justify-center flex-1">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto shadow-inner">
-                <i class="fa-solid fa-compass-slash text-5xl md:text-6xl text-adguard animate-pulse"></i>
+    <!-- Main Blog Article Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+        <!-- Back Button -->
+        <a href="/blog/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span data-i18n="backToBlog">Back to Blog</span>
+        </a>
+
+        <!-- Article Header -->
+        <div class="space-y-4 mb-8">
+            <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium" data-i18n="blog3Meta">
+                October 3, 2026 · Ren Browser · Major Release · Privacy & Security
             </div>
-            <span class="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 bg-adguard text-white font-extrabold text-xs tracking-wider rounded-full shadow-md uppercase">404</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="blog3Title">
+                Ren Browser: The Next-Gen Private & Fast Android Browser
+            </h1>
+            <div class="flex items-center gap-3 pt-2">
+                <img src="/assets/hamza.jpg" alt="Hamza Bellouch" class="w-10 h-10 rounded-full object-cover border border-gray-200 dark:border-gray-700">
+                <div>
+                    <div class="font-bold text-sm text-gray-900 dark:text-white" data-i18n="blog3Author">Hamza Bellouch</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400" data-i18n="authorRole3">CEO & Founder of tknoglobal</div>
+                </div>
+            </div>
         </div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="error404Title">
-            404 - Page Not Found
-        </h1>
-        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10" data-i18n="error404Desc">
-            Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span data-i18n="error404BtnHome">Back to Home</span>
-            </a>
-            <a href="/projects/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span data-i18n="error404BtnProjects">Explore Projects</span>
-            </a>
-            <a href="/blog/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-newspaper text-adguard"></i>
-                <span data-i18n="error404BtnBlog">Read Blog</span>
-            </a>
+
+        <!-- Hero Image -->
+        <div class="rounded-3xl overflow-hidden mb-10 shadow-lg bg-gray-100 dark:bg-gray-800 aspect-[16/9]">
+            <img src="/assets/ren-browser.png" alt="Ren Browser" class="w-full h-full object-cover">
         </div>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
+            <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed" data-i18n="blog3Intro">
+                We are proud to introduce the major release of Ren Browser for Android — a fast, modern, privacy-hardened web browser built from the ground up to give you total control over your digital footprint.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog3Subhead1">
+                Unmatched Privacy, Dual-Engine Routing, and Pure Performance
+            </h2>
+            <p data-i18n="blog3Body1">
+                Ren Browser redefines mobile web browsing by combining high-speed web rendering with hardened privacy tools. Equipped with dual anonymity engines (Tor Network & Cloudflare WARP), cosmetic ad-blocking, and seamless tab restoration, Ren Browser delivers a fluid, untracked browsing experience.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog3Subhead2">
+                Key Highlights & New Capabilities
+            </h2>
+            <ul class="space-y-3 list-none pl-0">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat1">Built-in Instant Ad & Tracker Blocker: Real-time cosmetic ad hiding, automatic EasyList filter updates, and safe anti-adblock detection handling.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat2">Dedicated Ren-Tor Privacy Engine: Multi-hop onion routing, Snowflake & obfs4 anti-censorship bridges, country exit selector, one-tap identity renewal, and zero-leak protection.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat3">Cloudflare WARP & 1.1.1.1 DoH: Fast encrypted edge routing, customizable security modes, WARP+ license support, and intelligent Tor/WARP auto-switching.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat4">Refined Floating Modern UI: Symmetrical navigation bar indicators, expandable floating search bubble disk, and default Material You Dynamic Color harmonization.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat5">Complete Bookmarks & History Manager: Folder organization, seamless import/export across browsers, real-time history search, and instant refresh.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat6">Smart Tab Session Management: Automatic tab restore on startup or unexpected exits, plus a quick-access recently closed tabs list.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat7">Advanced Search & Connectivity: Real-time search suggestions across multiple engines, HTTPS-Only mode, live IP checker, and home screen website shortcuts.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog3Feat8">Native Device & Multilingual Support: Camera/mic/storage upload integration, native popups, default browser support, and full Arabic RTL localization.</span>
+                </li>
+            </ul>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog3Subhead3">
+                Open-Source & Privacy You Can Trust
+            </h2>
+            <p data-i18n="blog3Body2">
+                Ren Browser is 100% open-source with zero background telemetry, zero tracking SDKs, and complete on-device execution. Download the APK today, explore the codebase on GitHub, and take back your online privacy.
+            </p>
+
+            <!-- Actions / Feedback Box -->
+            <div class="mt-10 p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-2xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="feedbackTitle3">Ready to experience Ren Browser?</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="feedbackDesc3">Download the latest APK release directly or explore the open-source repository on GitHub.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="https://github.com/hamzabellouch/ren-browser/releases" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-solid fa-download text-lg"></i>
+                        <span data-i18n="btnDownloadApk">Download APK</span>
+                    </a>
+                    <a href="https://github.com/hamzabellouch/ren-browser" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span data-i18n="btnGithubBeta">View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </article>
     </main>
 
     <!-- Footer -->
