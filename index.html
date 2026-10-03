@@ -982,6 +982,36 @@
         </div>
     </main>
 
+    <!-- 8. 404 ERROR SECTION -->
+    <main id="page-404" class="hidden max-w-4xl mx-auto px-6 py-20 text-center flex flex-col items-center justify-center min-h-[70vh]">
+        <div class="relative mb-8">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto shadow-inner">
+                <i class="fa-solid fa-compass-slash text-5xl md:text-6xl text-adguard animate-pulse"></i>
+            </div>
+            <span class="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 bg-adguard text-white font-extrabold text-xs tracking-wider rounded-full shadow-md uppercase">404</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="error404Title">
+            404 - Page Not Found
+        </h1>
+        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10" data-i18n="error404Desc">
+            Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+            <button onclick="showPage('home')" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer">
+                <i class="fa-solid fa-house text-lg"></i>
+                <span data-i18n="error404BtnHome">Back to Home</span>
+            </button>
+            <button onclick="showPage('products')" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5 cursor-pointer">
+                <i class="fa-solid fa-layer-group text-adguard"></i>
+                <span data-i18n="error404BtnProjects">Explore Projects</span>
+            </button>
+            <button onclick="showPage('blogs')" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5 cursor-pointer">
+                <i class="fa-solid fa-newspaper text-adguard"></i>
+                <span data-i18n="error404BtnBlog">Read Blog</span>
+            </button>
+        </div>
+    </main>
+
     <!-- Footer Capsules -->
     <footer class="w-full py-4 px-4 flex flex-wrap justify-center items-center gap-3">
         <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-50 dark:bg-gray-800/90 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm transition-colors duration-300" dir="ltr">
@@ -1159,6 +1189,11 @@
                 privSec8Title: "8. Contact & Developer Support",
                 privSec8Body: "If you have questions or feedback regarding this Privacy Policy across any of our software products, feel free to reach out directly.",
                 privContactBtn: "E-mail"
+                error404Title: "404 - Page Not Found",
+                error404Desc: "Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.",
+                error404BtnHome: "Back to Home",
+                error404BtnProjects: "Explore Projects",
+                error404BtnBlog: "Read Blog",
             },
             fr: {
                 navClone: "Clone",
@@ -1320,6 +1355,11 @@
                 privSec8Title: "8. Contact et support développeur",
                 privSec8Body: "Si vous avez des questions ou commentaires concernant cette politique de confidentialité pour l'un de nos logiciels, contactez-nous directement.",
                 privContactBtn: "E-mail"
+                error404Title: "404 - Page non trouvée",
+                error404Desc: "Oups ! La page que vous recherchez n'existe pas, a été déplacée ou le lien est incorrect.",
+                error404BtnHome: "Retour à l'accueil",
+                error404BtnProjects: "Explorer les projets",
+                error404BtnBlog: "Lire le blog",
             },
             ar: {
                 navClone: "نسخة",
@@ -1481,6 +1521,11 @@
                 privSec8Title: "٨. التواصل والدعم الفني",
                 privSec8Body: "إذا كانت لديك أي استفسارات أو ملاحظات بخصوص سياسة الخصوصية لأي من برامجنا ومشاريعنا، يسعدنا تواصلك المباشر معنا.",
                 privContactBtn: "E-mail"
+                error404Title: "404 - الصفحة غير موجودة",
+                error404Desc: "عذراً! الصفحة التي تبحث عنها غير موجودة، أو ربما تم نقلها أو حذفها، أو أن الرابط غير صحيح.",
+                error404BtnHome: "العودة للرئيسية",
+                error404BtnProjects: "استكشاف المشاريع",
+                error404BtnBlog: "زيارة المدونة",
             },
             es: {
                 navClone: "Clonar",
@@ -1642,6 +1687,11 @@
                 privSec8Title: "8. Contacto y soporte para desarrolladores",
                 privSec8Body: "Si tienes alguna pregunta o comentario sobre esta política de privacidad en cualquiera de nuestros productos, no dudes en ponerte en contacto con nosotros directamente.",
                 privContactBtn: "E-mail"
+                error404Title: "404 - Página no encontrada",
+                error404Desc: "¡Ups! La página que buscas no existe, ha sido movida o el enlace es incorrecto.",
+                error404BtnHome: "Volver al inicio",
+                error404BtnProjects: "Explorar proyectos",
+                error404BtnBlog: "Leer el blog",
             },
             de: {
                 navClone: "Klonen",
@@ -1803,6 +1853,11 @@
                 privSec8Title: "8. Kontakt & Entwickler-Support",
                 privSec8Body: "Bei Fragen oder Anregungen zu dieser Datenschutzerklärung für alle unsere Softwareprodukte können Sie sich jederzeit direkt an uns wenden.",
                 privContactBtn: "E-Mail"
+                error404Title: "404 - Seite nicht gefunden",
+                error404Desc: "Hoppla! Die gesuchte Seite existiert nicht, wurde verschoben oder der Link ist ungültig.",
+                error404BtnHome: "Zur Startseite",
+                error404BtnProjects: "Projekte ansehen",
+                error404BtnBlog: "Blog lesen",
             },
             tr: {
                 navClone: "Klonla",
@@ -1964,6 +2019,11 @@
                 privSec8Title: "8. İletişim ve Geliştirici Desteği",
                 privSec8Body: "Tüm yazılım ürünlerimiz genelinde bu Gizlilik Politikası ile ilgili her türlü soru veya geri bildiriminiz için doğrudan bizimle iletişime geçebilirsiniz.",
                 privContactBtn: "E-posta"
+                error404Title: "404 - Sayfa Bulunamadı",
+                error404Desc: "Ters gitti! Aradığınız sayfa mevcut değil, taşınmış veya bağlantı hatalı olabilir.",
+                error404BtnHome: "Ana Sayfaya Dön",
+                error404BtnProjects: "Projeleri İncele",
+                error404BtnBlog: "Blogu Oku",
             },
             ru: {
                 navClone: "Клонировать",
@@ -2125,6 +2185,11 @@
                 privSec8Title: "8. Контакты и поддержка разработчика",
                 privSec8Body: "Если у вас возникли вопросы или пожелания относительно политики конфиденциальности наших продуктов, свяжитесь с нами напрямую.",
                 privContactBtn: "E-mail"
+                error404Title: "404 - Страница не найдена",
+                error404Desc: "Упс! Страница, которую вы ищете, не существует, была удалена или ссылка неверна.",
+                error404BtnHome: "На главную",
+                error404BtnProjects: "Все проекты",
+                error404BtnBlog: "Читать блог",
             },
             zh: {
                 navClone: "克隆",
@@ -2286,6 +2351,11 @@
                 privSec8Title: "8. 联系与开发者支持",
                 privSec8Body: "如果您对我们旗下任何软件产品的本隐私政策有任何疑问或反馈，欢迎随时与我们直接取得联系。",
                 privContactBtn: "E-mail"
+                error404Title: "404 - 页面未找到",
+                error404Desc: "抱歉！您访问的页面不存在、已被移除或链接输入有误。",
+                error404BtnHome: "返回首页",
+                error404BtnProjects: "浏览项目",
+                error404BtnBlog: "查看博客",
             },
             ja: {
                 navClone: "クローン",
@@ -2447,6 +2517,11 @@
                 privSec8Title: "8. お問い合わせ＆開発者サポート",
                 privSec8Body: "当社の全ソフトウェア製品に関するプライバシーポリシーについてご質問やご意見がございましたら、いつでもお気軽にお問い合わせください。",
                 privContactBtn: "E-mail"
+                error404Title: "404 - ページが見つかりません",
+                error404Desc: "申し訳ありません。お探しのページは存在しないか、移動されたか、URLが正しくありません。",
+                error404BtnHome: "ホームに戻る",
+                error404BtnProjects: "プロジェクトを見る",
+                error404BtnBlog: "ブログを読む",
             },
             ko: {
                 navClone: "복제",
@@ -2608,12 +2683,17 @@
                 privSec8Title: "8. 문의 및 개발자 지원",
                 privSec8Body: "당사의 모든 소프트웨어 제품에 대한 본 개인정보 처리방침에 관해 질문이나 의견이 있으시면 언제든지 직접 문의해 주시기 바랍니다.",
                 privContactBtn: "E-mail"
+                error404Title: "404 - 페이지를 찾을 수 없습니다",
+                error404Desc: "죄송합니다! 찾으시는 페이지가 존재하지 않거나 이동되었거나 잘못된 링크입니다.",
+                error404BtnHome: "홈으로 돌아가기",
+                error404BtnProjects: "프로젝트 둘러보기",
+                error404BtnBlog: "블로그 보기",
             }
         };
 
         let currentLang = 'en';
         let isProtectionActive = true;
-        const pages = ['home', 'products', 'blogs', 'support', 'partners', 'research', 'blog-detail-1', 'blog-detail-2', 'blog-detail-3', 'privacy'];
+        const pages = ['home', 'products', 'blogs', 'support', 'partners', 'research', 'blog-detail-1', 'blog-detail-2', 'blog-detail-3', 'privacy', '404'];
 
         const routeMap = {
             'home': '/',
@@ -2625,7 +2705,8 @@
             'blog-detail-1': '/blog/links-version-0.0.4-beta',
             'blog-detail-2': '/blog/announcing-our-official-website-on-github-io',
             'blog-detail-3': '/blog/ren-browser-privacy-speed-release',
-            'privacy': '/privacy'
+            'privacy': '/privacy',
+            '404': '/404'
         };
 
         const reverseRouteMap = {
@@ -2653,7 +2734,9 @@
             'blog/ren-browser-privacy-speed-release': 'blog-detail-3',
             'blogs/ren-browser-privacy-speed-release': 'blog-detail-3',
             'blog/ren-browser': 'blog-detail-3',
-            'blogs/ren-browser': 'blog-detail-3'
+            'blogs/ren-browser': 'blog-detail-3',
+            '404': '404',
+            '404.html': '404'
         };
 
         // Theme initialization
@@ -2728,6 +2811,9 @@
 
         function resolvePageFromUrl() {
             let path = decodeURIComponent(window.location.pathname).replace(/^\/+|\/+$/g, '').toLowerCase();
+            if (path === '' || path === 'home' || path === 'index.html') {
+                return 'home';
+            }
             if (path && reverseRouteMap[path]) {
                 return reverseRouteMap[path];
             }
@@ -2739,6 +2825,9 @@
             }
             if (window.location.hash) {
                 let hash = decodeURIComponent(window.location.hash).replace(/^#\/?/, '').toLowerCase();
+                if (hash === '' || hash === 'home' || hash === 'index.html') {
+                    return 'home';
+                }
                 if (hash && reverseRouteMap[hash]) {
                     return reverseRouteMap[hash];
                 }
@@ -2749,16 +2838,20 @@
                     }
                 }
             }
-            return 'home';
+            return '404';
         }
 
         function initRouter() {
             const initialPage = resolvePageFromUrl();
             showPage(initialPage, false);
 
-            const targetPath = routeMap[initialPage] || '/';
-            if (window.location.pathname !== targetPath || window.location.hash) {
-                history.replaceState({ pageId: initialPage }, '', targetPath);
+            if (initialPage !== '404') {
+                const targetPath = routeMap[initialPage] || '/';
+                if (window.location.pathname !== targetPath || window.location.hash) {
+                    history.replaceState({ pageId: initialPage }, '', targetPath);
+                }
+            } else {
+                history.replaceState({ pageId: '404' }, '', window.location.pathname + (window.location.search || '') + (window.location.hash || ''));
             }
 
             window.addEventListener('popstate', (e) => {
