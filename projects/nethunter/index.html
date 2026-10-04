@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetHunter Wireless Auditor | Hamza Bellouch</title>
+    <title>NetHunter - All-in-One Wireless Network Auditing Suite | Hamza Bellouch</title>
     
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -108,68 +108,289 @@
     </nav>
 
     <!-- Main Project Detail Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
-        <!-- Back Link -->
-        <a href="/projects/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full space-y-12">
+        
+        <!-- Top Back Link -->
+        <a href="/projects/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark transition-colors group">
             <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
             <span data-i18n="navProducts">Back to Projects</span>
         </a>
 
         <!-- Project Header -->
-        <div class="space-y-4 mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
+        <div class="space-y-4 pb-8 border-b border-gray-200 dark:border-gray-800">
             <div class="flex flex-wrap items-center gap-3">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 text-adguard text-xs font-bold">
-                    <i class="fa-solid fa-wifi text-red-500"></i>
-                    <span>Linux / Android</span>
+                    <img src="/assets/linux.svg" alt="Linux" class="w-4 h-4 object-contain">
+                    <i class="fa-brands fa-android text-emerald-500 text-sm"></i>
+                    <span>Linux & Android (Kali / Rooted)</span>
+                </div>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+                    <i class="fa-solid fa-shield-halved text-xs"></i>
+                    <span>Dual Engines: Wifite2 + Airgeddon</span>
                 </div>
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs font-semibold">
-                    <span>Security Auditing · WPA3 · Handshake Analysis</span>
+                    <span>WPA3 Downgrade · PMKID · 802.11w (PMF) · WPS Pixie-Dust</span>
                 </div>
             </div>
             
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                NetHunter Wireless Auditor
+                NetHunter — All-in-One Wireless Security Auditing Suite
             </h1>
             
             <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed pt-2" data-i18n="descNethunter">
-                NetHunter is an automated wireless security auditing framework supporting WPA/WPA2/WPA3, WPS, PMKID attacks, and handshake analysis.
+                NetHunter is an advanced wireless security auditing suite combining the automated attack powers of NetHunter (Wifite2) with the comprehensive penetration testing capabilities of NetHunter+ (Airgeddon). Designed for security researchers and ethical hackers to audit Wi-Fi security across 2.4 GHz and 5 GHz frequency bands.
             </p>
         </div>
 
-        <!-- Key Features -->
-        <div class="space-y-6 mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span>Key Capabilities & Features</span>
+        <!-- Hero Preview Banner -->
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-800 bg-gray-900 aspect-[16/9] group relative">
+            <img src="/assets/Nethunter.jpg" alt="NetHunter - All-in-One Wireless Security Auditing Suite" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none flex items-end p-6 md:p-8">
+                <div class="text-white">
+                    <div class="text-xs font-bold uppercase tracking-widest text-blue-400 mb-1">Architecture Showcase</div>
+                    <div class="text-lg md:text-2xl font-bold">Dual-Engine Wireless Penetration Testing & Automated Handshake Engine</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Architectural Pillars -->
+        <div class="space-y-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                <i class="fa-solid fa-microchip text-adguard"></i>
+                <span>Architectural & Engineering Highlights</span>
             </h2>
-            <ul class="space-y-3.5 list-none pl-0">
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Automated 802.11 monitor mode switching and channel hopping.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">WPA/WPA2/WPA3 handshake capture and PMKID extraction pipeline.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">WPS PIN security verification and rogue access point detection.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Clean CLI dashboard with real-time signal strength graph and network maps.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Designed strictly for authorized penetration testing and network hardening.</span>
-                </li>
-            </ul>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Pillar 1 -->
+                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-adguard flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Dual-Engine Unified Architecture</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Seamless toggle between <strong>NetHunter (Wifite2)</strong> for 1-click automated auditing and <strong>NetHunter+ (Airgeddon)</strong> for deep, multi-vector penetration testing, captive portals, and evil twin attacks.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">Clientless PMKID & Handshake Pipeline</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Automated retrieval of 128-bit PMKID hashes via <code class="font-mono text-xs">hcxdumptool</code> without waiting for active clients, plus targeted 4-way EAPOL handshake capture with real-time <code class="font-mono text-xs">tshark</code> verification.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">WPA3 Transition & 802.11w (PMF) Audits</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Verifies dual WPA2/WPA3 (SAE/PSK) networks for Transition Disable (TMD) enforcement, and tests Access Points and clients for Protected Management Frames compliance against spoofed deauth bursts.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">WPS Pixie-Dust & PIN Exploitation</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Integrated Pixie-Dust offline hash attacks and online PIN brute-force using <code class="font-mono text-xs">reaver</code> and <code class="font-mono text-xs">bully</code> with automated WPS lock detection and intelligent rate backoff.
+                    </p>
+                </div>
+
+                <!-- Pillar 5 -->
+                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-mask"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">MAC Randomization & Spectrum Control</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Automated MAC address spoofing via <code class="font-mono text-xs">macchanger</code> prior to scanning. Full dual-band support (2.4 GHz & 5 GHz) with automated monitor mode orchestration and process sanitization.
+                    </p>
+                </div>
+
+                <!-- Pillar 6 -->
+                <div class="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">IEEE OUI Intelligence & Cracking Suite</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Real-time hardware vendor resolution via offline IEEE MAC database, handshake manager (<code class="font-mono text-xs">--check</code>), and seamless piping into <strong>Hashcat</strong>, <strong>Aircrack-ng</strong>, and <strong>John the Ripper</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Attack Vectors & Capabilities Table -->
+        <div class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                        <i class="fa-solid fa-satellite-dish text-adguard"></i>
+                        <span>Attack Vectors & Security Modules</span>
+                    </h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                        Comprehensive wireless penetration testing capabilities implemented in NetHunter.
+                    </p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-gray-50 dark:bg-gray-800/90 border-b border-gray-200 dark:border-gray-700">
+                            <th class="py-3.5 px-4 font-bold text-gray-900 dark:text-white">Attack Vector</th>
+                            <th class="py-3.5 px-4 font-bold text-adguard bg-blue-50/50 dark:bg-blue-950/30">Target Protocol</th>
+                            <th class="py-3.5 px-4 font-bold text-gray-600 dark:text-gray-300">Tool / Underlying Engine</th>
+                            <th class="py-3.5 px-4 font-bold text-emerald-600 dark:text-emerald-400">Execution Mode</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200 dark:divide-gray-800 bg-white dark:bg-gray-900">
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-gray-900 dark:text-white">PMKID Hash Retrieval</td>
+                            <td class="py-3.5 px-4 font-bold text-adguard bg-blue-50/30 dark:bg-blue-950/20">WPA / WPA2-PSK</td>
+                            <td class="py-3.5 px-4 text-gray-600 dark:text-gray-400"><code>hcxdumptool</code> + <code>hcxtools</code></td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600 dark:text-emerald-400">Clientless & Automated</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-gray-900 dark:text-white">4-Way Handshake Capture</td>
+                            <td class="py-3.5 px-4 font-bold text-adguard bg-blue-50/30 dark:bg-blue-950/20">WPA / WPA2-PSK</td>
+                            <td class="py-3.5 px-4 text-gray-600 dark:text-gray-400"><code>aireplay-ng</code> + <code>tshark</code></td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600 dark:text-emerald-400">Active Deauth & Passive</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-gray-900 dark:text-white">WPS Pixie-Dust Attack</td>
+                            <td class="py-3.5 px-4 font-bold text-adguard bg-blue-50/30 dark:bg-blue-950/20">WPS 1.0 / 2.0</td>
+                            <td class="py-3.5 px-4 text-gray-600 dark:text-gray-400"><code>reaver</code> / <code>bully</code> + <code>pixiewps</code></td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600 dark:text-emerald-400">Offline PRNG Recovery</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-gray-900 dark:text-white">WPA3 Transition Downgrade</td>
+                            <td class="py-3.5 px-4 font-bold text-adguard bg-blue-50/30 dark:bg-blue-950/20">WPA3-SAE / WPA2 Transition</td>
+                            <td class="py-3.5 px-4 text-gray-600 dark:text-gray-400">Custom TMD Auditor</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600 dark:text-emerald-400">Transition Disable Audit</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-gray-900 dark:text-white">802.11w PMF Compliance</td>
+                            <td class="py-3.5 px-4 font-bold text-adguard bg-blue-50/30 dark:bg-blue-950/20">Protected Mgmt Frames</td>
+                            <td class="py-3.5 px-4 text-gray-600 dark:text-gray-400">Custom Deauth Resistance Checker</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600 dark:text-emerald-400">Deauth Resistance Audit</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3.5 px-4 font-semibold text-gray-900 dark:text-white">WEP Multi-Attack Suite</td>
+                            <td class="py-3.5 px-4 font-bold text-adguard bg-blue-50/30 dark:bg-blue-950/20">Legacy WEP (64/128-bit)</td>
+                            <td class="py-3.5 px-4 text-gray-600 dark:text-gray-400">Chop-Chop, Fragmentation, Hirte</td>
+                            <td class="py-3.5 px-4 font-bold text-emerald-600 dark:text-emerald-400">Instant Automated Crack</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CLI Recipes & Command Options -->
+        <div class="space-y-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                <i class="fa-solid fa-terminal text-adguard"></i>
+                <span>Command-Line Usage & Quick Recipes</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- CLI Code 1 -->
+                <div class="p-4 rounded-xl bg-gray-900 text-gray-200 font-mono text-xs overflow-x-auto border border-gray-800 space-y-2">
+                    <div class="text-gray-400 text-[11px] uppercase tracking-wider font-sans font-bold flex items-center justify-between">
+                        <span>1. Interactive Menu / Suite</span>
+                        <span class="text-blue-400">Launcher</span>
+                    </div>
+                    <code class="text-green-400"># Launch NetHunter interactive menu</code>
+                    <div class="text-white select-all">sudo nethunter</div>
+                </div>
+
+                <!-- CLI Code 2 -->
+                <div class="p-4 rounded-xl bg-gray-900 text-gray-200 font-mono text-xs overflow-x-auto border border-gray-800 space-y-2">
+                    <div class="text-gray-400 text-[11px] uppercase tracking-wider font-sans font-bold flex items-center justify-between">
+                        <span>2. Automated Pillage Mode</span>
+                        <span class="text-blue-400">WPA / PMKID</span>
+                    </div>
+                    <code class="text-green-400"># Attack all targets in range automatically</code>
+                    <div class="text-white select-all">sudo nethunter --pillage --wpa --pmkid --mac</div>
+                </div>
+
+                <!-- CLI Code 3 -->
+                <div class="p-4 rounded-xl bg-gray-900 text-gray-200 font-mono text-xs overflow-x-auto border border-gray-800 space-y-2">
+                    <div class="text-gray-400 text-[11px] uppercase tracking-wider font-sans font-bold flex items-center justify-between">
+                        <span>3. Dual-Band 5 GHz Auditing</span>
+                        <span class="text-blue-400">5 GHz Band</span>
+                    </div>
+                    <code class="text-green-400"># Scan 5 GHz spectrum on specific interface</code>
+                    <div class="text-white select-all">sudo nethunter --5ghz -i wlan0mon --kill</div>
+                </div>
+
+                <!-- CLI Code 4 -->
+                <div class="p-4 rounded-xl bg-gray-900 text-gray-200 font-mono text-xs overflow-x-auto border border-gray-800 space-y-2">
+                    <div class="text-gray-400 text-[11px] uppercase tracking-wider font-sans font-bold flex items-center justify-between">
+                        <span>4. Handshake Manager & DB Update</span>
+                        <span class="text-blue-400">Integrity</span>
+                    </div>
+                    <code class="text-green-400"># Verify captured handshakes and update IEEE OUI DB</code>
+                    <div class="text-white select-all">sudo nethunter --check ./hs/ --update-db</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Installation Methods -->
+        <div class="space-y-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+                <i class="fa-solid fa-cube text-adguard"></i>
+                <span>Installation & Deployment Guide</span>
+            </h2>
+
+            <div class="space-y-4">
+                <!-- Method 1 -->
+                <div class="p-5 rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50/70 dark:bg-gray-800/50 space-y-3">
+                    <div class="flex items-center gap-2 text-adguard font-bold text-sm">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Method 1: Global Terminal Launcher (Recommended)</span>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Installs `nethunter` globally into your system binary path so you can run it from any directory:
+                    </p>
+                    <div class="p-3.5 rounded-xl bg-gray-900 text-gray-200 font-mono text-xs overflow-x-auto space-y-1">
+                        <div class="text-emerald-400">git clone https://github.com/hamzabellouch/nethunter.git</div>
+                        <div class="text-white">cd nethunter && sudo pip3 install -r requirements.txt</div>
+                        <div class="text-white">sudo ./install.sh</div>
+                        <div class="text-emerald-400">sudo nethunter</div>
+                    </div>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="p-5 rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50/70 dark:bg-gray-800/50 space-y-3">
+                    <div class="flex items-center gap-2 text-gray-900 dark:text-white font-bold text-sm">
+                        <i class="fa-brands fa-docker"></i>
+                        <span>Method 2: Containerized Docker Deployment</span>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                        Run inside an isolated Docker container with all penetration testing utilities pre-configured:
+                    </p>
+                    <div class="p-3.5 rounded-xl bg-gray-900 text-gray-200 font-mono text-xs overflow-x-auto space-y-1">
+                        <div class="text-white">docker build -t nethunter .</div>
+                        <div class="text-emerald-400">docker run --rm -it --net=host --privileged nethunter</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Action Box -->
         <div class="p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-3xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
             <div class="space-y-1 text-center sm:text-left rtl:sm:text-right">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ready to get started with NetHunter Wireless Auditor?</h3>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ready to audit wireless networks?</h3>
                 <p class="text-sm text-gray-600 dark:text-gray-400">Explore the open-source repository or download the latest release.</p>
             </div>
             <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
@@ -179,7 +400,7 @@
                 </a>
                 <a href="https://github.com/hamzabellouch/nethunter" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
                     <i class="fa-brands fa-github text-lg"></i>
-                    <span>GitHub</span>
+                    <span>GitHub Repository</span>
                 </a>
             </div>
         </div>
