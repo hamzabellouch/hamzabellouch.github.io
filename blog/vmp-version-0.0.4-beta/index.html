@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VMP version 0.0.4-beta | Hamza Bellouch</title>
+    
+    <!-- Tailwind & Fonts -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        adguard: '#2563eb',
+                        adguardDark: '#1d4ed8',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation -->
+    <nav class="border-b border-gray-100 dark:border-gray-800 transition-colors duration-300 relative z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
+                <a href="/blog/" class="text-adguard font-bold transition-colors" data-i18n="navBlog">News</a>
+                <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
+                <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
+                <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
+            </div>
+            
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun dark:hidden block"></i>
+                </button>
+
+                <!-- Language Dropdown -->
+                <div class="relative group z-50">
+                    <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-semibold py-2 px-3 sm:px-4 rounded-full transition-colors flex items-center gap-2">
+                        <span id="currentLangText">EN </span> <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </button>
+                    <div id="langDropdownMenu" class="absolute right-0 mt-1 w-44 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <a href="javascript:void(0)" onclick="setLanguage('ar')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-t-xl transition-colors">العربية (AR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('en')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">English (EN)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('fr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Français (FR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('es')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Español (ES)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('de')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Deutsch (DE)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('tr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Türkçe (TR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ru')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Русский (RU)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('zh')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">中文 (ZH)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ja')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">日本語 (JA)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ko')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-b-xl transition-colors">한국어 (KO)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
+                <span data-i18n="navProducts">Projects</span>
+            </a>
+            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
+                <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
+                <span data-i18n="navBlog">News</span>
+            </a>
+            <a href="/research/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
+                <span data-i18n="navResearch">Research</span>
+            </a>
+            <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
+                <span data-i18n="navSupport">Support</span>
+            </a>
+            <a href="/partners/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-handshake w-5 text-center text-adguard"></i>
+                <span data-i18n="navPartners">Partner & Sponsors</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Blog Article Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+        <!-- Back Button -->
+        <a href="/blog/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span data-i18n="backToBlog">Back to News</span>
+        </a>
+
+        <!-- Article Header -->
+        <div class="space-y-4 mb-8">
+            <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium" data-i18n="blog5Meta">
+                October 4, 2026 · VMP · New version · Release notes
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="blog5Title">
+                VMP v0.0.4-beta: Modern C++23 Engine, Seamless Title Bar, Sonic DSP & Ultra-Fast Playback
+            </h1>
+            <div class="flex items-center gap-3 pt-2">
+                <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-10 h-10 rounded-full object-cover border border-gray-200 dark:border-gray-700">
+                <div>
+                    <div class="font-bold text-sm text-gray-900 dark:text-white" data-i18n="blog5Author">Hamza Bellouch</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400" data-i18n="authorRole5">CEO & Founder of tknoglobal</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="rounded-3xl overflow-hidden mb-10 shadow-lg bg-gray-100 dark:bg-gray-800 aspect-[16/9]">
+            <img src="/assets/vmp.jpg" alt="VMP version 0.0.4-beta" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
+            <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed" data-i18n="blog5Intro">
+                We are proud to unveil VMP v0.0.4-beta — a massive milestone for our native Linux video player and benchmarking engine. This release modernizes the entire stack to C++23, integrates the menu bar directly into the title bar, introduces Sonic DSP pitch preservation, integrates Linux MPRIS2 desktop controls, and cuts binary footprint from 412MB to under 10MB.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog5Subhead1">
+                C++23 Modernization, Static Core & Modular Architecture
+            </h2>
+            <p data-i18n="blog5Body1">
+                Under the hood, VMP v0.0.4-beta transitions the entire codebase to the modern C++23 standard. We have decoupled and modularized the playback pipeline into a standalone static core library shared seamlessly across both the OpenGL desktop application and the headless CLI benchmarking suite. The project now also features full unit and integration test coverage managed via CTest and validated automatically through GitHub Actions CI.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog5Subhead2">
+                Comprehensive Changelog (31 Updates)
+            </h2>
+            <ul class="space-y-3 list-none pl-0">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat1">Integrated menu bar seamlessly into the title bar.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat2">Single-click instant playback for gallery video cards.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat3">Single-click response for the folder selection button.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat4">Restored click event handling across all menus and UI elements.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat5">Optically centered play triangle icon inside the hover circle.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat6">Removed hover border glow from cards, folder button, and scrollbar.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat7">Conditional back button shown only when media opens from gallery.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat8">Symmetrical vertical text centering across all dropdown menu items.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat9">Interactive About dialog highlighting project details and GitHub link.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat10">Smooth volume keyboard controls with dynamic OSD feedback.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat11">Automatic discovery of system video libraries across Kali Linux.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat12">Upgraded compilation standard across all targets to modern C++23.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat13">Modularized playback architecture into a standalone static core library.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat14">Added hardware acceleration auto-detection for VA-API in CMake.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat15">Integrated Sonic DSP algorithm for pitch-preserved variable speed audio playback.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat16">Added native Linux desktop MPRIS media key integration via D-Bus.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat17">Introduced unit and integration test suite verified through CTest.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat18">Established automated GitHub Actions CI pipeline for Linux builds and tests.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat19">Engineered real-time GLSL post-processing pipeline with HDR tone mapping and CAS sharpening.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat20">Integrated FriBidi and FreeType for bidirectional subtitle rendering.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat21">Implemented deep dynamic frame ring buffer ensuring zero-drop video playback.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat22">Added session resume manager to track and restore playback positions.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat23">Separated headless CLI benchmarking suite from the OpenGL desktop player.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat24">Natural human voice pitch preservation during fast playback using the Sonic algorithm.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat25">Unified modular core architecture sharing common audio and video logic across CLI and desktop.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat26">Persistent configuration management saving volume playback speed and user settings.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat27">Linux MPRIS2 media key integration for keyboard shortcuts and system desktop controls.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat28">Direct network streaming support for online HTTP HTTPS RTSP and RTMP video links.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat29">Multi-backend native file dialog selector supporting Zenity KDialog and Qarma.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat30">Hardware-accelerated video decoding with VA-API NVDEC and AVX2 multi-threading.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog5Feat31">Optimized ultra-lightweight build structure reduced from 412MB to under 10MB.</span>
+                </li>
+            </ul>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog5Subhead3">
+                Native Linux Performance & Open-Source Availability
+            </h2>
+            <p data-i18n="blog5Body2">
+                VMP v0.0.4-beta delivers unmatched 4K/8K/16K 120+ FPS decoding, microsecond audio synchronization, and instant runtime hardware acceleration toggles. Grab the updated release or compile the new static core on Linux.
+            </p>
+
+            <!-- Actions / Feedback Box -->
+            <div class="mt-10 p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-2xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="feedbackTitle5">Ready to try VMP v0.0.4-beta?</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="feedbackDesc5">Explore the open-source C++23 repository or download pre-compiled Linux binaries directly from GitHub.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="https://github.com/hamzabellouch/vmp/releases" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-solid fa-download text-lg"></i>
+                        <span data-i18n="btnDownloadReleases">Download Releases</span>
+                    </a>
+                    <a href="https://github.com/hamzabellouch/vmp" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span data-i18n="btnGithubBeta">View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 px-4 flex flex-wrap justify-center items-center gap-3 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm" dir="ltr">
+            <span>hamzabellouch © 2017–2026</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm">
+            <span data-i18n="allRightsReserved">All Rights Reserved</span>
+        </div>
+        <a href="/privacy/" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-adguard dark:hover:border-adguard text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-adguard dark:hover:text-adguard shadow-sm transition-all duration-300">
+            <span data-i18n="privacyPolicy">Privacy Policy</span>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/translations.js"></script>
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
