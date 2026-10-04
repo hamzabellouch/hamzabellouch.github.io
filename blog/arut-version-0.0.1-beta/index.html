@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARUT Windows Toolkit | Hamza Bellouch</title>
+    <title>ARUT version 0.0.1-beta | Hamza Bellouch</title>
     
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
@@ -48,8 +48,8 @@
             </div>
             
             <div class="hidden md:flex gap-6 text-sm font-semibold text-gray-600 dark:text-gray-400">
-                <a href="/projects/" class="text-adguard font-bold transition-colors" data-i18n="navProducts">Projects</a>
-                <a href="/blog/" class="hover:text-adguard transition-colors" data-i18n="navBlog">News</a>
+                <a href="/projects/" class="hover:text-adguard transition-colors" data-i18n="navProducts">Projects</a>
+                <a href="/blog/" class="text-adguard font-bold transition-colors" data-i18n="navBlog">News</a>
                 <a href="/research/" class="hover:text-adguard transition-colors" data-i18n="navResearch">Research</a>
                 <a href="/support/" class="hover:text-adguard transition-colors" data-i18n="navSupport">Support</a>
                 <a href="/partners/" class="hover:text-adguard transition-colors" data-i18n="navPartners">Partner & Sponsors</a>
@@ -84,11 +84,11 @@
 
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
-            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
                 <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
                 <span data-i18n="navProducts">Projects</span>
             </a>
-            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
                 <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
                 <span data-i18n="navBlog">News</span>
             </a>
@@ -107,89 +107,112 @@
         </div>
     </nav>
 
-    <!-- Main Project Detail Content -->
+    <!-- Main Blog Article Content -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
-        <!-- Back Link -->
-        <a href="/projects/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+        <!-- Back Button -->
+        <a href="/blog/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
             <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
-            <span data-i18n="navProducts">Back to Projects</span>
+            <span data-i18n="backToBlog">Back to News</span>
         </a>
 
-        <!-- Project Header -->
-        <div class="space-y-4 mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
-            <div class="flex flex-wrap items-center gap-3">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 text-adguard text-xs font-bold">
-                    <i class="fa-brands fa-android text-green-500"></i>
-                    <i class="fa-brands fa-windows text-blue-500"></i>
-                    <i class="fa-brands fa-linux text-yellow-500"></i>
-                    <i class="fa-brands fa-apple text-gray-800 dark:text-gray-300"></i>
-                    <span>Cross-Platform</span>
-                </div>
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs font-semibold">
-                    <span>Rootless · Reverse Tethering · Rust & Java Relays</span>
+        <!-- Article Header -->
+        <div class="space-y-4 mb-8">
+            <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium" data-i18n="blog4Meta">
+                October 4, 2026 · ARUT · Initial Release · Reverse Tethering
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="blog4Title">
+                ARUT v0.0.1-beta: Seamless, Rootless Android Reverse Tethering over USB
+            </h1>
+            <div class="flex items-center gap-3 pt-2">
+                <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-10 h-10 rounded-full object-cover border border-gray-200 dark:border-gray-700">
+                <div>
+                    <div class="font-bold text-sm text-gray-900 dark:text-white" data-i18n="blog4Author">Hamza Bellouch</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400" data-i18n="authorRole4">CEO & Founder of tknoglobal</div>
                 </div>
             </div>
-            
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                ARUT - Rootless Reverse Tethering over USB
-            </h1>
-            
-            <p class="text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed pt-2" data-i18n="descArut">
-                ARUT is a seamless, rootless Android reverse tethering suite over USB, allowing Android devices to share your PC's internet with ultra-fast Rust and Java relay servers.
-            </p>
         </div>
 
-        <!-- Key Features -->
-        <div class="space-y-6 mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span>Key Capabilities & Features</span>
+        <!-- Hero Image -->
+        <div class="rounded-3xl overflow-hidden mb-10 shadow-lg bg-gray-100 dark:bg-gray-800 aspect-[16/9]">
+            <img src="/assets/arut-v0.0.1-beta.png" alt="ARUT version 0.0.1-beta" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
+            <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed" data-i18n="blog4Intro">
+                We are excited to announce the initial release of ARUT (v0.0.1-beta) — a high-performance, lightweight, and completely root-free reverse tethering tool that lets your Android devices seamlessly access your PC's internet connection over USB.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog4Subhead1">
+                High Speed, Zero Root, and Dual-Engine Architecture
             </h2>
-            <ul class="space-y-3.5 list-none pl-0">
+            <p data-i18n="blog4Body1">
+                ARUT enables instant internet sharing from your computer to Android devices using native ADB port forwarding and on-device VPN routing. Whether you are developing apps, working in areas with unstable Wi-Fi, or looking for ultra-low latency and maximum transfer rates, ARUT provides a seamless and secure bridge without modifying or rooting your phone or computer.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog4Subhead2">
+                Key Highlights & New Capabilities
+            </h2>
+            <ul class="space-y-3 list-none pl-0">
                 <li class="flex items-start gap-3">
                     <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed"><strong>100% Root-Free:</strong> Operates entirely without root permissions on Android or the host PC.</span>
+                    <span data-i18n="blog4Feat1">Zero Root Required: Operates 100% without root permissions on both the Android device and host PC.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed"><strong>Dual Relay Architecture:</strong> Ultra-low memory Native Rust server (~5MB RAM) + Universal Java 17+ NIO server.</span>
+                    <span data-i18n="blog4Feat2">Dual High-Performance Relays: Native compiled Rust server (~5MB RAM & minimal CPU) plus pure Java 17+ NIO server for universal portability.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed"><strong>Full Protocol Support:</strong> Complete transparent relaying of both TCP and UDP packets over IPv4.</span>
+                    <span data-i18n="blog4Feat3">Full Protocol Relaying: Robust routing and forwarding of both TCP and UDP packets over IPv4.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed"><strong>1-Click Launchers:</strong> Pre-packaged start scripts with automated ADB validation and APK deployment.</span>
+                    <span data-i18n="blog4Feat4">1-Click Launchers: Pre-configured start scripts (arut-run.cmd / arut-run) with automatic ADB validation and APK deployment.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed"><strong>Bundled ADB Tools:</strong> Standalone platform-tools included for Windows, Linux, and macOS.</span>
+                    <span data-i18n="blog4Feat5">Bundled Standalone ADB: Platform-tools included out of the box for Windows, Linux, and macOS.</span>
                 </li>
                 <li class="flex items-start gap-3">
                     <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed"><strong>Multi-Device Automation:</strong> Automated device detection and simultaneous multi-device tethering daemon.</span>
+                    <span data-i18n="blog4Feat6">Simultaneous Multi-Device Support: Manage and tether multiple connected Android phones with automatic tunnel orchestration.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog4Feat7">Intuitive CLI & Daemon Mode: Flexible command line interface (run, autorun, relay, install, start, stop, tunnel).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog4Feat8">100% Open-Source & Private: Zero telemetry, zero external tracking, direct on-device and local host packet transmission.</span>
                 </li>
             </ul>
-        </div>
 
-        <!-- Action Box -->
-        <div class="p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-3xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
-            <div class="space-y-1 text-center sm:text-left rtl:sm:text-right">
-                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ready to get started with ARUT?</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Explore the open-source repository or download the latest release.</p>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog4Subhead3">
+                Ready for Testing & Multi-Platform Deployment
+            </h2>
+            <p data-i18n="blog4Body2">
+                ARUT v0.0.1-beta is distributed as pre-packaged standalone bundles for Windows (64-bit), Linux (x86_64), macOS, and universal Java packages. Grab your copy on GitHub, test your connection, and share your feedback or bug reports with our community.
+            </p>
+
+            <!-- Actions / Feedback Box -->
+            <div class="mt-10 p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-2xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="feedbackTitle4">Ready to test ARUT v0.0.1-beta?</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="feedbackDesc4">Download pre-built distribution packages for Windows, Linux, and macOS directly from GitHub.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="https://github.com/hamzabellouch/arut/releases" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-solid fa-download text-lg"></i>
+                        <span data-i18n="btnDownloadReleases">Download Releases</span>
+                    </a>
+                    <a href="https://github.com/hamzabellouch/arut" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span data-i18n="btnGithubBeta">View on GitHub</span>
+                    </a>
+                </div>
             </div>
-            <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
-                <a href="https://github.com/hamzabellouch/arut/releases" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
-                    <i class="fa-solid fa-download text-base"></i>
-                    <span>Download / Releases</span>
-                </a>
-                <a href="https://github.com/hamzabellouch/arut" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
-                    <i class="fa-brands fa-github text-lg"></i>
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </div>
+        </article>
     </main>
 
     <!-- Footer -->
