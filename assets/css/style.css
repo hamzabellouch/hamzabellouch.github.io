@@ -94,7 +94,7 @@ footer, footer span, footer a {
 
 /* 2. Google Sans Text: Dedicated font for smaller text, descriptions, and details (with Roboto fallback) */
 p, li, dd, dt, td, th, small, blockquote, figcaption,
-.text-xs, .text-sm, .text-base,
+:where(.text-xs, .text-sm, .text-base):not(i):not([class*="fa-"]),
 [data-i18n*="Desc"], [data-i18n*="Body"] {
     font-family: var(--font-text);
 }
@@ -107,7 +107,7 @@ footer span, footer a {
 }
 
 /* 3. Roboto Mono: Dedicated font for code blocks and inline code across all pages */
-code, pre, kbd, samp, .font-mono, .font-mono * {
+code, pre, kbd, samp, .font-mono, .font-mono *:not(i):not([class*="fa-"]) {
     font-family: var(--font-mono) !important;
 }
 
@@ -118,6 +118,22 @@ html[lang="ar"] nav, html[lang="ar"] nav a, html[lang="ar"] nav span,
 html[lang="ar"] button, html[lang="ar"] input, html[lang="ar"] select, html[lang="ar"] textarea,
 html[lang="ar"] p, html[lang="ar"] li, html[lang="ar"] span, html[lang="ar"] a, html[lang="ar"] div {
     font-family: 'Noto Sans Arabic', 'Google Sans', 'Google Sans Text', 'Roboto', sans-serif;
+}
+
+/* Preserve Font Awesome Icon Fonts */
+.fa, .fas, .fa-solid {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900;
+}
+
+.far, .fa-regular {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 400;
+}
+
+.fab, .fa-brands {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400;
 }
 
 /* Custom Scrollbar */

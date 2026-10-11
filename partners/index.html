@@ -26,7 +26,7 @@
         }
     </script>
     <script>
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
@@ -108,15 +108,10 @@
     </nav>
 
     <!-- Main Partners Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-20 flex justify-center items-center flex-1">
-        <div class="w-full max-w-xl bg-blue-50 dark:bg-gray-800/60 p-10 md:p-14 rounded-3xl border border-blue-100 dark:border-gray-700 text-center shadow-lg transition-all space-y-6">
-            <div class="w-20 h-20 rounded-full bg-blue-100 dark:bg-gray-700 flex items-center justify-center mx-auto text-adguard shadow-inner">
-                <i class="fa-solid fa-handshake text-4xl"></i>
-            </div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white" data-i18n="whyPartner">
-                Partner & Sponsors coming soon
-            </h1>
-        </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-20 flex justify-center items-center flex-1 text-center">
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white" data-i18n="whyPartner">
+            Partner & Sponsors coming soon
+        </h1>
     </main>
 
     <!-- Footer -->
