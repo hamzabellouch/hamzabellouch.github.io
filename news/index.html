@@ -49,7 +49,7 @@
             
             <div class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-gray-100/80 dark:bg-gray-800/80 border border-gray-200/80 dark:border-gray-700/80 shadow-sm text-sm font-semibold text-gray-600 dark:text-gray-400">
                 <a href="/projects/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navProducts">Projects</a>
-                <a href="/blog/" class="px-3.5 py-1.5 rounded-full bg-white dark:bg-gray-900 text-adguard font-bold shadow-sm transition-all duration-200" data-i18n="navBlog">News</a>
+                <a href="/news/" class="px-3.5 py-1.5 rounded-full bg-white dark:bg-gray-900 text-adguard font-bold shadow-sm transition-all duration-200" data-i18n="navBlog">News</a>
                 <a href="/research/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navResearch">Research</a>
                 <a href="/support/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navSupport">Support</a>
                 <a href="/partners/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navPartners">Partner & Sponsors</a>
@@ -88,7 +88,7 @@
                 <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
                 <span data-i18n="navProducts">Projects</span>
             </a>
-            <a href="/blog/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
+            <a href="/news/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
                 <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
                 <span data-i18n="navBlog">News</span>
             </a>
@@ -124,17 +124,17 @@
                     <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white shrink-0" data-i18n="blogDateOct4">October 4, 2026</h2>
                     <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Article 5: VMP -->
-                    <article class="flex flex-col group">
-                        <a href="/blog/vmp-version-0.0.4-beta/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <article class="flex flex-col group p-5 sm:p-6 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300">
+                        <a href="/news/vmp-version-0.0.4-beta/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
                             <img src="/assets/vmp.jpg" alt="VMP version 0.0.4-beta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </a>
                         <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog5Meta">
                             October 4, 2026 · VMP · New version · Release notes
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
-                            <a href="/blog/vmp-version-0.0.4-beta/" class="flex items-center justify-between gap-3">
+                            <a href="/news/vmp-version-0.0.4-beta/" class="flex items-center justify-between gap-3">
                                 <span data-i18n="blog5Title">VMP v0.0.4-beta</span>
                                 <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
                             </a>
@@ -142,22 +142,22 @@
                         <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog5Desc">
                             Announcing VMP v0.0.4-beta! Upgraded to C++23 with an integrated title bar menu, Sonic DSP pitch-preserved speed control, hardware VA-API/NVDEC decoding, Linux MPRIS2 media keys, and an ultra-lightweight sub-10MB footprint.
                         </p>
-                        <div class="flex items-center gap-2.5 mt-auto pt-2">
+                        <div class="inline-flex items-center gap-2.5 mt-auto pl-1.5 pr-3.5 py-1 rtl:pl-3.5 rtl:pr-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700 shadow-sm w-fit">
                             <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
                             <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog5Author">Hamza Bellouch</span>
                         </div>
                     </article>
 
                     <!-- Article 4: ARUT -->
-                    <article class="flex flex-col group">
-                        <a href="/blog/arut-version-0.0.1-beta/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <article class="flex flex-col group p-5 sm:p-6 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300">
+                        <a href="/news/arut-version-0.0.1-beta/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
                             <img src="/assets/ARUT.png" alt="ARUT version 0.0.1-beta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </a>
                         <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog4Meta">
                             October 4, 2026 · ARUT · Initial Release · Reverse Tethering
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
-                            <a href="/blog/arut-version-0.0.1-beta/" class="flex items-center justify-between gap-3">
+                            <a href="/news/arut-version-0.0.1-beta/" class="flex items-center justify-between gap-3">
                                 <span data-i18n="blog4Title">ARUT v0.0.1-beta</span>
                                 <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
                             </a>
@@ -165,7 +165,7 @@
                         <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog4Desc">
                             Announcing the first beta release of ARUT! Share your computer's internet connection with Android devices instantly over USB. Featuring dual high-performance Rust and Java relays, zero root requirements, and automated tunnel setup.
                         </p>
-                        <div class="flex items-center gap-2.5 mt-auto pt-2">
+                        <div class="inline-flex items-center gap-2.5 mt-auto pl-1.5 pr-3.5 py-1 rtl:pl-3.5 rtl:pr-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700 shadow-sm w-fit">
                             <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
                             <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog4Author">Hamza Bellouch</span>
                         </div>
@@ -179,17 +179,17 @@
                     <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white shrink-0" data-i18n="blogDateOct3">October 3, 2026</h2>
                     <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Article 3: Ren Browser -->
-                    <article class="flex flex-col group">
-                        <a href="/blog/ren-browser-privacy-speed-release/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <article class="flex flex-col group p-5 sm:p-6 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300">
+                        <a href="/news/ren-browser-privacy-speed-release/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
                             <img src="/assets/ren-browser.png" alt="Ren Browser" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </a>
                         <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog3Meta">
                             October 3, 2026 · Ren Browser · Major Release · Privacy & Security
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
-                            <a href="/blog/ren-browser-privacy-speed-release/" class="flex items-center justify-between gap-3">
+                            <a href="/news/ren-browser-privacy-speed-release/" class="flex items-center justify-between gap-3">
                                 <span data-i18n="blog3Title">Ren Browser v0.0.1-beta</span>
                                 <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
                             </a>
@@ -197,7 +197,7 @@
                         <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog3Desc">
                             Experience unprecedented privacy and speed with Ren Browser. Built-in ad & tracker blocking, Tor routing, Cloudflare WARP with DoH 1.1.1.1, dynamic UI, bookmarks manager, and zero-leak protection.
                         </p>
-                        <div class="flex items-center gap-2.5 mt-auto pt-2">
+                        <div class="inline-flex items-center gap-2.5 mt-auto pl-1.5 pr-3.5 py-1 rtl:pl-3.5 rtl:pr-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700 shadow-sm w-fit">
                             <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
                             <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog3Author">Hamza Bellouch</span>
                         </div>
@@ -211,17 +211,17 @@
                     <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white shrink-0" data-i18n="blogDateOct2">October 2, 2026</h2>
                     <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Article 2: Official Website -->
-                    <article class="flex flex-col group">
-                        <a href="/blog/announcing-our-official-website-on-github-io/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <article class="flex flex-col group p-5 sm:p-6 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300">
+                        <a href="/news/announcing-our-official-website-on-github-io/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
                             <img src="/assets/website-preview.png" alt="Official Website on GitHub.io" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </a>
                         <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog2Meta">
                             October 2, 2026 · Website · New version · Release notes
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
-                            <a href="/blog/announcing-our-official-website-on-github-io/" class="flex items-center justify-between gap-3">
+                            <a href="/news/announcing-our-official-website-on-github-io/" class="flex items-center justify-between gap-3">
                                 <span data-i18n="blog2Title">Announcing our official website on GitHub.io</span>
                                 <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
                             </a>
@@ -229,22 +229,22 @@
                         <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog2Desc">
                             We are thrilled to launch our official website on GitHub Pages — a unified hub showcasing our open-source tools, detailed documentation, and direct updates.
                         </p>
-                        <div class="flex items-center gap-2.5 mt-auto pt-2">
+                        <div class="inline-flex items-center gap-2.5 mt-auto pl-1.5 pr-3.5 py-1 rtl:pl-3.5 rtl:pr-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700 shadow-sm w-fit">
                             <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
                             <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog2Author">Hamza Bellouch</span>
                         </div>
                     </article>
 
                     <!-- Article 1: Links -->
-                    <article class="flex flex-col group">
-                        <a href="/blog/links-version-0.0.4-beta/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
+                    <article class="flex flex-col group p-5 sm:p-6 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.10)] transition-all duration-300">
+                        <a href="/news/links-version-0.0.4-beta/" class="block overflow-hidden rounded-2xl mb-4 bg-gray-100 dark:bg-gray-800 aspect-[16/10] shadow-sm">
                             <img src="/assets/Links.jpg" alt="Links version 0.0.4-beta" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </a>
                         <div class="text-xs text-gray-500 dark:text-gray-400 font-medium mb-3 leading-relaxed" data-i18n="blog1Meta">
                             October 2, 2026 · Links · New version · Release notes
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-adguard transition-colors">
-                            <a href="/blog/links-version-0.0.4-beta/" class="flex items-center justify-between gap-3">
+                            <a href="/news/links-version-0.0.4-beta/" class="flex items-center justify-between gap-3">
                                 <span data-i18n="blog1Title">Links version 0.0.4-beta</span>
                                 <i class="fa-solid fa-arrow-right text-adguard text-lg rtl:rotate-180 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 transition-transform shrink-0"></i>
                             </a>
@@ -252,7 +252,7 @@
                         <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6" data-i18n="blog1Desc">
                             This update brings a redesigned interface that preserves the layout you know. It marks a shift to active development with more features coming soon. We welcome your testing and feedback.
                         </p>
-                        <div class="flex items-center gap-2.5 mt-auto pt-2">
+                        <div class="inline-flex items-center gap-2.5 mt-auto pl-1.5 pr-3.5 py-1 rtl:pl-3.5 rtl:pr-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800 border border-gray-200/80 dark:border-gray-700 shadow-sm w-fit">
                             <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-6 h-6 rounded-full object-cover">
                             <span class="text-xs font-semibold text-gray-700 dark:text-gray-300" data-i18n="blog1Author">Hamza Bellouch</span>
                         </div>
