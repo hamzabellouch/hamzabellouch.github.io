@@ -226,8 +226,163 @@ function copyToClipboard(text) {
     });
 }
 
-// 6. Initialize on DOM Load
+// 6. Project Card Slime Morph Animation (Projects Page)
+function initProjectCardSlimeMorph() {
+    if (!window.location.pathname.includes('/projects')) return;
+    const grid = document.querySelector('main .grid');
+    if (!grid) return;
+
+    grid.classList.add('items-start');
+    const cards = grid.querySelectorAll(':scope > div.group');
+
+    cards.forEach(card => {
+        const textCol = card.querySelector(':scope > div');
+        const mediaLink = card.querySelector(':scope > a');
+        if (!textCol || !mediaLink || mediaLink.querySelector('.project-media-box')) return;
+
+        card.classList.add('project-card');
+        textCol.classList.add('project-text');
+
+        const bgClasses = Array.from(mediaLink.classList).filter(c =>
+            c.startsWith('bg-') || c.startsWith('dark:bg-') || c.startsWith('from-') || c.startsWith('via-') || c.startsWith('to-') ||
+            c === 'flex' || c === 'flex-col' || c === 'items-center' || c === 'justify-center' || c === 'p-4' || c === 'shadow-sm' || c === 'relative'
+        );
+
+        mediaLink.classList.remove('overflow-hidden', ...bgClasses);
+        mediaLink.classList.add('project-media');
+
+        const mediaBox = document.createElement('div');
+        mediaBox.className = ['project-media-box', ...bgClasses].join(' ');
+
+        while (mediaLink.firstChild) {
+            const child = mediaLink.firstChild;
+            if (child.nodeType === 1) {
+                child.classList.remove('group-hover:scale-105', 'group-hover:scale-110');
+            }
+            mediaBox.appendChild(child);
+        }
+        mediaLink.appendChild(mediaBox);
+
+        mediaLink.addEventListener('mouseenter', () => animateCardMedia(card, true));
+        card.addEventListener('mouseleave', () => animateCardMedia(card, false));
+    });
+}
+
+function animateCardMedia(card, expand) {
+    if (window.innerWidth < 640) return;
+    const isExpanded = card.classList.contains('is-media-expanded');
+    if (isExpanded === expand) return;
+
+    const mediaSlot = card.querySelector('.project-media');
+    const mediaBox = card.querySelector('.project-media-box');
+    const textCol = card.querySelector('.project-text');
+    if (!mediaSlot || !mediaBox || !textCol) return;
+
+    const firstBoxRect = mediaBox.getBoundingClientRect();
+    const firstCardHeight = card.getBoundingClientRect().height;
+
+    mediaBox.getAnimations().forEach(a => a.cancel());
+    textCol.getAnimations().forEach(a => a.cancel());
+    card.getAnimations().forEach(a => a.cancel());
+    card.style.height = '';
+
+    card.classList.toggle('is-media-expanded', expand);
+    const lastSlotRect = mediaSlot.getBoundingClientRect();
+    const lastCardHeight = card.getBoundingClientRect().height;
+
+    const dx = firstBoxRect.left - lastSlotRect.left;
+    const dy = firstBoxRect.top - lastSlotRect.top;
+    const w0 = firstBoxRect.width;
+    const h0 = firstBoxRect.height;
+    const w1 = lastSlotRect.width;
+    const h1 = lastSlotRect.height;
+
+    card.animate([
+        { height: `${firstCardHeight}px` },
+        { height: `${lastCardHeight}px` }
+    ], {
+        duration: 560,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+    });
+
+    textCol.animate([
+        { transform: `translate3d(0, ${expand ? '6px' : '-6px'}, 0)`, opacity: 0.92 },
+        { transform: 'translate3d(0, 0, 0)', opacity: 1 }
+    ], {
+        duration: 480,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+    });
+
+    const keyframes = expand ? [
+        {
+            offset: 0,
+            width: `${w0}px`,
+            height: `${h0}px`,
+            transform: `translate3d(${dx}px, ${dy}px, 0) scale(1, 1) skewX(0deg)`,
+            borderRadius: '24px'
+        },
+        {
+            offset: 0.42,
+            width: `${w0 + (w1 - w0) * 0.32}px`,
+            height: `${h0 + (h1 - h0) * 0.65}px`,
+            transform: `translate3d(${dx * 0.58}px, ${dy * 0.16}px, 0) scale(0.95, 1.07) skewX(-4deg)`,
+            borderRadius: '36px 20px 38px 22px'
+        },
+        {
+            offset: 0.78,
+            width: `${w1}px`,
+            height: `${h1}px`,
+            transform: `translate3d(${dx * -0.02}px, 3px, 0) scale(1.015, 0.975) skewX(1.2deg)`,
+            borderRadius: '20px 30px 22px 28px'
+        },
+        {
+            offset: 1,
+            width: `${w1}px`,
+            height: `${h1}px`,
+            transform: 'translate3d(0, 0, 0) scale(1, 1) skewX(0deg)',
+            borderRadius: '24px'
+        }
+    ] : [
+        {
+            offset: 0,
+            width: `${w0}px`,
+            height: `${h0}px`,
+            transform: `translate3d(${dx}px, ${dy}px, 0) scale(1, 1) skewX(0deg)`,
+            borderRadius: '24px'
+        },
+        {
+            offset: 0.45,
+            width: `${w0 + (w1 - w0) * 0.65}px`,
+            height: `${h0 + (h1 - h0) * 0.45}px`,
+            transform: `translate3d(${dx * 0.25}px, ${dy * 0.42}px, 0) scale(1.04, 0.95) skewX(3.5deg)`,
+            borderRadius: '22px 36px 20px 34px'
+        },
+        {
+            offset: 0.8,
+            width: `${w1}px`,
+            height: `${h1}px`,
+            transform: 'translate3d(0, -2px, 0) scale(0.985, 1.02) skewX(-0.8deg)',
+            borderRadius: '28px 22px 26px 22px'
+        },
+        {
+            offset: 1,
+            width: `${w1}px`,
+            height: `${h1}px`,
+            transform: 'translate3d(0, 0, 0) scale(1, 1) skewX(0deg)',
+            borderRadius: '24px'
+        }
+    ];
+
+    mediaBox.animate(keyframes, {
+        duration: 580,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+    });
+}
+
+// 7. Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', () => {
     initBlogShareButton();
+    initProjectCardSlimeMorph();
     setLanguage(currentLang);
 });
+
