@@ -36,7 +36,7 @@
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
 
     <!-- Navigation -->
-    <nav class="border-b border-gray-100 dark:border-gray-800 transition-colors duration-300 relative z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur">
+    <nav class="sticky top-0 z-50 transition-colors duration-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
             <div class="flex items-center gap-2 sm:gap-3">
                 <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu">
@@ -109,32 +109,12 @@
 
     <!-- 404 Main Content -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center flex flex-col items-center justify-center flex-1">
-        <div class="relative mb-8">
-            <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-blue-50 dark:bg-gray-800/80 border border-blue-100 dark:border-gray-700 flex items-center justify-center mx-auto shadow-inner">
-                <i class="fa-solid fa-compass-slash text-5xl md:text-6xl text-adguard animate-pulse"></i>
-            </div>
-            <span class="absolute -bottom-2 right-1/2 translate-x-1/2 px-4 py-1 bg-adguard text-white font-extrabold text-xs tracking-wider rounded-full shadow-md uppercase">404</span>
-        </div>
-        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4" data-i18n="error404Title">
-            404 - Page Not Found
+        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+            <span id="counter404" class="tabular-nums">000</span> - <span data-i18n="error404Title">Page Not Found</span>
         </h1>
-        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-10" data-i18n="error404Desc">
+        <p class="max-w-xl text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed" data-i18n="error404Desc">
             Oops! The page you are looking for doesn't exist, has been removed, or the link is incorrect.
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3.5 px-8 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow-md hover:-translate-y-0.5">
-                <i class="fa-solid fa-house text-lg"></i>
-                <span data-i18n="error404BtnHome">Back to Home</span>
-            </a>
-            <a href="/projects/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span data-i18n="error404BtnProjects">Explore Projects</span>
-            </a>
-            <a href="/blog/" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 flex items-center gap-2 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow hover:-translate-y-0.5">
-                <i class="fa-solid fa-newspaper text-adguard"></i>
-                <span data-i18n="error404BtnBlog">Read News</span>
-            </a>
-        </div>
     </main>
 
     <!-- Footer -->
@@ -153,5 +133,27 @@
     <!-- Scripts -->
     <script src="/assets/js/translations.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script>
+        (function () {
+            const counter = document.getElementById('counter404');
+            if (!counter) return;
+            const target = 404;
+            const duration = 1400;
+            const startTime = performance.now();
+
+            function updateCounter(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * target);
+                counter.textContent = String(current).padStart(3, '0');
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                }
+            }
+
+            requestAnimationFrame(updateCounter);
+        })();
+    </script>
 </body>
 </html>

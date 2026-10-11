@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Explicit Google Sans / Product Sans Font Declarations */
+/* Explicit Google Sans Font Declarations (Headings, Menus, Buttons, UI) */
 @font-face {
     font-family: 'Google Sans';
     font-style: normal;
@@ -49,34 +49,75 @@
     src: local('Google Sans Black'), local('Product Sans Black'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Black.woff') format('woff');
 }
 
+/* Explicit Google Sans Text Font Declarations (Smaller Text, Descriptions, Details) */
 @font-face {
-    font-family: 'Product Sans';
+    font-family: 'Google Sans Text';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: local('Product Sans'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Regular.woff') format('woff');
+    src: local('Google Sans Text Regular'), local('Google Sans Text'), local('Google Sans Regular'), local('Product Sans'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Regular.woff') format('woff');
 }
 
 @font-face {
-    font-family: 'Product Sans';
+    font-family: 'Google Sans Text';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Google Sans Text Medium'), local('Google Sans Medium'), local('Product Sans Medium'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Google Sans Text';
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: local('Product Sans Bold'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Bold.woff') format('woff');
+    src: local('Google Sans Text Bold'), local('Google Sans Bold'), local('Product Sans Bold'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Bold.woff') format('woff');
 }
 
 :root {
     --primary: #2563eb;
     --primary-dark: #1d4ed8;
+    --font-display: 'Google Sans', 'Roboto', system-ui, -apple-system, sans-serif;
+    --font-text: 'Google Sans Text', 'Google Sans', 'Roboto', system-ui, -apple-system, sans-serif;
+    --font-fallback: 'Roboto', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* Universal Typography & Tailwind font-sans Override across all pages */
-html, body, .font-sans, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, a, div {
-    font-family: 'Google Sans', 'Product Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+/* 1. Google Sans: Primary font for headings, menus, buttons, and UI elements (with Roboto fallback) */
+html, body, .font-sans,
+h1, h2, h3, h4, h5, h6,
+nav, nav a, nav span,
+button, [role="button"], input, select, textarea, label,
+footer, footer span, footer a {
+    font-family: var(--font-display);
 }
 
-html[lang="ar"], html[lang="ar"] body, html[lang="ar"] .font-sans, html[lang="ar"] button, html[lang="ar"] input, html[lang="ar"] select, html[lang="ar"] textarea, html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6, html[lang="ar"] p, html[lang="ar"] span, html[lang="ar"] a, html[lang="ar"] div {
-    font-family: 'Noto Sans Arabic', 'Google Sans', 'Product Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+/* 2. Google Sans Text: Dedicated font for smaller text, descriptions, and details (with Roboto fallback) */
+p, li, dd, dt, td, th, small, blockquote, figcaption,
+.text-xs, .text-sm, .text-base,
+[data-i18n*="Desc"], [data-i18n*="Body"] {
+    font-family: var(--font-text);
+}
+
+/* Keep navigation links, buttons, and badges on Google Sans even when using .text-xs / .text-sm */
+nav a, nav span, nav button,
+button, button span, a.rounded-full, a.rounded-xl,
+footer span, footer a {
+    font-family: var(--font-display);
+}
+
+/* 3. Roboto Mono: Dedicated font for code blocks and inline code across all pages */
+code, pre, kbd, samp, .font-mono, .font-mono * {
+    font-family: var(--font-mono) !important;
+}
+
+/* Arabic Localization Typography */
+html[lang="ar"], html[lang="ar"] body, html[lang="ar"] .font-sans,
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6,
+html[lang="ar"] nav, html[lang="ar"] nav a, html[lang="ar"] nav span,
+html[lang="ar"] button, html[lang="ar"] input, html[lang="ar"] select, html[lang="ar"] textarea,
+html[lang="ar"] p, html[lang="ar"] li, html[lang="ar"] span, html[lang="ar"] a, html[lang="ar"] div {
+    font-family: 'Noto Sans Arabic', 'Google Sans', 'Google Sans Text', 'Roboto', sans-serif;
 }
 
 /* Custom Scrollbar */
