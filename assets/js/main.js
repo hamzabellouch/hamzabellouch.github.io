@@ -49,8 +49,11 @@ function setLanguage(lang) {
     const i18nElements = document.querySelectorAll('[data-i18n]');
     i18nElements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        const translation = translations[lang] && translations[lang][key];
+        let translation = translations[lang] && translations[lang][key];
         if (translation) {
+            if (key === 'learnMore') {
+                translation = translation.replace(/\s*(&rarr;|&larr;|→|←)\s*$/g, '');
+            }
             if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                 el.placeholder = translation;
             } else {
