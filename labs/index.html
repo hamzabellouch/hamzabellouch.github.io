@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labs | Hamza Bellouch</title>
+    
+    <!-- Tailwind & Fonts -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css?v=2">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        adguard: '#2563eb',
+                        adguardDark: '#1d4ed8',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 transition-colors duration-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-gray-100/80 dark:bg-gray-800/80 border border-gray-200/80 dark:border-gray-700/80 shadow-sm text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="/projects/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navProducts">Projects</a>
+                <a href="/labs/" class="px-3.5 py-1.5 rounded-full bg-white dark:bg-gray-900 text-adguard font-bold shadow-sm transition-all duration-200" data-i18n="navLabs">Labs</a>
+                <a href="/news/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navBlog">News</a>
+                <a href="/research/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navResearch">Research</a>
+                <a href="/support/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navSupport">Support</a>
+                <a href="/partners/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navPartners">Partner & Sponsors</a>
+            </div>
+            
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun dark:hidden block"></i>
+                </button>
+
+                <!-- Language Dropdown -->
+                <div class="relative group z-50">
+                    <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-semibold py-2 px-3 sm:px-4 rounded-full transition-colors flex items-center gap-2">
+                        <span id="currentLangText">EN </span> <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </button>
+                    <div id="langDropdownMenu" class="absolute right-0 mt-1 w-44 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <a href="javascript:void(0)" onclick="setLanguage('ar')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-t-xl transition-colors">العربية (AR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('en')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">English (EN)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('fr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Français (FR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('es')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Español (ES)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('de')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Deutsch (DE)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('tr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Türkçe (TR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ru')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Русский (RU)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('zh')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">中文 (ZH)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ja')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">日本語 (JA)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ko')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-b-xl transition-colors">한국어 (KO)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
+                <span data-i18n="navProducts">Projects</span>
+            </a>
+            <a href="/labs/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
+                <i class="fa-solid fa-vial w-5 text-center text-adguard"></i>
+                <span data-i18n="navLabs">Labs</span>
+            </a>
+            <a href="/news/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
+                <span data-i18n="navBlog">News</span>
+            </a>
+            <a href="/research/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
+                <span data-i18n="navResearch">Research</span>
+            </a>
+            <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
+                <span data-i18n="navSupport">Support</span>
+            </a>
+            <a href="/partners/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-handshake w-5 text-center text-adguard"></i>
+                <span data-i18n="navPartners">Partner & Sponsors</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Labs Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-10 md:py-14 flex-1 w-full">
+        <div class="rounded-[28px] bg-[#d3e3fd] dark:bg-gray-800/90 p-6 sm:p-10 md:p-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+                
+                <!-- Left Column: Latest updates -->
+                <div class="lg:col-span-4 pt-2">
+                    <!-- Sparkle Icon -->
+                    <div class="mb-6">
+                        <svg class="w-12 h-12 text-[#3b82f6]" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 6C20 14.8366 12.8366 22 4 22C12.8366 22 20 29.1634 20 38C20 29.1634 27.1634 22 36 22C27.1634 22 20 14.8366 20 6Z" fill="#4285F4"/>
+                            <path d="M37 4C37 8.41828 33.4183 12 29 12C33.4183 12 37 15.5817 37 20C37 15.5817 40.5817 12 45 12C40.5817 12 37 8.41828 37 4Z" fill="#4285F4"/>
+                        </svg>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white leading-tight mb-4">
+                        Latest<br>updates
+                    </h1>
+
+                    <p class="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-7 max-w-[260px]">
+                        Discover what's new across the Android ecosystem.
+                    </p>
+
+                    <a href="/labs/updates/" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-gray-900 dark:border-gray-200 text-xs sm:text-sm font-semibold text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition-colors">
+                        View all Latest updates
+                    </a>
+                </div>
+
+                <!-- Right Column: Bento Grid of Cards -->
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                    
+                    <!-- Card 1 (Full Width): Android releases -->
+                    <div class="md:col-span-2 bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+                        <div class="mb-4">
+                            <!-- Android Robot Head SVG -->
+                            <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.5 14.5L9.8 8.2C9.4 7.5 9.6 6.6 10.3 6.2C11 5.8 11.9 6 12.3 6.7L16.1 13.2C18.5 12.1 21.2 11.5 24 11.5C26.8 11.5 29.5 12.1 31.9 13.2L35.7 6.7C36.1 6 37 5.8 37.7 6.2C38.4 6.6 38.6 7.5 38.2 8.2L34.5 14.5C39.6 17.7 43 23.3 43 29.8H5C5 23.3 8.4 17.7 13.5 14.5Z" fill="#34A853"/>
+                                <circle cx="16.5" cy="22.5" r="2" fill="#1F2937"/>
+                                <circle cx="31.5" cy="22.5" r="2" fill="#1F2937"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-medium text-gray-900 dark:text-white mb-2">
+                            Android releases
+                        </h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            View the latest Android platform releases, including the current preview release.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Jetpack libraries -->
+                    <div class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+                        <div class="mb-4">
+                            <!-- Jetpack Android SVG -->
+                            <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Blue Jetpack Tanks -->
+                                <rect x="7" y="16" width="8" height="22" rx="4" fill="#4285F4"/>
+                                <rect x="33" y="16" width="8" height="22" rx="4" fill="#4285F4"/>
+                                <!-- Green Android Body & Head -->
+                                <path d="M16 14L13.5 9.5C13.2 9 13.4 8.3 13.9 8C14.4 7.7 15.1 7.9 15.4 8.4L17.9 12.9C19.7 12 21.8 11.5 24 11.5C26.2 11.5 28.3 12 30.1 12.9L32.6 8.4C32.9 7.9 33.6 7.7 34.1 8C34.6 8.3 34.8 9 34.5 9.5L32 14C35.6 16.4 38 20.4 38 25H10C10 20.4 12.4 16.4 16 14Z" fill="#34A853"/>
+                                <rect x="12" y="26" width="24" height="14" rx="5" fill="#34A853"/>
+                                <circle cx="19" cy="19.5" r="1.6" fill="#1F2937"/>
+                                <circle cx="29" cy="19.5" r="1.6" fill="#1F2937"/>
+                                <!-- Jetpack Harness -->
+                                <path d="M12 29H36" stroke="#Fbbc04" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-medium text-gray-900 dark:text-white mb-2">
+                            Jetpack libraries
+                        </h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Jetpack libraries ship separately from the Android OS to enable faster releases. See the latest library versions.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Android Studio preview -->
+                    <div class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+                        <div class="mb-4">
+                            <!-- Android Studio Preview Badge SVG -->
+                            <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="19" fill="#1F2937"/>
+                                <path d="M24 11L15 34L19 34L24 21L29 34L33 34L24 11Z" fill="#FFFFFF"/>
+                                <circle cx="24" cy="19" r="3" fill="#34A853"/>
+                                <path d="M16 27C18.5 29.5 21.1 30.5 24 30.5C26.9 30.5 29.5 29.5 32 27" stroke="#34A853" stroke-width="2.2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-medium text-gray-900 dark:text-white mb-2">
+                            Android Studio preview
+                        </h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Get early access to the latest features and enhancements in Android Studio.
+                        </p>
+                    </div>
+
+                    <!-- Card 4: Wear OS -->
+                    <div class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+                        <div class="mb-4">
+                            <!-- Wear OS Smartwatch SVG -->
+                            <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="18" y="4" width="12" height="40" rx="5" fill="#34A853"/>
+                                <circle cx="24" cy="24" r="11" fill="#4285F4" stroke="#1F2937" stroke-width="2"/>
+                                <circle cx="20.5" cy="21.5" r="1.5" fill="#FFFFFF"/>
+                                <circle cx="27.5" cy="21.5" r="1.5" fill="#FFFFFF"/>
+                                <path d="M20 26.5C21.2 28 22.5 28.5 24 28.5C25.5 28.5 26.8 28 28 26.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-medium text-gray-900 dark:text-white mb-2">
+                            Wear OS
+                        </h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Get the next version of Wear OS for testing, development, and feedback. Let us know what you think!
+                        </p>
+                    </div>
+
+                    <!-- Card 5: Privacy Sandbox on Android -->
+                    <div class="bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-all">
+                        <div class="mb-4">
+                            <!-- Privacy Sandbox Padlock SVG -->
+                            <svg class="w-11 h-11" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 20V14C16 9.58172 19.5817 6 24 6C28.4183 6 32 9.58172 32 14V20" stroke="#93C5FD" stroke-width="4" stroke-linecap="round"/>
+                                <rect x="11" y="20" width="26" height="22" rx="5" fill="#4285F4"/>
+                                <circle cx="24" cy="29" r="2.5" fill="#1F2937"/>
+                                <path d="M24 31V35" stroke="#1F2937" stroke-width="3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-medium text-gray-900 dark:text-white mb-2">
+                            Privacy Sandbox on Android
+                        </h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            Ensure user privacy and enable personalized advertising experiences on mobile apps.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 px-4 flex flex-wrap justify-center items-center gap-3 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm" dir="ltr">
+            <span>hamzabellouch © 2017–2026</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm">
+            <span data-i18n="allRightsReserved">All Rights Reserved</span>
+        </div>
+        <a href="/privacy/" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-adguard dark:hover:border-adguard text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-adguard dark:hover:text-adguard shadow-sm transition-all duration-300">
+            <span data-i18n="privacyPolicy">Privacy Policy</span>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/translations.js?v=2"></script>
+    <script src="/assets/js/main.js?v=2"></script>
+</body>
+</html>
