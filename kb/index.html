@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hamza Bellouch Knowledge Base — guides, documentation, and support for open-source projects.">
+    <title>Knowledge Base | Hamza Bellouch</title>
+
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { adguard: '#2563eb', adguardDark: '#1d4ed8' } } }
+        }
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased min-h-screen flex flex-col">
+    <nav class="sticky top-0 z-50 bg-white/85 dark:bg-gray-900/85 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-4 sm:px-8 py-4">
+            <a href="/" class="flex items-center gap-2 shrink-0">
+                <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+            </a>
+            <div class="hidden lg:flex items-center gap-1 p-1.5 rounded-full bg-gray-100/80 dark:bg-gray-800/80 text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="/projects/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900 hover:text-adguard transition-colors">Projects</a>
+                <a href="/labs/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900 hover:text-adguard transition-colors">Labs</a>
+                <a href="/news/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900 hover:text-adguard transition-colors">News</a>
+                <a href="/kb/" class="px-3.5 py-1.5 rounded-full bg-white dark:bg-gray-900 text-adguard shadow-sm">Knowledge Base</a>
+                <a href="/support/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900 hover:text-adguard transition-colors">Support</a>
+            </div>
+            <div class="flex items-center gap-2">
+                <button type="button" onclick="toggleTheme()" class="w-10 h-10 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i><i class="fa-solid fa-sun dark:hidden"></i>
+                </button>
+                <a href="/" class="hidden sm:inline-flex items-center gap-2 text-sm font-semibold text-adguard hover:text-adguardDark transition-colors"><i class="fa-solid fa-arrow-left"></i> Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-10 md:py-14 w-full flex-1">
+        <section class="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+            <div class="inline-flex items-center gap-2 rounded-full bg-blue-50 dark:bg-blue-950/30 px-3.5 py-1.5 text-adguard text-xs font-bold mb-5">
+                <i class="fa-solid fa-book-open"></i><span>Documentation &amp; Guides</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white">Knowledge Base</h1>
+            <p class="mt-4 text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">Guides, setup instructions, and practical answers for Hamza Bellouch open-source projects.</p>
+            <label class="relative block mt-7 text-left" for="kb-search">
+                <span class="sr-only">Search documentation</span>
+                <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <input id="kb-search" type="search" autocomplete="off" placeholder="Search guides, projects, and topics..." class="w-full rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 py-4 pl-12 pr-5 text-gray-800 dark:text-gray-100 shadow-sm outline-none focus:border-adguard focus:ring-4 focus:ring-blue-100 dark:focus:ring-blue-950/50 transition-all">
+            </label>
+            <p class="mt-3 text-xs text-gray-400">Try: installation, Android, privacy, MCP, extensions</p>
+        </section>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[15rem_minmax(0,1fr)_12rem] gap-8 lg:gap-10">
+            <aside class="lg:sticky lg:top-24 self-start rounded-2xl bg-gray-50/80 dark:bg-gray-800/50 p-4 border border-gray-100 dark:border-gray-800">
+                <p class="px-3 pb-2 text-xs font-bold uppercase tracking-wider text-gray-400">Browse topics</p>
+                <nav class="space-y-1" aria-label="Knowledge base topics">
+                    <a href="#start" class="kb-nav flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-adguard bg-blue-50 dark:bg-blue-950/30"><i class="fa-solid fa-compass w-4 text-center"></i> Getting started</a>
+                    <a href="#projects" class="kb-nav flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-adguard transition-colors"><i class="fa-solid fa-cubes w-4 text-center"></i> Projects</a>
+                    <a href="#agents" class="kb-nav flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-adguard transition-colors"><i class="fa-solid fa-robot w-4 text-center"></i> AI &amp; agents</a>
+                    <a href="#platforms" class="kb-nav flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-adguard transition-colors"><i class="fa-solid fa-laptop w-4 text-center"></i> Platforms</a>
+                    <a href="#privacy" class="kb-nav flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-adguard transition-colors"><i class="fa-solid fa-shield-halved w-4 text-center"></i> Privacy &amp; security</a>
+                    <a href="#support" class="kb-nav flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 hover:text-adguard transition-colors"><i class="fa-solid fa-circle-question w-4 text-center"></i> Support</a>
+                </nav>
+            </aside>
+
+            <div id="kb-content" class="space-y-10">
+                <section id="start" data-kb-section>
+                    <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-adguard flex items-center justify-center"><i class="fa-solid fa-compass"></i></span><h2 class="text-2xl font-bold text-gray-900 dark:text-white">Getting started</h2></div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <a data-kb-item href="/projects/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg hover:-translate-y-0.5 transition-all"><i class="fa-solid fa-cubes text-adguard"></i><h3 class="mt-4 font-bold text-gray-900 dark:text-white group-hover:text-adguard">Explore all projects</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Find software, tools, AI projects, and browser extensions.</p></a>
+                        <a data-kb-item href="/news/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg hover:-translate-y-0.5 transition-all"><i class="fa-solid fa-newspaper text-adguard"></i><h3 class="mt-4 font-bold text-gray-900 dark:text-white group-hover:text-adguard">Release notes</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Follow new versions, announcements, and important updates.</p></a>
+                    </div>
+                </section>
+
+                <section id="projects" data-kb-section>
+                    <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-adguard flex items-center justify-center"><i class="fa-solid fa-cubes"></i></span><h2 class="text-2xl font-bold text-gray-900 dark:text-white">Project guides</h2></div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <a data-kb-item href="/projects/vmp/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg transition-all"><h3 class="font-bold text-gray-900 dark:text-white group-hover:text-adguard">VMP media engine</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Linux playback, benchmarking, and hardware-decoding information.</p></a>
+                        <a data-kb-item href="/projects/arut/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg transition-all"><h3 class="font-bold text-gray-900 dark:text-white group-hover:text-adguard">ARUT reverse tethering</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Connect an Android device through USB and share a PC connection.</p></a>
+                        <a data-kb-item href="/projects/extensions/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg transition-all"><h3 class="font-bold text-gray-900 dark:text-white group-hover:text-adguard">Browser extensions</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Install and manage productivity, privacy, and customization extensions.</p></a>
+                        <a data-kb-item href="/projects/tkno-cli/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg transition-all"><h3 class="font-bold text-gray-900 dark:text-white group-hover:text-adguard">Tkno CLI</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Run an open-source AI agent from your terminal.</p></a>
+                    </div>
+                </section>
+
+                <section id="agents" data-kb-section>
+                    <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-adguard flex items-center justify-center"><i class="fa-solid fa-robot"></i></span><h2 class="text-2xl font-bold text-gray-900 dark:text-white">AI &amp; agents</h2></div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <a data-kb-item href="/projects/mcp/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg transition-all"><h3 class="font-bold text-gray-900 dark:text-white group-hover:text-adguard">MCP servers</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Connect AI agents to development workflows and tools.</p></a>
+                        <a data-kb-item href="/projects/skills/" class="kb-card group rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg transition-all"><h3 class="font-bold text-gray-900 dark:text-white group-hover:text-adguard">Agent skills</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Discover reusable skills for development and automation tasks.</p></a>
+                    </div>
+                </section>
+
+                <section id="platforms" data-kb-section>
+                    <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-adguard flex items-center justify-center"><i class="fa-solid fa-laptop"></i></span><h2 class="text-2xl font-bold text-gray-900 dark:text-white">Platforms &amp; installation</h2></div>
+                    <div data-kb-item class="rounded-2xl bg-gray-50 dark:bg-gray-800/60 p-5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">Each project page identifies the supported platforms and links to its source or release channel. Before installation, check the project requirements, supported operating system, and the latest release notes.</div>
+                </section>
+
+                <section id="privacy" data-kb-section>
+                    <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-adguard flex items-center justify-center"><i class="fa-solid fa-shield-halved"></i></span><h2 class="text-2xl font-bold text-gray-900 dark:text-white">Privacy &amp; security</h2></div>
+                    <a data-kb-item href="/privacy/" class="kb-card group block rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-adguard hover:shadow-lg transition-all"><h3 class="font-bold text-gray-900 dark:text-white group-hover:text-adguard">Read the Privacy Policy</h3><p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Learn how the projects approach on-device processing, permissions, and privacy.</p></a>
+                </section>
+
+                <section id="support" data-kb-section>
+                    <div class="flex items-center gap-3 mb-5"><span class="w-9 h-9 rounded-xl bg-blue-100 dark:bg-blue-950/50 text-adguard flex items-center justify-center"><i class="fa-solid fa-circle-question"></i></span><h2 class="text-2xl font-bold text-gray-900 dark:text-white">Need more help?</h2></div>
+                    <div data-kb-item class="rounded-2xl bg-blue-50 dark:bg-blue-950/20 p-6 sm:flex sm:items-center sm:justify-between gap-6"><div><h3 class="font-bold text-gray-900 dark:text-white">Support &amp; feedback</h3><p class="mt-2 text-sm text-gray-600 dark:text-gray-400">If the guides do not answer your question, contact the developer or open the relevant project repository.</p></div><a href="/support/" class="inline-flex mt-4 sm:mt-0 shrink-0 items-center justify-center rounded-full bg-adguard hover:bg-adguardDark px-5 py-2.5 text-sm font-bold text-white transition-colors">Open support <i class="fa-solid fa-arrow-right ml-2"></i></a></div>
+                </section>
+
+                <p id="kb-empty" class="hidden rounded-2xl border border-dashed border-gray-300 dark:border-gray-700 py-10 text-center text-gray-500 dark:text-gray-400">No matching topics were found. Try another keyword.</p>
+            </div>
+
+            <aside class="hidden lg:block lg:sticky lg:top-24 self-start border-l border-gray-100 dark:border-gray-800 pl-6">
+                <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">On this page</p>
+                <nav class="space-y-2 text-sm"><a href="#start" class="block text-adguard">Getting started</a><a href="#projects" class="block text-gray-500 dark:text-gray-400 hover:text-adguard">Project guides</a><a href="#agents" class="block text-gray-500 dark:text-gray-400 hover:text-adguard">AI &amp; agents</a><a href="#platforms" class="block text-gray-500 dark:text-gray-400 hover:text-adguard">Platforms</a><a href="#privacy" class="block text-gray-500 dark:text-gray-400 hover:text-adguard">Privacy</a><a href="#support" class="block text-gray-500 dark:text-gray-400 hover:text-adguard">Support</a></nav>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-100 dark:border-gray-800 bg-gray-50/60 dark:bg-gray-900/50 px-4 py-7 text-center text-sm text-gray-500 dark:text-gray-400"><span>Hamza Bellouch © 2016–2026</span><span class="mx-2">·</span><a href="/privacy/" class="hover:text-adguard">Privacy Policy</a></footer>
+
+    <script src="/assets/js/main.js?v=3"></script>
+    <script>
+        document.getElementById('kb-search').addEventListener('input', event => {
+            const query = event.target.value.trim().toLowerCase();
+            const sections = document.querySelectorAll('[data-kb-section]');
+            let matches = 0;
+            sections.forEach(section => {
+                const visible = !query || section.textContent.toLowerCase().includes(query);
+                section.classList.toggle('hidden', !visible);
+                if (visible) matches += 1;
+            });
+            document.getElementById('kb-empty').classList.toggle('hidden', matches > 0);
+        });
+    </script>
+</body>
+</html>
