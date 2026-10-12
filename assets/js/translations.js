@@ -272,7 +272,7 @@
                 partDesc: "Join our affiliate and partner programs. Earn money by promoting the world's most advanced ad blocker.",
                 btnPartner: "Become a partner",
                 btnLearn: "Learn more",
-                whyPartner: "Partner & Sponsors coming soon",
+                whyPartner: "Partners & Sponsors coming soon",
                 researchComingSoon: "Research coming soon",
                 labsComingSoon: "Labs coming soon",
                 partFeat1: "High conversion rates",
