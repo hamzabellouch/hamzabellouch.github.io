@@ -46,7 +46,7 @@
                 desc3d: "Multiple 3D models and CAD projects crafted using professional 3D software such as Blender and FreeCAD.",
                 descTknoCli: "An open-source AI agent that brings the power of all models of Ai directly into your terminal.",
                 learnMore: "Learn more",
-                blogTitle: "Latest News",
+                blogTitle: "News",
                 blog1Meta: "October 2, 2026 · Links · New version · Release notes",
                 blogDateOct2: "October 2, 2026",
                 blog1Title: "Links version 0.0.4-beta",
