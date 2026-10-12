@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery version 0.0.4-beta | Hamza Bellouch</title>
+    
+    <!-- Tailwind & Fonts -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        adguard: '#2563eb',
+                        adguardDark: '#1d4ed8',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 transition-colors duration-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-gray-100/80 dark:bg-gray-800/80 border border-gray-200/80 dark:border-gray-700/80 shadow-sm text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="/projects/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navProducts">Projects</a>
+                <a href="/labs/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navLabs">Labs</a>
+                <a href="/news/" class="px-3.5 py-1.5 rounded-full bg-white dark:bg-gray-900 text-adguard font-bold shadow-sm transition-all duration-200" data-i18n="navBlog">News</a>
+                <a href="/research/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navResearch">Research</a>
+                <a href="/support/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navSupport">Support</a>
+                <a href="/partners/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navPartners">Partner & Sponsors</a>
+            </div>
+            
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun dark:hidden block"></i>
+                </button>
+
+                <!-- Language Dropdown -->
+                <div class="relative group z-50">
+                    <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-semibold py-2 px-3 sm:px-4 rounded-full transition-colors flex items-center gap-2">
+                        <span id="currentLangText">EN </span> <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </button>
+                    <div id="langDropdownMenu" class="absolute right-0 mt-1 w-44 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <a href="javascript:void(0)" onclick="setLanguage('ar')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-t-xl transition-colors">العربية (AR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('en')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">English (EN)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('fr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Français (FR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('es')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Español (ES)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('de')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Deutsch (DE)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('tr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Türkçe (TR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ru')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Русский (RU)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('zh')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">中文 (ZH)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ja')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">日本語 (JA)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ko')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-b-xl transition-colors">한국어 (KO)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
+                <span data-i18n="navProducts">Projects</span>
+            </a>
+            <a href="/labs/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-vial w-5 text-center text-adguard"></i>
+                <span data-i18n="navLabs">Labs</span>
+            </a>
+            <a href="/news/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
+                <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
+                <span data-i18n="navBlog">News</span>
+            </a>
+            <a href="/research/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
+                <span data-i18n="navResearch">Research</span>
+            </a>
+            <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
+                <span data-i18n="navSupport">Support</span>
+            </a>
+            <a href="/partners/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-handshake w-5 text-center text-adguard"></i>
+                <span data-i18n="navPartners">Partner & Sponsors</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Blog Article Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+        <!-- Back Button -->
+        <a href="/news/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span data-i18n="backToBlog">Back to News</span>
+        </a>
+
+        <!-- Article Header -->
+        <div class="space-y-4 mb-8">
+            <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium" data-i18n="blog6Meta">
+                September 30, 2026 · Gallery · New version · Release notes
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="blog6Title">
+                Gallery v0.0.4-beta
+            </h1>
+            <div class="flex items-center gap-3 pt-2">
+                <img src="/assets/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-10 h-10 rounded-full object-cover border border-gray-200 dark:border-gray-700">
+                <div>
+                    <div class="font-bold text-sm text-gray-900 dark:text-white" data-i18n="blog6Author">Hamza Bellouch</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400" data-i18n="authorRole6">CEO & Founder of tknoglobal</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="rounded-3xl overflow-hidden mb-10 shadow-lg bg-gray-100 dark:bg-gray-800 aspect-[16/9]">
+            <img src="/assets/Gallery.jpg" alt="Gallery version 0.0.4-beta" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
+            <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed" data-i18n="blog6Intro">
+                We are thrilled to present Gallery v0.0.4-beta! This major update brings a high-performance 4K/8K/16K viewport tiling engine, smooth pinch-to-zoom transitions, standardized floating capsule glassmorphism across all viewers, full Light Mode adaptation, strict memory hardening, and seamless 120Hz fling scrolling.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog6Subhead1">
+                Viewport Tiling Engine, Deep Zoom & Memory Optimization
+            </h2>
+            <p data-i18n="blog6Body1">
+                Gallery v0.0.4-beta introduces a true multi-resolution viewport image tiling engine powered by BitmapRegionDecoder and a dynamic 512x512 tile grid with bounded LRU caching. Users can now zoom smoothly up to 20x on 4K, 8K, and 16K ultra-high-resolution images while maintaining a lightweight 30–40MB tile memory footprint without OpenGL texture limits or crashes.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog6Subhead2">
+                Changes — September 30, 2026
+            </h2>
+            <ul class="space-y-3 list-none pl-0">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Removed the 3-dots overflow menu and multi-selection mode from the Albums tab for a cleaner and more streamlined browsing experience</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Fixed frame stuttering during high-bitrate FHD (1080x1920) video playback by enabling asynchronous MediaCodec buffer queueing and uncapped dynamic buffering</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Implemented smooth progressive pinch-to-zoom with continuous scaling and animated double-tap zoom transitions between 1x and 3x</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Eliminated pinch-zoom freezes and improved zoom responsiveness in the high-resolution image viewer</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Updated the SD card album indicator to the official Material Symbols Outlined <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">sd_card</code> icon</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Removed surrounding backgrounds and shadows from the SD card indicator for a clean standalone icon appearance</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added Favorites Export and Import functionality using <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">.txt</code> files through the Android Storage Access Framework</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added "Export favorites" and "Import favorites" actions above "Select items" when the Favorites filter is active</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Set "Show resolution badges" to Off by default for a cleaner media grid</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Set "Rounded corners" to Off by default for media cards</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Fixed fullscreen UI toggling while zoomed in without resetting zoom level or viewport position</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Integrated system <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">touchSlop</code> calibration to distinguish intentional taps from microscopic finger movement during active zoom</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Improved 1-finger panning and 2-finger pinch-to-zoom interoperability</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Prevented zoom gestures from accidentally triggering fullscreen toolbar visibility changes</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Isolated double-tap handling to preserve instant 1x ↔ 3x zoom transitions without interfering with single-tap controls</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Standardized floating capsule glassmorphism across the application with a consistent 94% translucent background, 6dp ambient shadow, and 0dp tonal elevation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Updated the bottom navigation taskbar capsule to match the main header capsule styling and elevation</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Converted media viewer back navigation and top utility actions into matching floating pill capsules</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added theme-adaptive styling to media viewer top action capsules for Light and Dark modes</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Converted the media viewer bottom action bar into a unified floating capsule containing Share, Edit, Favorite, Trash, and Details controls</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Updated the Shorts video player floating back button to match the unified capsule design language</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Implemented a true 4K, 8K, and 16K viewport-based image tiling engine using <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">BitmapRegionDecoder</code></span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added a dynamic 512x512 tile grid with bounded LRU caching for ultra-high-resolution image rendering</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Enabled smooth deep zooming up to 20x while maintaining a 30–40MB tile memory footprint</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Eliminated OpenGL texture-size limitations and prevented crashes when displaying extremely high-resolution images</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Refactored Coil memory caching to use the runtime JVM maximum heap ceiling instead of total device RAM</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Hardened the memory architecture against oversized cache allocation and OutOfMemory conditions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added centralized <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">onTrimMemory</code> and <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">onLowMemory</code> handling for proactive memory recovery under system pressure</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Automatically evict Coil image caches and purge L1 thumbnail caches during memory pressure events</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Converted the thumbnail cache into a strict 24MB byte-budgeted LRU cache with immediate eviction</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Reduced background thumbnail memory consumption by more than 150MB through bounded cache management</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added resolution-aware thumbnail interception so requests above 768px or <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">Size.ORIGINAL</code> bypass the thumbnail fetcher and decode at full resolution</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Upgraded image editing export to a single-pass rendering pipeline combining rotation, cropping, and color matrix transformations</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added immediate source bitmap recycling after export rendering to prevent memory spikes during editing of 48MP and 108MP photos</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Hardened high-bitrate 4K and 8K video muxing with dynamic buffer sizing derived from track metadata and a 4MB minimum baseline</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Eliminated <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">BufferOverflowException</code> during extraction of high-bitrate video streams</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Optimized media grid thumbnail rendering with <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">HARDWARE</code> and <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">RGB_565</code> bitmap configurations</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Reduced thumbnail memory usage by up to 50% while improving high-speed grid scrolling performance</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Improved thumbnail rendering for smooth 120Hz fling scrolling across supported devices</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added an adaptive Timeline FastScrollbar that automatically matches floating date pills and scroll handles to Light Mode surfaces</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Preserved the original high-contrast scrollbar appearance in Dark Mode</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Updated media card video duration badges with subtle Light Mode surfaces while preserving the original translucent dark appearance in Dark Mode</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added complete Light Mode support to the Media Viewer top navigation capsule and action controls</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added adaptive Light Mode styling to media viewer rotate, frame capture, fit-to-screen, and More actions</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Updated the media viewer bottom taskbar to adapt seamlessly between Light and Dark themes</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Restored a pure pitch-black <code class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-adguard font-mono text-xs">#000000</code> background and original white controls throughout Dark Mode media viewers</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added complete Light Mode support to the single Video Player playback interface</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Adapted playback controls, time display, speed selector, repeat button, and seek slider for Light Mode</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added transparent playback shutter rendering in Light Mode while preserving the pure-black Dark Mode canvas</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Added complete Light Mode support to the Shorts / TikTok-style vertical video player</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Updated Shorts Light Mode controls including the floating back button, Favorite, Edit, Trash, Share, More, timeline, and More Options dialog</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Preserved the original immersive Dark Mode styling throughout the Shorts player</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span>Unified capsule styling, gesture handling, high-resolution decoding, memory management, video playback, and theme behavior across the application</span>
+                </li>
+            </ul>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog6Subhead3">
+                Build Status & Verification
+            </h2>
+            <div class="rounded-2xl overflow-hidden bg-gray-900 text-gray-100 p-5 font-mono text-sm border border-gray-800 shadow-inner">
+                <div class="text-xs text-gray-400 mb-2 font-sans font-semibold uppercase tracking-wider">Build Output</div>
+                <div class="text-emerald-400 font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>BUILD SUCCESSFUL</span>
+                </div>
+            </div>
+
+            <!-- Actions / Feedback Box -->
+            <div class="mt-10 p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-2xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="feedbackTitle6">Ready to test Gallery v0.0.4-beta?</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="feedbackDesc6">Download the latest APK build or view the source repository directly on GitHub.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="https://github.com/hamzabellouch/gallery/releases" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-solid fa-download text-lg"></i>
+                        <span data-i18n="btnDownloadReleases">Download Releases</span>
+                    </a>
+                    <a href="https://github.com/hamzabellouch/gallery" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span data-i18n="btnGithubBeta">View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 px-4 flex flex-wrap justify-center items-center gap-3 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm" dir="ltr">
+            <span>hamzabellouch © 2017–2026</span>
+        </div>
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm">
+            <span data-i18n="allRightsReserved">All Rights Reserved</span>
+        </div>
+        <a href="/privacy/" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-adguard dark:hover:border-adguard text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-adguard dark:hover:text-adguard shadow-sm transition-all duration-300">
+            <span data-i18n="privacyPolicy">Privacy Policy</span>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/translations.js?v=3"></script>
+    <script src="/assets/js/main.js?v=3"></script>
+</body>
+</html>
