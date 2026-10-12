@@ -8,8 +8,11 @@
     <!-- Tailwind & Fonts -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css?v=3">
     
     <script>
@@ -116,21 +119,21 @@
     <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
         <!-- Back Button -->
         <a href="/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
-            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span class="material-symbols-outlined rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_back</span>
             <span data-i18n="backToHome">Back to Home</span>
         </a>
 
         <!-- Privacy Header -->
         <div class="space-y-4 mb-10 pb-8 border-b border-gray-200 dark:border-gray-800">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800 text-adguard text-xs font-semibold">
-                <i class="fa-solid fa-shield-halved text-sm"></i>
+                <span class="material-symbols-outlined text-sm" aria-hidden="true">shield</span>
                 <span data-i18n="privBadge">Official Policy & Security Terms</span>
             </div>
             <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="privTitle">
                 Privacy Policy
             </h1>
             <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium flex items-center gap-2">
-                <i class="fa-regular fa-clock"></i>
+                <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
                 <span data-i18n="privLastUpdated">Last Updated: October 2, 2026</span>
             </div>
             <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-normal pt-2" data-i18n="privHeroIntro">
@@ -144,7 +147,7 @@
             <!-- Section 0: Rule 0 -->
             <div class="p-6 md:p-8 bg-red-50/60 dark:bg-red-950/20 rounded-3xl shadow-sm space-y-4">
                 <div class="flex items-center gap-3 text-red-600 dark:red-400">
-                    <i class="fa-solid fa-triangle-exclamation text-2xl shrink-0"></i>
+                    <span class="material-symbols-outlined text-2xl shrink-0" aria-hidden="true">warning</span>
                     <h2 class="text-xl md:text-2xl font-bold" data-i18n="privRule0Title">
                         0. Rule 0: Disclaimer on Modified Builds, External Binaries & Unofficial Forks
                     </h2>
@@ -168,7 +171,7 @@
                     Our entire software portfolio—encompassing mobile apps, desktop programs, media engines, AI orchestrators, system utilities, security frameworks, command-line tools, and browser extensions across Android, Linux, Windows, and Web—is engineered from the ground up to prioritize user privacy, absolute data sovereignty, and uncompromised performance.
                 </p>
                 <div class="p-5 bg-emerald-50/80 dark:bg-emerald-950/30 rounded-2xl flex items-start gap-3.5 shadow-sm">
-                    <i class="fa-solid fa-shield-halved text-adguard text-xl mt-0.5 shrink-0"></i>
+                    <span class="material-symbols-outlined text-adguard text-xl mt-0.5 shrink-0" aria-hidden="true">shield</span>
                     <p class="text-sm md:text-base font-medium text-emerald-900 dark:text-emerald-300" data-i18n="privSec1Commitment">
                         <strong>Core Privacy Commitment:</strong> All our tools, programs, and applications operate <strong>100% locally on your device</strong>. We do not collect, store, transmit, share, profile, or monetize any personal data, device identifiers, system logs, hardware streams, files, or user inputs to external analytics servers or third parties.
                     </p>
@@ -185,15 +188,15 @@
                 </p>
                 <ul class="space-y-3 list-none pl-0">
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                        <span class="material-symbols-outlined text-adguard mt-1.5 shrink-0" aria-hidden="true">check_circle</span>
                         <span data-i18n="privSec2Item1"><strong>Hardware & Media Streams:</strong> Any live device input (such as camera feed, audio stream, or GPU frame buffer) is processed strictly in real-time in volatile memory (RAM) and immediately discarded. Streams are never saved, recorded, or transmitted without explicit user command.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                        <span class="material-symbols-outlined text-adguard mt-1.5 shrink-0" aria-hidden="true">check_circle</span>
                         <span data-i18n="privSec2Item2"><strong>User Inputs, Queries & Files:</strong> Text strings, files, commands, AI prompts, or URLs provided by the user are computed locally or routed strictly to endpoints configured by the user, without any central telemetry or logging.</span>
                     </li>
                     <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                        <span class="material-symbols-outlined text-adguard mt-1.5 shrink-0" aria-hidden="true">check_circle</span>
                         <span data-i18n="privSec2Item3"><strong>Local Storage & Preferences:</strong> User settings, history logs, caches, and customized parameters are stored strictly locally on your machine or device storage.</span>
                     </li>
                 </ul>
@@ -210,7 +213,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                     <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl space-y-2 shadow-sm">
                         <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                            <i class="fa-solid fa-microchip text-adguard"></i>
+                            <span class="material-symbols-outlined text-adguard" aria-hidden="true">memory</span>
                             <span data-i18n="privSec3Card1Title">Hardware & Device Access</span>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card1Desc">
@@ -220,7 +223,7 @@
 
                     <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl space-y-2 shadow-sm">
                         <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                            <i class="fa-solid fa-globe text-adguard"></i>
+                            <span class="material-symbols-outlined text-adguard" aria-hidden="true">language</span>
                             <span data-i18n="privSec3Card2Title">Network & Connectivity</span>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card2Desc">
@@ -230,7 +233,7 @@
 
                     <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl space-y-2 shadow-sm">
                         <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                            <i class="fa-solid fa-folder-open text-adguard"></i>
+                            <span class="material-symbols-outlined text-adguard" aria-hidden="true">folder_open</span>
                             <span data-i18n="privSec3Card3Title">File System & Storage</span>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card3Desc">
@@ -240,7 +243,7 @@
 
                     <div class="p-4 bg-gray-50 dark:bg-gray-800/70 rounded-2xl space-y-2 shadow-sm">
                         <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                            <i class="fa-solid fa-bell text-adguard"></i>
+                            <span class="material-symbols-outlined text-adguard" aria-hidden="true">notifications</span>
                             <span data-i18n="privSec3Card4Title">System Notifications & Status</span>
                         </div>
                         <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="privSec3Card4Desc">
@@ -308,7 +311,7 @@
                 </div>
                 <div class="flex flex-wrap items-center gap-3 shrink-0">
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hamzabellouchcontact@gmail.com" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
-                        <i class="fa-solid fa-envelope text-base"></i>
+                        <span class="material-symbols-outlined text-base" aria-hidden="true">mail</span>
                         <span data-i18n="privContactBtn">E-mail</span>
                     </a>
                 </div>
