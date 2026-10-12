@@ -6,7 +6,7 @@
                 navLabs: "Labs",
                 navBlog: "News",
                 navSupport: "Support",
-                navPartners: "Partner & Sponsors",
+                navPartners: "Partners & Sponsors",
                 navResearch: "Research",
                 navLogin: "Log in",
                 reviews: "+400 user reviews - Excellent!",
