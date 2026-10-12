@@ -125,6 +125,42 @@
         </div>
     </nav>
 
+    <!-- Announcement Banner -->
+    <div id="announcement-banner" class="w-full bg-[#1a1a1a] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 py-8 sm:py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <!-- Left: Text + Button -->
+            <div class="flex-1">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3">
+                    Distribute on<br>Google Play
+                </h2>
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 max-w-md">
+                    With the ability to publish rapidly to over 2.5 billion active Android devices, Google Play helps you grow a global audience for your apps and games and earn revenue.
+                </p>
+                <a href="https://play.google.com/console" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center px-5 py-2.5 rounded-full bg-[#34A853] hover:bg-[#2d9249] text-white text-sm font-semibold transition-colors">
+                    Go to Play Console
+                </a>
+            </div>
+            <!-- Right: Google Play Icon -->
+            <div class="shrink-0 flex items-center justify-center w-24 h-24 sm:w-32 sm:h-32 opacity-90">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <path d="M56 8L296 256 56 504c-13.3-8.7-22-23.8-22-41V49C34 31.8 42.7 16.7 56 8Z" fill="#EA4335"/>
+                    <path d="M56 8l240 248 80-82.7L96 20C83.7 13 69.3 9.3 56 8Z" fill="#FBBC04"/>
+                    <path d="M296 256l80 82.7-220 153.3c-13.3 1-27.7-2.7-40-9.7L296 256Z" fill="#34A853"/>
+                    <path d="M456.3 219.7c14 7.7 21.7 21 21.7 36.3s-7.7 28.7-21.7 36.3L376 338.7 296 256l80-82.7 80.3 46.4Z" fill="#4285F4"/>
+                </svg>
+            </div>
+        </div>
+        <!-- X Close Button -->
+        <button onclick="document.getElementById('announcement-banner').style.display='none'"
+                class="absolute top-3 right-3 w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+
     <!-- Main Home Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-8 pt-10 pb-16 md:pt-16 md:pb-20 flex flex-col md:flex-row items-center gap-12 flex-1">
         
