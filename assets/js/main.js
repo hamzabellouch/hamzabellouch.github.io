@@ -226,8 +226,48 @@ function copyToClipboard(text) {
     });
 }
 
-// 6. Initialize on DOM Load
+// 6. Overview Counter Animation (Home Page)
+function initOverviewCounters() {
+    const counters = document.querySelectorAll('[data-counter]');
+    if (!counters.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    counters.forEach(counter => {
+        const target = Number(counter.dataset.target);
+        const prefix = counter.dataset.prefix || '';
+
+        if (!Number.isFinite(target)) return;
+
+        if (reduceMotion) {
+            counter.textContent = `${prefix}${target}`;
+            return;
+        }
+
+        // Higher values take longer to reach, while keeping every counter responsive.
+        const duration = Math.min(1800, Math.max(700, 600 + target * 5));
+        const startTime = performance.now();
+
+        const animate = currentTime => {
+            const progress = Math.min((currentTime - startTime) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = `${prefix}${Math.round(target * easedProgress)}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                counter.textContent = `${prefix}${target}`;
+            }
+        };
+
+        counter.textContent = `${prefix}0`;
+        requestAnimationFrame(animate);
+    });
+}
+
+// 7. Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', () => {
     initBlogShareButton();
     setLanguage(currentLang);
+    initOverviewCounters();
 });
