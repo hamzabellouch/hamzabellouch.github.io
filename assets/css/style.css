@@ -440,3 +440,62 @@ html[lang="ar"] p, html[lang="ar"] li, html[lang="ar"] span, html[lang="ar"] a, 
     color: #111827;
     border-color: #ffffff;
 }
+
+/* ==========================================================================
+   Android Developer Style Pill Button (developer.android.com element 2)
+   ========================================================================== */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    line-height: 44px;
+    padding: 0 24px;
+    border: 2px solid #202124;
+    border-radius: 96px;
+    background: transparent;
+    color: #202124;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--font-display);
+    letter-spacing: 0.5px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.button:hover,
+.group:hover .button {
+    background: #202124;
+    color: #ffffff;
+    border-color: #202124;
+}
+
+.button:active {
+    transform: scale(0.96);
+}
+
+.button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 3px #174ea6;
+}
+
+.dark .button {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.dark .button:hover,
+.dark .group:hover .button {
+    background: #ffffff;
+    color: #202124;
+    border-color: #ffffff;
+}
+
+.dark .button:focus-visible {
+    box-shadow: 0 0 0 1px #1f2937, 0 0 0 3px #60a5fa;
+}
+
