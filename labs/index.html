@@ -31,7 +31,21 @@
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        // Inline check for first-time labs visit to prevent flicker
+        if (localStorage.getItem('labs_started') === 'true') {
+            document.documentElement.classList.add('labs-started');
+        }
     </script>
+    <style>
+        /* Immediately hide intro and show main if already visited */
+        html.labs-started #labsIntroSection {
+            display: none !important;
+        }
+        html:not(.labs-started) #labsMainContent {
+            display: none !important;
+        }
+    </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
 
@@ -112,8 +126,30 @@
         </div>
     </nav>
 
+    <!-- Labs First-Time Intro Section (element 3) -->
+    <section id="labsIntroSection" class="devsite-landing-row devsite-landing-row-1-up devsite-landing-row-header-centered devsite-landing-row-100 devsite-landing-row-large-headings android-callout-centered flex-1 flex flex-col items-center justify-center text-center px-4 py-16 sm:py-24 max-w-4xl mx-auto w-full transition-opacity duration-300">
+        <div class="devsite-landing-row-inner w-full">
+            <header class="devsite-landing-row-header flex flex-col items-center justify-center text-center" icon-position="top">
+                <div class="devsite-landing-row-header-icon-container w-20 h-20 mb-8 mx-auto flex items-center justify-center" size="large">
+                    <img class="devsite-landing-row-header-icon w-20 h-20 object-contain dark:hidden block" alt="Jetpack Compose" src="/assets/Logo/jetpack-compose.svg" onerror="this.onerror=null; this.src='https://developer.android.com/static/images/spot-icons/jetpack-compose.svg';">
+                    <img class="devsite-landing-row-header-icon w-20 h-20 object-contain hidden dark:block" alt="Jetpack Compose" src="/assets/Logo/jetpack-compose_dt.svg" onerror="this.onerror=null; this.src='https://developer.android.com/static/images/spot-icons/jetpack-compose_dt.svg';">
+                </div>
+                <div class="devsite-landing-row-header-text max-w-2xl mx-auto mb-8">
+                    <h2 id="get-your-team-started-with-compose-today" data-text="Get your team started with Compose today" class="text-3xl sm:text-4xl md:text-[40px] font-semibold text-gray-800 dark:text-gray-200 leading-tight md:leading-[48px] tracking-tight">
+                        Get your team started with Compose today
+                    </h2>
+                </div>
+                <div class="devsite-landing-row-header-buttons">
+                    <button type="button" onclick="startLabs()" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white dark:hover:bg-white dark:hover:text-[#202124] transition-all duration-200 active:scale-[0.96] cursor-pointer">
+                        Get started
+                    </button>
+                </div>
+            </header>
+        </div>
+    </section>
+
     <!-- Main Labs Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-10 md:py-14 flex-1 w-full">
+    <main id="labsMainContent" class="max-w-7xl mx-auto px-4 sm:px-8 py-10 md:py-14 flex-1 w-full">
         <div class="rounded-[28px] bg-[#d3e3fd] dark:bg-gray-800/90 p-6 sm:p-10 md:p-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
                 
@@ -251,5 +287,17 @@
     <!-- Scripts -->
     <script src="/assets/js/translations.js?v=3"></script>
     <script src="/assets/js/main.js?v=3"></script>
+    <script>
+        function startLabs() {
+            try {
+                localStorage.setItem('labs_started', 'true');
+            } catch (e) {}
+            document.documentElement.classList.add('labs-started');
+            const intro = document.getElementById('labsIntroSection');
+            const main = document.getElementById('labsMainContent');
+            if (intro) intro.style.display = 'none';
+            if (main) main.style.display = 'block';
+        }
+    </script>
 </body>
 </html>
