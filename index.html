@@ -157,121 +157,217 @@
     </div>
 
     <!-- Main Home Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-8 pt-10 pb-16 md:pt-16 md:pb-20 flex flex-col md:flex-row items-center gap-12 flex-1">
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 pt-10 pb-16 md:pt-16 md:pb-20 flex-1 w-full space-y-16 md:space-y-24">
         
-        <!-- Left Content -->
-        <div class="flex-1 space-y-8">
-            <div class="inline-flex items-center gap-2 bg-blue-50 dark:bg-gray-800/50 text-adguard px-3 py-1 rounded-full text-sm font-semibold border border-blue-100 dark:border-gray-700">
-                <i class="fa-solid fa-star text-yellow-400"></i>
-                <span data-i18n="reviews">+400 user reviews - Excellent!</span>
-            </div>
-            
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
-                <span data-i18n="heading1">Smart tools & advanced solutions for all your needs. </span><br/>
-                <span class="text-adguard" data-i18n="heading2">Zero tracking. Zero ads!</span>
-            </h1>
-            
-            <ul class="space-y-4 text-base sm:text-lg text-gray-600 dark:text-gray-400">
-                <li class="flex items-center gap-3">
-                    <i class="fa-solid fa-check text-adguard"></i>
-                    <span data-i18n="feat1">High-performance, open-source tools & engines</span>
-                </li>
-                <li class="flex items-center gap-3">
-                    <i class="fa-solid fa-check text-adguard"></i>
-                    <span data-i18n="feat2">100% Private, zero data collection & no tracking</span>
-                </li>
-                <li class="flex items-center gap-3">
-                    <i class="fa-solid fa-check text-adguard"></i>
-                    <span data-i18n="feat3">Cross-platform support (Linux, Android, Windows, Web)</span>
-                </li>
-                <li class="flex items-center gap-3">
-                    <i class="fa-solid fa-check text-adguard"></i>
-                    <span data-i18n="feat4">Lightweight & fast solutions to solve complex everyday tasks</span>
-                </li>
-            </ul>
-
-            <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="https://www.whatsapp.com/channel/0029Vb7MArw0LKZMpjjqOk2P" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border-2 border-gray-200 dark:border-gray-700 text-lg font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow">
-                    <i class="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
-                    <span data-i18n="btnInstall">WhatsApp Channel</span>
-                </a>
-            </div>
-            <p class="text-xs text-gray-400 mt-2">
-                <a href="/privacy/" class="hover:underline hover:text-adguard transition-colors" data-i18n="disclaimer">By downloading the programs you accept the terms of the Privacy Policy agreement.</a>
-            </p>
-        </div>
-
-        <!-- Right Graphic / Mockup -->
-        <div class="flex-1 flex justify-center relative w-full">
-            <div class="absolute inset-0 bg-blue-100 dark:bg-adguard/20 rounded-full blur-3xl opacity-50 transform -translate-x-10 translate-y-10 transition-colors duration-500"></div>
-            <div class="relative bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-2xl rounded-2xl p-7 w-full max-w-md z-10 transform rotate-2 hover:rotate-0 transition-all duration-500">
-                <div class="mb-5 border-b dark:border-gray-700 pb-4">
-                    <h3 class="font-bold text-xl dark:text-white" data-i18n="cardTitle">Overview</h3>
-                </div>
-                <div class="space-y-3.5">
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
-                            <i class="fa-solid fa-code-branch text-adguard text-sm w-4 text-center"></i>
-                            <span data-i18n="stat1">Public Repositories</span>
-                        </span>
-                        <span class="font-bold text-adguard text-lg" data-counter data-target="50">50</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
-                            <i class="fa-solid fa-cubes text-adguard text-sm w-4 text-center"></i>
-                            <span data-i18n="stat2">Released Projects</span>
-                        </span>
-                        <span class="font-bold text-adguard text-lg" data-counter data-target="25">25</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
-                            <i class="fa-solid fa-code text-adguard text-sm w-4 text-center"></i>
-                            <span data-i18n="stat3">Technical Skills</span>
-                        </span>
-                        <span class="font-bold text-adguard text-lg" data-counter data-target="250" data-prefix="+">+250</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
-                            <i class="fa-solid fa-rocket text-adguard text-sm w-4 text-center"></i>
-                            <span data-i18n="stat4">Upcoming Projects</span>
-                        </span>
-                        <span class="font-bold text-adguard text-lg" data-counter data-target="70" data-prefix="+">+70</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
-                            <i class="fa-solid fa-award text-yellow-500 text-sm w-4 text-center"></i>
-                            <span data-i18n="stat5">Honors & Awards</span>
-                        </span>
-                        <span class="font-bold text-adguard text-lg" data-counter data-target="6">6</span>
-                    </div>
+        <!-- Hero: Two Columns -->
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <!-- Left Content -->
+            <div class="flex-1 space-y-8">
+                <div class="inline-flex items-center gap-2 bg-blue-50 dark:bg-gray-800/50 text-adguard px-3 py-1 rounded-full text-sm font-semibold border border-blue-100 dark:border-gray-700">
+                    <i class="fa-solid fa-star text-yellow-400"></i>
+                    <span data-i18n="reviews">+400 user reviews - Excellent!</span>
                 </div>
                 
-                <!-- Social Media Circles -->
-                <div class="mt-6 pt-5 border-t dark:border-gray-700 flex items-center justify-center gap-3">
-                    <a href="https://www.linkedin.com/in/hamzabellouch" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
-                        <i class="fa-brands fa-linkedin-in text-base"></i>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                    <span data-i18n="heading1">Smart tools & advanced solutions for all your needs. </span><br/>
+                    <span class="text-adguard" data-i18n="heading2">Zero tracking. Zero ads!</span>
+                </h1>
+                
+                <ul class="space-y-4 text-base sm:text-lg text-gray-600 dark:text-gray-400">
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-adguard"></i>
+                        <span data-i18n="feat1">High-performance, open-source tools & engines</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-adguard"></i>
+                        <span data-i18n="feat2">100% Private, zero data collection & no tracking</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-adguard"></i>
+                        <span data-i18n="feat3">Cross-platform support (Linux, Android, Windows, Web)</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-adguard"></i>
+                        <span data-i18n="feat4">Lightweight & fast solutions to solve complex everyday tasks</span>
+                    </li>
+                </ul>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="https://www.whatsapp.com/channel/0029Vb7MArw0LKZMpjjqOk2P" target="_blank" rel="noopener noreferrer" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 border-2 border-gray-200 dark:border-gray-700 text-lg font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow">
+                        <i class="fa-brands fa-whatsapp text-2xl text-[#25D366]"></i>
+                        <span data-i18n="btnInstall">WhatsApp Channel</span>
                     </a>
-                    <a href="https://whatsapp.com/channel/0029Vb7MArw0LKZMpjjqOk2P" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-green-600 dark:text-green-400 hover:bg-[#25D366] hover:text-white dark:hover:bg-[#25D366] dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                    </a>
-                    <a href="https://facebook.com/hamzabellouch0" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-blue-700 dark:text-blue-400 hover:bg-[#1877F2] hover:text-white dark:hover:bg-[#1877F2] dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
-                        <i class="fa-brands fa-facebook-f text-base"></i>
-                    </a>
-                    <a href="https://instagram.com/hamzabellouch0" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-pink-600 dark:text-pink-400 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:text-white dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
-                        <i class="fa-brands fa-instagram text-lg"></i>
-                    </a>
-                    <a href="https://x.com/hamzabellouch0" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="X" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-gray-800 dark:text-gray-200 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                        </svg>
-                    </a>
-                    <a href="https://t.me/hamzabellouch" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-sky-500 dark:text-sky-400 hover:bg-[#229ED9] hover:text-white dark:hover:bg-[#229ED9] dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
-                        <i class="fa-brands fa-telegram text-lg"></i>
-                    </a>
+                </div>
+                <p class="text-xs text-gray-400 mt-2">
+                    <a href="/privacy/" class="hover:underline hover:text-adguard transition-colors" data-i18n="disclaimer">By downloading the programs you accept the terms of the Privacy Policy agreement.</a>
+                </p>
+            </div>
+
+            <!-- Right Graphic / Mockup -->
+            <div class="flex-1 flex justify-center relative w-full">
+                <div class="absolute inset-0 bg-blue-100 dark:bg-adguard/20 rounded-full blur-3xl opacity-50 transform -translate-x-10 translate-y-10 transition-colors duration-500"></div>
+                <div class="relative bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 shadow-2xl rounded-2xl p-7 w-full max-w-md z-10 transform rotate-2 hover:rotate-0 transition-all duration-500">
+                    <div class="mb-5 border-b dark:border-gray-700 pb-4">
+                        <h3 class="font-bold text-xl dark:text-white" data-i18n="cardTitle">Overview</h3>
+                    </div>
+                    <div class="space-y-3.5">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
+                                <i class="fa-solid fa-code-branch text-adguard text-sm w-4 text-center"></i>
+                                <span data-i18n="stat1">Public Repositories</span>
+                            </span>
+                            <span class="font-bold text-adguard text-lg" data-counter data-target="50">50</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
+                                <i class="fa-solid fa-cubes text-adguard text-sm w-4 text-center"></i>
+                                <span data-i18n="stat2">Released Projects</span>
+                            </span>
+                            <span class="font-bold text-adguard text-lg" data-counter data-target="25">25</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
+                                <i class="fa-solid fa-code text-adguard text-sm w-4 text-center"></i>
+                                <span data-i18n="stat3">Technical Skills</span>
+                            </span>
+                            <span class="font-bold text-adguard text-lg" data-counter data-target="250" data-prefix="+">+250</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
+                                <i class="fa-solid fa-rocket text-adguard text-sm w-4 text-center"></i>
+                                <span data-i18n="stat4">Upcoming Projects</span>
+                            </span>
+                            <span class="font-bold text-adguard text-lg" data-counter data-target="70" data-prefix="+">+70</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 dark:text-gray-400 flex items-center gap-2.5">
+                                <i class="fa-solid fa-award text-yellow-500 text-sm w-4 text-center"></i>
+                                <span data-i18n="stat5">Honors & Awards</span>
+                            </span>
+                            <span class="font-bold text-adguard text-lg" data-counter data-target="6">6</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media Circles -->
+                    <div class="mt-6 pt-5 border-t dark:border-gray-700 flex items-center justify-center gap-3">
+                        <a href="https://www.linkedin.com/in/hamzabellouch" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
+                            <i class="fa-brands fa-linkedin-in text-base"></i>
+                        </a>
+                        <a href="https://whatsapp.com/channel/0029Vb7MArw0LKZMpjjqOk2P" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-green-600 dark:text-green-400 hover:bg-[#25D366] hover:text-white dark:hover:bg-[#25D366] dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com/hamzabellouch0" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-blue-700 dark:text-blue-400 hover:bg-[#1877F2] hover:text-white dark:hover:bg-[#1877F2] dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
+                            <i class="fa-brands fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://instagram.com/hamzabellouch0" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-pink-600 dark:text-pink-400 hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-500 hover:to-purple-600 hover:text-white dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://x.com/hamzabellouch0" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="X" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-gray-800 dark:text-gray-200 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="https://t.me/hamzabellouch" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram" class="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200/80 dark:border-gray-700/80 text-sky-500 dark:text-sky-400 hover:bg-[#229ED9] hover:text-white dark:hover:bg-[#229ED9] dark:hover:text-white flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-sm">
+                            <i class="fa-brands fa-telegram text-lg"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
+        <!-- Explore More Section (from Android Developers) -->
+        <section class="devsite-landing-row-inner pt-8 border-t border-gray-100 dark:border-gray-800">
+            <header class="devsite-landing-row-header mb-8">
+                <div class="devsite-landing-row-header-text">
+                    <h2 id="explore-more" data-text="Explore more" class="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white" data-i18n="exploreMore">
+                        Explore more
+                    </h2>
+                </div>
+            </header>
+            <div class="devsite-landing-row-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- 1. Developer guides -->
+                <a href="https://developer.android.com/guide" target="_blank" rel="noopener noreferrer" data-category="illustrated-resource" data-label="developer-guides" data-value="0" class="devsite-landing-row-item devsite-landing-row-item-no-media android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                    <div class="devsite-landing-row-item-description flex flex-col justify-between h-full" icon-position="bottom-right">
+                        <div class="devsite-landing-row-item-body mb-8">
+                            <h3 id="developer-guides" data-text="Developer guides" class="text-xl font-bold text-gray-900 dark:text-white mb-2.5 group-hover:text-adguard transition-colors hide-from-toc no-link" data-i18n="cardDevGuides">
+                                Developer guides
+                            </h3>
+                            <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="descDevGuides">
+                                Find training classes that describe how to accomplish a specific task with code samples you can re-use in your app.
+                            </div>
+                        </div>
+                        <div class="devsite-landing-row-item-icon-container ms-auto mt-auto flex items-end justify-end" size="xlarge">
+                            <picture>
+                                <img class="devsite-landing-row-item-icon w-16 h-16 dark:hidden object-contain" alt="" src="/assets/Image/cluster-illustrations/developer-guidance.svg" loading="lazy">
+                                <img class="devsite-landing-row-item-icon w-16 h-16 hidden dark:block object-contain" alt="" src="/assets/Image/cluster-illustrations/developer-guidance_dt.svg" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 2. Sample code -->
+                <a href="https://developer.android.com/samples" target="_blank" rel="noopener noreferrer" data-category="illustrated-resource" data-label="sample-code" data-value="0" class="devsite-landing-row-item devsite-landing-row-item-no-media android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                    <div class="devsite-landing-row-item-description flex flex-col justify-between h-full" icon-position="bottom-right">
+                        <div class="devsite-landing-row-item-body mb-8">
+                            <h3 id="sample-code" data-text="Sample code" class="text-xl font-bold text-gray-900 dark:text-white mb-2.5 group-hover:text-adguard transition-colors hide-from-toc no-link" data-i18n="cardSampleCode">
+                                Sample code
+                            </h3>
+                            <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="descSampleCode">
+                                Jump-start your development using these sample projects.
+                            </div>
+                        </div>
+                        <div class="devsite-landing-row-item-icon-container ms-auto mt-auto flex items-end justify-end" size="xlarge">
+                            <picture>
+                                <img class="devsite-landing-row-item-icon w-16 h-16 dark:hidden object-contain" alt="" src="/assets/Image/cluster-illustrations/samples.svg" loading="lazy">
+                                <img class="devsite-landing-row-item-icon w-16 h-16 hidden dark:block object-contain" alt="" src="/assets/Image/cluster-illustrations/samples_dt.svg" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 3. Quality guidelines -->
+                <a href="https://developer.android.com/quality" target="_blank" rel="noopener noreferrer" data-category="illustrated-resource" data-label="quality-guidelines" data-value="0" class="devsite-landing-row-item devsite-landing-row-item-no-media android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                    <div class="devsite-landing-row-item-description flex flex-col justify-between h-full" icon-position="bottom-right">
+                        <div class="devsite-landing-row-item-body mb-8">
+                            <h3 id="quality-guidelines" data-text="Quality guidelines" class="text-xl font-bold text-gray-900 dark:text-white mb-2.5 group-hover:text-adguard transition-colors hide-from-toc no-link" data-i18n="cardQuality">
+                                Quality guidelines
+                            </h3>
+                            <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="descQuality">
+                                Build a high quality app with these design and behavior guidelines.
+                            </div>
+                        </div>
+                        <div class="devsite-landing-row-item-icon-container ms-auto mt-auto flex items-end justify-end" size="xlarge">
+                            <picture>
+                                <img class="devsite-landing-row-item-icon w-16 h-16 dark:hidden object-contain" alt="" src="/assets/Image/cluster-illustrations/quality-guidelines.svg" loading="lazy">
+                                <img class="devsite-landing-row-item-icon w-16 h-16 hidden dark:block object-contain" alt="" src="/assets/Image/cluster-illustrations/quality-guidelines_dt.svg" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 4. Distribute your app -->
+                <a href="https://developer.android.com/distribute" target="_blank" rel="noopener noreferrer" data-category="illustrated-resource" data-label="distribute-your-app" data-value="0" class="devsite-landing-row-item devsite-landing-row-item-no-media android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                    <div class="devsite-landing-row-item-description flex flex-col justify-between h-full" icon-position="bottom-right">
+                        <div class="devsite-landing-row-item-body mb-8">
+                            <h3 id="distribute-your-app" data-text="Distribute your app" class="text-xl font-bold text-gray-900 dark:text-white mb-2.5 group-hover:text-adguard transition-colors hide-from-toc no-link" data-i18n="cardDistribute">
+                                Distribute your app
+                            </h3>
+                            <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="descDistribute">
+                                Learn how to launch and distribute your apps and games successfully.
+                            </div>
+                        </div>
+                        <div class="devsite-landing-row-item-icon-container ms-auto mt-auto flex items-end justify-end" size="xlarge">
+                            <picture>
+                                <img class="devsite-landing-row-item-icon w-16 h-16 dark:hidden object-contain" alt="" src="/assets/Image/cluster-illustrations/launch-app.svg" loading="lazy">
+                                <img class="devsite-landing-row-item-icon w-16 h-16 hidden dark:block object-contain" alt="" src="/assets/Image/cluster-illustrations/launch-app_dt.svg" loading="lazy">
+                            </picture>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
