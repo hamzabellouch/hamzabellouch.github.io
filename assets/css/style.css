@@ -162,3 +162,281 @@ html[lang="ar"] p, html[lang="ar"] li, html[lang="ar"] span, html[lang="ar"] a, 
 .dark ::-webkit-scrollbar-thumb:hover {
     background: #475569;
 }
+
+/* ==========================================================================
+   Google Developer Card Element Styles (developer.android.com design)
+   ========================================================================== */
+
+.devsite-card {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .devsite-card {
+        flex-direction: row;
+        align-items: center;
+        padding: 32px;
+        gap: 28px;
+        min-height: 290px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .devsite-card {
+        padding: 36px;
+        gap: 32px;
+    }
+}
+
+/* Smooth Google Elevation Effect on Hover */
+.devsite-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    box-shadow: 0 14px 25px 0 rgba(60, 64, 67, 0.08), 0 4px 13px 0 rgba(60, 64, 67, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.devsite-card:hover::before {
+    opacity: 1;
+}
+
+.devsite-card:hover {
+    border-color: #c4c7c5;
+}
+
+/* Link Overlay covering whole card for seamless navigation */
+.devsite-card-link-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+.devsite-card-link-overlay:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 24px;
+}
+
+/* Content Container (Left Side) */
+.devsite-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 0%;
+    min-width: 0;
+    align-self: stretch;
+    z-index: 2;
+}
+
+/* Meta / Eyebrow Header */
+.devsite-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.devsite-card-eyebrow {
+    font-family: var(--font-display, 'Google Sans', sans-serif);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #5f6368;
+    line-height: 16px;
+}
+
+.devsite-card-platforms {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 4;
+}
+
+.devsite-card-platforms img {
+    height: 17px;
+    width: 17px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+}
+
+.devsite-card:hover .devsite-card-platforms img {
+    opacity: 1;
+}
+
+.devsite-card-platforms i {
+    font-size: 17px;
+}
+
+/* Card Title */
+.devsite-card-title {
+    font-family: var(--font-display, 'Google Sans', sans-serif);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    color: #202124;
+    margin-bottom: 12px;
+    letter-spacing: -0.2px;
+    transition: color 0.2s ease;
+}
+
+@media (min-width: 640px) {
+    .devsite-card-title {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+.devsite-card:hover .devsite-card-title {
+    color: #2563eb;
+}
+
+/* Card Description */
+.devsite-card-description {
+    font-family: var(--font-text, 'Google Sans Text', sans-serif);
+    font-size: 14.5px;
+    line-height: 22px;
+    color: #444746;
+    margin-bottom: 24px;
+}
+
+/* Footer / Action Button */
+.devsite-card-footer {
+    margin-top: auto;
+    padding-top: 4px;
+}
+
+.devsite-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-text, 'Google Sans Text', sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    color: #202124;
+    background-color: transparent;
+    border: 1px solid #747775;
+    border-radius: 9999px;
+    padding: 8px 24px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.devsite-card:hover .devsite-card-btn {
+    background-color: #202124;
+    color: #ffffff;
+    border-color: #202124;
+}
+
+/* Right Media / Image Frame */
+.devsite-card-media {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    z-index: 2;
+    position: relative;
+}
+
+@media (min-width: 640px) {
+    .devsite-card-media {
+        flex: 0 0 190px;
+        width: 190px;
+        height: 190px;
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media (min-width: 1024px) {
+    .devsite-card-media {
+        flex: 0 0 200px;
+        width: 200px;
+        height: 200px;
+    }
+}
+
+.devsite-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.devsite-card:hover .devsite-card-media img {
+    transform: scale(1.04);
+}
+
+/* ==========================================================================
+   Dark Mode Support for Google Developer Cards
+   ========================================================================== */
+
+.dark .devsite-card {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #f3f4f6;
+}
+
+.dark .devsite-card::before {
+    box-shadow: 0 14px 25px 0 rgba(0, 0, 0, 0.35), 0 4px 13px 0 rgba(0, 0, 0, 0.25);
+}
+
+.dark .devsite-card:hover {
+    border-color: #4b5563;
+}
+
+.dark .devsite-card-eyebrow {
+    color: #9ca3af;
+}
+
+.dark .devsite-card-title {
+    color: #ffffff;
+}
+
+.dark .devsite-card:hover .devsite-card-title {
+    color: #60a5fa;
+}
+
+.dark .devsite-card-description {
+    color: #cbd5e1;
+}
+
+.dark .devsite-card-btn {
+    color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+.dark .devsite-card:hover .devsite-card-btn {
+    background-color: #ffffff;
+    color: #111827;
+    border-color: #ffffff;
+}
