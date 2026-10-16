@@ -163,9 +163,16 @@
         <div class="flex flex-col md:flex-row items-center gap-12">
             <!-- Left Content -->
             <div class="flex-1 space-y-8">
-                <div class="inline-flex items-center gap-2 bg-blue-50 dark:bg-gray-800/50 text-adguard px-3 py-1 rounded-full text-sm font-semibold border border-blue-100 dark:border-gray-700">
-                    <i class="fa-solid fa-star text-yellow-400"></i>
-                    <span data-i18n="reviews">+400 user reviews - Excellent!</span>
+                <div class="flex flex-wrap items-center gap-2.5">
+                    <div class="inline-flex items-center gap-2 bg-blue-50 dark:bg-gray-800/50 text-adguard px-3 py-1 rounded-full text-sm font-semibold border border-blue-100 dark:border-gray-700">
+                        <i class="fa-solid fa-star text-yellow-400"></i>
+                        <span data-i18n="reviews">+400 user reviews - Excellent!</span>
+                    </div>
+                    <div id="site-views-badge" class="inline-flex items-center gap-2 bg-gray-100/90 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium border border-gray-200/80 dark:border-gray-700/80 shadow-sm" title="Total Website Visits">
+                        <i class="fa-solid fa-eye text-adguard"></i>
+                        <span id="site-total-views" class="font-bold">...</span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400 font-normal" data-i18n="viewsLabel">views</span>
+                    </div>
                 </div>
                 
                 <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-gray-900 dark:text-white">
@@ -385,6 +392,6 @@
 
     <!-- Scripts -->
     <script src="/assets/js/translations.js?v=3"></script>
-    <script src="/assets/js/main.js?v=3"></script>
+    <script src="/assets/js/main.js?v=4"></script>
 </body>
 </html>

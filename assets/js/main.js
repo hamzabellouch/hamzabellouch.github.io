@@ -158,29 +158,171 @@ function updateStatusText() {
     }
 }
 
-// 5. Blog Article Share Button (auto-injected on every article page)
-function initBlogShareButton() {
+// ==========================================
+// 5. Public Views & Shares Counter Engine (CountAPI)
+// ==========================================
+const COUNTER_API_BASE = 'https://countapi.mileshilliard.com/api/v1';
+
+// Helper: Format large numbers (e.g. 1,240 or 12.5k)
+function formatCounterNumber(num) {
+    if (typeof num !== 'number' || isNaN(num) || num < 0) return '0';
+    if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (num >= 10000) return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    return new Intl.NumberFormat().format(num);
+}
+
+// Helper: Sanitize keys to be safe for URL and API
+function sanitizeCounterKey(str) {
+    return String(str || '')
+        .toLowerCase()
+        .trim()
+        .replace(/^\/+|\/+$/g, '')
+        .replace(/[^a-z0-9_-]/g, '-')
+        .replace(/-+/g, '-')
+        .substring(0, 60);
+}
+
+// Fetch counter without incrementing
+async function fetchCounterValue(key) {
+    const safeKey = sanitizeCounterKey(key);
+    if (!safeKey) return 0;
+    try {
+        const res = await fetch(`${COUNTER_API_BASE}/get/${safeKey}`);
+        if (!res.ok) return 0;
+        const data = await res.json();
+        const val = typeof data.value === 'number' ? data.value : 0;
+        try { localStorage.setItem('hb_cache_' + safeKey, String(val)); } catch (e) {}
+        return val;
+    } catch (err) {
+        try {
+            const cached = localStorage.getItem('hb_cache_' + safeKey);
+            if (cached !== null) return parseInt(cached, 10) || 0;
+        } catch (e) {}
+        return 0;
+    }
+}
+
+// Increment counter (+1) and return new value
+async function incrementCounterValue(key) {
+    const safeKey = sanitizeCounterKey(key);
+    if (!safeKey) return 1;
+    try {
+        const res = await fetch(`${COUNTER_API_BASE}/hit/${safeKey}`);
+        if (!res.ok) return 1;
+        const data = await res.json();
+        const val = typeof data.value === 'number' ? data.value : 1;
+        try { localStorage.setItem('hb_cache_' + safeKey, String(val)); } catch (e) {}
+        return val;
+    } catch (err) {
+        try {
+            const cached = localStorage.getItem('hb_cache_' + safeKey);
+            const nextVal = (parseInt(cached, 10) || 0) + 1;
+            localStorage.setItem('hb_cache_' + safeKey, String(nextVal));
+            return nextVal;
+        } catch (e) {}
+        return 1;
+    }
+}
+
+// Track view once per browser session
+async function trackCounterView(key, sessionKey) {
+    const safeKey = sanitizeCounterKey(key);
+    const sKey = 'hb_sess_view_' + (sessionKey || safeKey);
+    let hasViewed = false;
+    try {
+        hasViewed = sessionStorage.getItem(sKey) === '1';
+    } catch (e) {}
+
+    if (!hasViewed) {
+        const newVal = await incrementCounterValue(safeKey);
+        try { sessionStorage.setItem(sKey, '1'); } catch (e) {}
+        return newVal;
+    } else {
+        return await fetchCounterValue(safeKey);
+    }
+}
+
+// ==========================================
+// 6. Blog & Article Share + Realtime Stats
+// ==========================================
+function initBlogShareAndStats() {
     const backSpan = document.querySelector('span[data-i18n="backToBlog"]');
     if (!backSpan) return;
     const backLink = backSpan.closest('a');
     if (!backLink || backLink.closest('[data-share-row]')) return;
 
-    // Wrap "Back to Blog" and place "Share" on the opposite side of the same row
+    // Determine article slug from URL
+    const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+    const segments = path.split('/').filter(Boolean);
+    const newsIdx = segments.indexOf('news');
+    if (newsIdx === -1 || !segments[newsIdx + 1]) return;
+    const articleSlug = segments[newsIdx + 1];
+    const viewsKey = `hb-news-${articleSlug}-views`;
+    const sharesKey = `hb-news-${articleSlug}-shares`;
+
+    // Wrap "Back to News" and place action cluster on the opposite side
     const row = document.createElement('div');
     row.setAttribute('data-share-row', '');
-    row.className = 'mb-8 flex items-center justify-between gap-4';
+    row.className = 'mb-8 flex items-center justify-between flex-wrap gap-4 w-full';
 
     backLink.classList.remove('mb-8');
     backLink.parentNode.insertBefore(row, backLink);
     row.appendChild(backLink);
 
+    // Right-side actions cluster (Views Badge + Share Button with Count)
+    const actionCluster = document.createElement('div');
+    actionCluster.className = 'flex items-center gap-2.5 flex-wrap shrink-0';
+
+    // Views / Reads Capsule
+    const viewsBadge = document.createElement('div');
+    viewsBadge.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800/90 border border-gray-200/80 dark:border-gray-700/80 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 shadow-sm';
+    viewsBadge.setAttribute('title', 'Article Views / Reads');
+    viewsBadge.innerHTML = `
+        <i class="fa-solid fa-eye text-adguard text-sm"></i>
+        <span id="blog-views-count" class="font-bold text-gray-900 dark:text-white">...</span>
+        <span class="text-xs text-gray-500 dark:text-gray-400 font-normal" data-i18n="readsLabel">reads</span>
+    `;
+    actionCluster.appendChild(viewsBadge);
+
+    // Share Capsule (Button + Counter)
+    const shareCapsule = document.createElement('div');
+    shareCapsule.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800/90 border border-blue-200/80 dark:border-gray-700/80 text-xs sm:text-sm text-adguard font-semibold shadow-sm transition-all';
+    
     const shareBtn = document.createElement('button');
     shareBtn.type = 'button';
-    shareBtn.className = 'inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark transition-colors shrink-0';
+    shareBtn.className = 'inline-flex items-center gap-1.5 font-bold hover:text-adguardDark transition-colors focus:outline-none';
     shareBtn.setAttribute('aria-label', 'Share');
-    shareBtn.innerHTML = '<i class="fa-solid fa-share-nodes" aria-hidden="true"></i><span data-i18n="share">Share</span>';
-    row.appendChild(shareBtn);
+    shareBtn.innerHTML = '<i class="fa-solid fa-share-nodes"></i><span data-i18n="share">Share</span>';
+    
+    const divider = document.createElement('span');
+    divider.className = 'text-gray-300 dark:text-gray-600 font-normal select-none';
+    divider.textContent = '|';
 
+    const sharesCountSpan = document.createElement('span');
+    sharesCountSpan.id = 'blog-shares-count';
+    sharesCountSpan.className = 'font-bold text-gray-700 dark:text-gray-300';
+    sharesCountSpan.setAttribute('title', 'Total Shares');
+    sharesCountSpan.textContent = '...';
+
+    shareCapsule.appendChild(shareBtn);
+    shareCapsule.appendChild(divider);
+    shareCapsule.appendChild(sharesCountSpan);
+    actionCluster.appendChild(shareCapsule);
+
+    row.appendChild(actionCluster);
+
+    // Track views once per session
+    trackCounterView(viewsKey, `news_${articleSlug}`).then(val => {
+        const el = document.getElementById('blog-views-count');
+        if (el) el.textContent = formatCounterNumber(val);
+    });
+
+    // Fetch existing share count
+    fetchCounterValue(sharesKey).then(val => {
+        if (sharesCountSpan) sharesCountSpan.textContent = formatCounterNumber(val);
+    });
+
+    // Handle Share click
     shareBtn.addEventListener('click', () => {
         const label = shareBtn.querySelector('span');
         const icon = shareBtn.querySelector('i');
@@ -192,6 +334,11 @@ function initBlogShareButton() {
             if (label) label.textContent = copiedText;
             if (icon) icon.className = 'fa-solid fa-check';
             shareBtn.classList.add('text-green-600');
+
+            // Increment share count
+            incrementCounterValue(sharesKey).then(newCount => {
+                if (sharesCountSpan) sharesCountSpan.textContent = formatCounterNumber(newCount);
+            });
 
             clearTimeout(shareBtn._resetTimer);
             shareBtn._resetTimer = setTimeout(() => {
@@ -226,7 +373,129 @@ function copyToClipboard(text) {
     });
 }
 
-// 6. Overview Counter Animation (Home Page)
+// ==========================================
+// 7. Project Views Badge (Project Detail Pages)
+// ==========================================
+function initProjectViewsBadge() {
+    const main = document.querySelector('main');
+    if (!main) return;
+
+    // Check if on a project detail page
+    const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '');
+    const segments = path.split('/').filter(Boolean);
+    const projIdx = segments.indexOf('projects');
+    if (projIdx === -1 || !segments[projIdx + 1]) return;
+    const projectSlug = segments[projIdx + 1];
+    const apiKey = `hb-proj-${projectSlug}-views`;
+
+    // Find the Back link inside main
+    const backLink = main.querySelector('a[href="/projects/"], a[href="/projects"]');
+    if (!backLink || backLink.closest('[data-project-topbar]')) return;
+
+    // Wrap backLink in a flex container row
+    const topBar = document.createElement('div');
+    topBar.setAttribute('data-project-topbar', '');
+    topBar.className = 'flex items-center justify-between flex-wrap gap-4 mb-8 w-full';
+
+    backLink.classList.remove('mb-8');
+    backLink.parentNode.insertBefore(topBar, backLink);
+    topBar.appendChild(backLink);
+
+    // Create Right-aligned Views Badge
+    const badge = document.createElement('div');
+    badge.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800/90 border border-gray-200/80 dark:border-gray-700/80 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 shadow-sm transition-all hover:border-adguard/50';
+    badge.setAttribute('title', 'Project Views');
+    badge.innerHTML = `
+        <i class="fa-solid fa-eye text-adguard text-sm"></i>
+        <span id="project-views-count" class="font-bold text-gray-900 dark:text-white">...</span>
+        <span class="text-xs text-gray-500 dark:text-gray-400 font-normal" data-i18n="viewsLabel">views</span>
+    `;
+    topBar.appendChild(badge);
+
+    // Track or fetch view count
+    trackCounterView(apiKey, `proj_${projectSlug}`).then(val => {
+        const el = document.getElementById('project-views-count');
+        if (el) el.textContent = formatCounterNumber(val);
+    });
+}
+
+// ==========================================
+// 8. Home Page Total Visits Counter
+// ==========================================
+function initHomeViewsCounter() {
+    const totalViewsEl = document.getElementById('site-total-views');
+    if (!totalViewsEl) return;
+
+    trackCounterView('hb-site-total-views', 'home_site').then(val => {
+        if (totalViewsEl) totalViewsEl.textContent = formatCounterNumber(val);
+    });
+}
+
+// ==========================================
+// 9. News Cards Stats (News Feed / Listing Page)
+// ==========================================
+function initNewsCardsStats() {
+    const articles = document.querySelectorAll('article.group');
+    if (!articles.length) return;
+
+    articles.forEach(article => {
+        if (article.querySelector('[data-news-card-stats]')) return;
+
+        // Find article link
+        const link = article.querySelector('a[href*="/news/"]');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        const cleanHref = href.replace(/\/index\.html$/, '').replace(/\/$/, '');
+        const segments = cleanHref.split('/').filter(Boolean);
+        const newsIdx = segments.indexOf('news');
+        if (newsIdx === -1 || !segments[newsIdx + 1]) return;
+        const slug = segments[newsIdx + 1];
+
+        const viewsKey = `hb-news-${slug}-views`;
+        const sharesKey = `hb-news-${slug}-shares`;
+
+        // Find author container (or last container)
+        const authorBadge = article.querySelector('.mt-auto');
+        if (!authorBadge) return;
+
+        const footerRow = document.createElement('div');
+        footerRow.setAttribute('data-news-card-stats', '');
+        footerRow.className = 'mt-auto pt-4 flex items-center justify-between gap-2 flex-wrap border-t border-gray-100 dark:border-gray-700/60 w-full';
+
+        authorBadge.classList.remove('mt-auto');
+        authorBadge.parentNode.insertBefore(footerRow, authorBadge);
+        footerRow.appendChild(authorBadge);
+
+        const statsPill = document.createElement('div');
+        statsPill.className = 'inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-gray-50 dark:bg-gray-900/60 border border-gray-200/70 dark:border-gray-700/70 text-xs font-medium text-gray-600 dark:text-gray-400 shadow-xs';
+        statsPill.innerHTML = `
+            <span class="inline-flex items-center gap-1.5" title="Views / Reads">
+                <i class="fa-solid fa-eye text-adguard text-[11px]"></i>
+                <span class="font-bold text-gray-800 dark:text-gray-200 card-views">...</span>
+            </span>
+            <span class="text-gray-300 dark:text-gray-600 font-light select-none">·</span>
+            <span class="inline-flex items-center gap-1.5" title="Shares">
+                <i class="fa-solid fa-share-nodes text-emerald-500 text-[11px]"></i>
+                <span class="font-bold text-gray-800 dark:text-gray-200 card-shares">...</span>
+            </span>
+        `;
+        footerRow.appendChild(statsPill);
+
+        const viewsEl = statsPill.querySelector('.card-views');
+        const sharesEl = statsPill.querySelector('.card-shares');
+
+        // Fetch counts (from cache or API)
+        fetchCounterValue(viewsKey).then(v => {
+            if (viewsEl) viewsEl.textContent = formatCounterNumber(v);
+        });
+        fetchCounterValue(sharesKey).then(s => {
+            if (sharesEl) sharesEl.textContent = formatCounterNumber(s);
+        });
+    });
+}
+
+// 10. Overview Counter Animation (Home Page)
 function initOverviewCounters() {
     const counters = document.querySelectorAll('[data-counter]');
     if (!counters.length) return;
@@ -244,7 +513,6 @@ function initOverviewCounters() {
             return;
         }
 
-        // Higher values take longer to reach, while keeping every counter responsive.
         const duration = Math.min(1800, Math.max(700, 600 + target * 5));
         const startTime = performance.now();
 
@@ -265,9 +533,12 @@ function initOverviewCounters() {
     });
 }
 
-// 7. Initialize on DOM Load
+// 11. Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', () => {
-    initBlogShareButton();
+    initBlogShareAndStats();
+    initProjectViewsBadge();
+    initHomeViewsCounter();
+    initNewsCardsStats();
     setLanguage(currentLang);
     initOverviewCounters();
 });
