@@ -83,9 +83,9 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
+        <!-- Mobile Dropdown Menu -->
         <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
-            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-adguard bg-blue-50 dark:bg-gray-800">
                 <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
                 <span data-i18n="navProducts">Projects</span>
             </a>
@@ -102,7 +102,7 @@
                 <span data-i18n="navResearch">Research</span>
             </a>
             <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
-                <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
+                <i class="fa-solid fa-headset w-5 text-center text-adguard"></i>
                 <span data-i18n="navSupport">Support</span>
             </a>
             <a href="/partners/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
@@ -113,7 +113,7 @@
     </nav>
 
     <!-- Main Project Detail Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-16 flex-1 w-full">
         <!-- Back Link -->
         <a href="/projects/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
             <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
@@ -121,14 +121,18 @@
         </a>
 
         <!-- Project Header -->
-        <div class="space-y-4 mb-8 pb-8 border-b border-gray-200 dark:border-gray-800">
+        <div class="space-y-4 mb-10 pb-8 border-b border-gray-200 dark:border-gray-800">
             <div class="flex flex-wrap items-center gap-3">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800 border border-blue-200 dark:border-gray-700 text-adguard text-xs font-bold">
-                    <i class="fa-solid fa-puzzle-piece text-purple-500"></i>
-                    <span>Chrome / Firefox / Edge</span>
+                    <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="w-4 h-4 object-contain">
+                    <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="w-4 h-4 object-contain">
+                    <span>Chrome · Brave · Edge · Firefox</span>
                 </div>
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs font-semibold">
                     <span>Productivity · Privacy · Customization</span>
+                </div>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 dark:bg-gray-800 text-adguard text-xs font-semibold">
+                    <span>9 Browser Extensions</span>
                 </div>
             </div>
             
@@ -141,34 +145,207 @@
             </p>
         </div>
 
-        <!-- Key Features -->
-        <div class="space-y-6 mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2.5">
-                <i class="fa-solid fa-layer-group text-adguard"></i>
-                <span>Key Capabilities & Features</span>
-            </h2>
-            <ul class="space-y-3.5 list-none pl-0">
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Streamlined tab manager and memory suspender for heavy multitasking.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Clean dark mode enforcer for unsupported web pages.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Universal text cleaner and markdown clipper for web research.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Tracker blocker and HTTP header sanitizer.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
-                    <span class="text-gray-700 dark:text-gray-300 leading-relaxed">Cross-browser compatibility supporting Chromium and Firefox WebExtensions APIs.</span>
-                </li>
-            </ul>
+        <!-- 9 Extension Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
+
+            <!-- 1. Extension 1 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 1</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 1</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 2. Extension 2 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 2</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 2</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 3. Extension 3 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 3</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 3</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 4. Extension 4 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 4</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 4</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 5. Extension 5 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 5</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 5</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 5" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 6. Extension 6 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 6</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 6</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 7. Extension 7 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 7</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 7</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 7" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 8. Extension 8 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 8</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 8</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
+            <!-- 9. Extension 9 -->
+            <div class="p-6 sm:p-8 border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 group">
+                <div class="flex-1 flex flex-col justify-between self-stretch">
+                    <div>
+                        <div class="h-7 mb-3 flex items-center gap-2.5">
+                            <img src="/assets/Logo/Chromium.svg" alt="Chromium" class="h-5 w-5 object-contain">
+                            <img src="/assets/Logo/Firefox.svg" alt="Firefox" class="h-5 w-5 object-contain">
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold mb-3 text-gray-900 dark:text-white leading-tight group-hover:text-adguard transition-colors">Extension 9</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">Extension 9</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://github.com/hamzabellouch/extensions" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-6 rounded-full text-base font-medium tracking-wide border-2 border-[#202124] dark:border-white text-[#202124] dark:text-white bg-transparent hover:bg-[#202124] hover:text-white group-hover:bg-[#202124] group-hover:text-white dark:hover:bg-white dark:hover:text-[#202124] dark:group-hover:bg-white dark:group-hover:text-[#202124] transition-all duration-200 active:scale-[0.96]">
+                            <span data-i18n="learnMore">Learn more</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full sm:w-44 lg:w-48 aspect-[16/10] sm:aspect-square rounded-3xl overflow-hidden bg-gray-100 dark:bg-gray-700/50 shrink-0 shadow-sm block">
+                    <img src="/assets/Image/browser-extensions.jpg" alt="Extension 9" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                </div>
+            </div>
+
         </div>
 
         <!-- Action Box -->
