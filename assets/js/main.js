@@ -535,10 +535,6 @@ function initOverviewCounters() {
 
 // 11. Maintenance Banner Management
 function initMaintenanceBanner() {
-    if (sessionStorage.getItem('maintenance_banner_dismissed') === 'true') {
-        return;
-    }
-
     if (document.getElementById('siteMaintenanceBanner')) {
         return;
     }
@@ -553,42 +549,21 @@ function initMaintenanceBanner() {
     banner.className = 'w-full transition-colors duration-300 bg-[#ceead6] dark:bg-[#134229] text-[#202124] dark:text-[#e8f5e9]';
 
     banner.innerHTML = `
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 sm:py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div class="flex-1 text-[#202124] dark:text-[#e8f5e9]">
-                <p class="m-0 text-sm sm:text-[15px] font-bold text-[#202124] dark:text-white leading-snug" data-i18n="maintenanceBannerTitle">
-                    ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerTitle) || 'The website is currently undergoing scheduled maintenance.'}
-                </p>
-                <p class="m-0 mt-1 text-xs sm:text-sm text-[#3c4043] dark:text-[#c4eed0] leading-relaxed" data-i18n="maintenanceBannerDesc">
-                    ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerDesc) || 'We are performing periodic updates to enhance performance and features. Please stay tuned and check back soon.'}
-                </p>
-            </div>
-            <div class="self-stretch sm:self-center flex items-center justify-end shrink-0">
-                <button type="button" id="maintenanceBannerDismissBtn" class="inline-flex items-center justify-center px-6 py-1.5 rounded-full text-xs sm:text-sm font-medium border border-[#202124] dark:border-[#e8f5e9] text-[#202124] dark:text-[#e8f5e9] bg-transparent hover:bg-black/5 dark:hover:bg-white/10 active:scale-95 transition-all duration-200 cursor-pointer" data-i18n="maintenanceBannerBtn">
-                    ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerBtn) || 'Got it'}
-                </button>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 sm:py-3.5 text-[#202124] dark:text-[#e8f5e9]">
+            <p class="m-0 text-sm sm:text-[15px] font-bold text-[#202124] dark:text-white leading-snug" data-i18n="maintenanceBannerTitle">
+                ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerTitle) || 'The website is currently undergoing scheduled maintenance.'}
+            </p>
+            <p class="m-0 mt-1 text-xs sm:text-sm text-[#3c4043] dark:text-[#c4eed0] leading-relaxed" data-i18n="maintenanceBannerDesc">
+                ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerDesc) || 'We are performing periodic updates to enhance performance and features. Please stay tuned and check back soon.'}
+            </p>
         </div>
     `;
 
-    nav.insertAdjacentElement('afterend', banner);
-
-    const dismissBtn = document.getElementById('maintenanceBannerDismissBtn');
-    if (dismissBtn) {
-        dismissBtn.addEventListener('click', () => {
-            sessionStorage.setItem('maintenance_banner_dismissed', 'true');
-            banner.style.transition = 'max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease';
-            banner.style.overflow = 'hidden';
-            banner.style.maxHeight = banner.scrollHeight + 'px';
-            requestAnimationFrame(() => {
-                banner.style.maxHeight = '0';
-                banner.style.opacity = '0';
-                banner.style.paddingTop = '0';
-                banner.style.paddingBottom = '0';
-            });
-            setTimeout(() => {
-                banner.remove();
-            }, 300);
-        });
+    const mobileMenu = nav.querySelector('#mobileMenu');
+    if (mobileMenu) {
+        nav.insertBefore(banner, mobileMenu);
+    } else {
+        nav.appendChild(banner);
     }
 }
 
