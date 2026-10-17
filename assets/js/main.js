@@ -533,8 +533,74 @@ function initOverviewCounters() {
     });
 }
 
-// 11. Initialize on DOM Load
+// 11. Maintenance Banner Management
+function initMaintenanceBanner() {
+    if (sessionStorage.getItem('maintenance_banner_dismissed') === 'true') {
+        return;
+    }
+
+    if (document.getElementById('siteMaintenanceBanner')) {
+        return;
+    }
+
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    const banner = document.createElement('aside');
+    banner.id = 'siteMaintenanceBanner';
+    banner.setAttribute('role', 'status');
+    banner.setAttribute('aria-live', 'polite');
+    banner.className = 'w-full border-b transition-colors duration-300 bg-[#eff7cf] dark:bg-[#1a2e1d] border-[#d8e8a8] dark:border-[#2b4c30] text-gray-900 dark:text-gray-100';
+
+    banner.innerHTML = `
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+            <div class="flex items-start sm:items-center gap-3 w-full sm:w-auto">
+                <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#d8e8a8] dark:bg-[#2b4c30] text-[#244f19] dark:text-[#a3e895] shrink-0 text-xs font-bold shadow-xs">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                </span>
+                <p class="leading-relaxed m-0 text-xs sm:text-sm">
+                    <strong class="font-bold text-gray-950 dark:text-white" data-i18n="maintenanceBannerTitle">
+                        ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerTitle) || 'The website is currently undergoing scheduled maintenance.'}
+                    </strong>
+                    <span class="mx-1 hidden sm:inline text-gray-500 dark:text-gray-400">—</span>
+                    <span class="block sm:inline text-gray-700 dark:text-gray-300" data-i18n="maintenanceBannerDesc">
+                        ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerDesc) || 'We are performing periodic updates to enhance performance and features. Please stay tuned and check back soon.'}
+                    </span>
+                </p>
+            </div>
+            <div class="flex items-center justify-end w-full sm:w-auto shrink-0">
+                <button type="button" id="maintenanceBannerDismissBtn" class="inline-flex items-center justify-center px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-900/30 dark:border-white/30 text-gray-900 dark:text-white bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-800 hover:border-gray-900/70 dark:hover:border-white shadow-xs transition-all duration-200 cursor-pointer" data-i18n="maintenanceBannerBtn">
+                    ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerBtn) || 'Got it'}
+                </button>
+            </div>
+        </div>
+    `;
+
+    nav.insertAdjacentElement('afterend', banner);
+
+    const dismissBtn = document.getElementById('maintenanceBannerDismissBtn');
+    if (dismissBtn) {
+        dismissBtn.addEventListener('click', () => {
+            sessionStorage.setItem('maintenance_banner_dismissed', 'true');
+            banner.style.transition = 'max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease';
+            banner.style.overflow = 'hidden';
+            banner.style.maxHeight = banner.scrollHeight + 'px';
+            requestAnimationFrame(() => {
+                banner.style.maxHeight = '0';
+                banner.style.opacity = '0';
+                banner.style.paddingTop = '0';
+                banner.style.paddingBottom = '0';
+            });
+            setTimeout(() => {
+                banner.remove();
+            }, 300);
+        });
+    }
+}
+
+// 12. Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', () => {
+    initMaintenanceBanner();
     initBlogShareAndStats();
     initProjectViewsBadge();
     initHomeViewsCounter();
