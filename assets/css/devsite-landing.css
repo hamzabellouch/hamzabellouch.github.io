@@ -1,0 +1,482 @@
+/* ==========================================================================
+   Android Developers DevSite Landing Rows - 100% Faithful Stylesheet
+   Matching developer.android.com "Core areas" Component
+   ========================================================================== */
+
+/* 1. Global Variables & Font Definitions */
+:root {
+    --devsite-font-headline: 'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --devsite-font-text: 'Google Sans Text', 'Google Sans', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    --devsite-row-bg-light: #d2e3fc;
+    --devsite-row-bg-dark: #132137;
+    --devsite-card-bg-light: #ffffff;
+    --devsite-card-bg-dark: #000000;
+    --devsite-card-title-light: #202124;
+    --devsite-card-title-dark: #e8eaed;
+    --devsite-card-hover-title-light: #174ea6;
+    --devsite-card-hover-title-dark: #aecbfa;
+    --devsite-card-desc-light: #5f6368;
+    --devsite-card-desc-dark: #bdc1c6;
+    --devsite-label-light: #5f6368;
+    --devsite-label-dark: #bdc1c6;
+}
+
+/* 2. Container & Section Backgrounds */
+.devsite-landing-row {
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+}
+
+.devsite-landing-row.android-row-background-blue-100 {
+    background-color: var(--devsite-row-bg-light);
+}
+
+.dark .devsite-landing-row.android-row-background-blue-100,
+.dark .devsite-landing-row.android-row-dark-background-blue-800 {
+    background-color: var(--devsite-row-bg-dark);
+}
+
+.devsite-landing-row-padding-xlarge.android-row-padding-top-xlarge-bottom-small {
+    padding-top: 80px;
+    padding-bottom: 32px;
+}
+
+@media screen and (max-width: 840px) {
+    .devsite-landing-row-padding-xlarge.android-row-padding-top-xlarge-bottom-small {
+        padding-top: 56px;
+        padding-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .devsite-landing-row-padding-xlarge.android-row-padding-top-xlarge-bottom-small {
+        padding-top: 48px;
+        padding-bottom: 16px;
+    }
+}
+
+.devsite-landing-row-3-up {
+    padding-top: 0;
+    padding-bottom: 80px;
+}
+
+@media screen and (max-width: 840px) {
+    .devsite-landing-row-3-up {
+        padding-bottom: 56px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .devsite-landing-row-3-up {
+        padding-bottom: 48px;
+    }
+}
+
+.devsite-landing-row-inner {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 64px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@media screen and (max-width: 840px) {
+    .devsite-landing-row-inner {
+        padding: 0 24px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .devsite-landing-row-inner {
+        padding: 0 16px;
+    }
+}
+
+/* 3. Section 1: Header (Core areas) */
+.devsite-landing-row-header {
+    margin: 0 0 24px 0;
+    padding: 0;
+}
+
+.devsite-landing-row-header-text h2#core-areas {
+    font-family: var(--devsite-font-headline);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: -0.25px;
+    color: #202124;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.dark .devsite-landing-row-header-text h2#core-areas {
+    color: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+    .devsite-landing-row-header-text h2#core-areas {
+        font-size: 28px;
+        line-height: 36px;
+    }
+}
+
+/* 4. Section 1: 1-Up Featured Card (User interfaces) */
+.devsite-landing-row-1-up .devsite-landing-row-group {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item.android-item-background-grey-900 {
+    background-color: #202124;
+    border-radius: 24px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.dark .devsite-landing-row-1-up .devsite-landing-row-item.android-item-dark-background-grey-1000 {
+    background-color: #121212;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-media {
+    flex: 1 1 50%;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    box-sizing: border-box;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-image {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-image img {
+    max-width: 464px;
+    width: 100%;
+    height: auto;
+    max-height: 256px;
+    object-fit: contain;
+    display: block;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-image img.devsite-light-img {
+    display: block;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-image img.devsite-dark-img {
+    display: none !important;
+}
+
+.dark .devsite-landing-row-1-up .devsite-landing-row-item-image img.devsite-light-img {
+    display: none !important;
+}
+
+.dark .devsite-landing-row-1-up .devsite-landing-row-item-image img.devsite-dark-img {
+    display: block !important;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-description {
+    flex: 1 1 50%;
+    max-width: 50%;
+    padding: 48px 48px 48px 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-body h3#user-interfaces {
+    font-family: var(--devsite-font-headline);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: -0.25px;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    padding: 0;
+    border: none;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-description-content {
+    font-family: var(--devsite-font-text);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #ffffff;
+    margin: 0 0 32px 0;
+}
+
+.devsite-landing-row-1-up .devsite-landing-row-item-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.devsite-landing-row-1-up .button.button-primary {
+    font-family: var(--devsite-font-headline);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    line-height: 44px;
+    padding: 0 24px;
+    border: 2px solid #ffffff;
+    border-radius: 96px;
+    background-color: #ffffff;
+    color: #202124;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.devsite-landing-row-1-up .button.button-primary:hover {
+    background-color: #dadce0;
+    border-color: #dadce0;
+    color: #202124;
+}
+
+.devsite-landing-row-1-up .button.button-primary:active {
+    transform: scale(0.96);
+}
+
+@media screen and (max-width: 840px) {
+    .devsite-landing-row-1-up .devsite-landing-row-item.android-item-background-grey-900 {
+        flex-direction: column;
+    }
+    .devsite-landing-row-1-up .devsite-landing-row-item-media {
+        max-width: 100%;
+        width: 100%;
+        padding: 32px 24px 16px;
+    }
+    .devsite-landing-row-1-up .devsite-landing-row-item-description {
+        max-width: 100%;
+        width: 100%;
+        padding: 16px 32px 32px;
+        text-align: left;
+    }
+    [dir="rtl"] .devsite-landing-row-1-up .devsite-landing-row-item-description {
+        text-align: right;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .devsite-landing-row-1-up .devsite-landing-row-item-description {
+        padding: 16px 24px 24px;
+    }
+    .devsite-landing-row-1-up .devsite-landing-row-item-body h3#user-interfaces {
+        font-size: 24px;
+        line-height: 32px;
+    }
+}
+
+/* 5. Section 2: 3-Up Grid of 15 Cards */
+.devsite-landing-row-3-up .devsite-landing-row-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 0;
+    max-width: 1380px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+@media screen and (max-width: 840px) {
+    .devsite-landing-row-3-up .devsite-landing-row-group {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .devsite-landing-row-3-up .devsite-landing-row-group {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* 6. 3-Up Cards (100% Exact DevSite Cards) */
+.devsite-landing-row-3-up .devsite-landing-row-item {
+    background-color: var(--devsite-card-bg-light);
+    border-radius: 24px;
+    border: none !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    transition: none;
+    overflow: hidden;
+}
+
+.dark .devsite-landing-row-3-up .devsite-landing-row-item {
+    background-color: var(--devsite-card-bg-dark);
+}
+
+/* DevSite Subtle Elevation Hover via ::before overlay */
+.devsite-landing-row-item.android-fully-clickable::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    box-shadow: 0 14px 25px 0 rgba(60, 64, 67, 0.08), 0 4px 13px 0 rgba(60, 64, 67, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+    z-index: 0;
+}
+
+.dark .devsite-landing-row-item.android-fully-clickable::before {
+    box-shadow: 0 14px 25px 0 rgba(0, 0, 0, 0.6), 0 4px 13px 0 rgba(0, 0, 0, 0.8);
+}
+
+.devsite-landing-row-item.android-fully-clickable:hover::before,
+.devsite-landing-row-item.android-fully-clickable:focus-within::before {
+    opacity: 1;
+}
+
+.devsite-landing-row-item.android-fully-clickable:active::before {
+    opacity: 0.4;
+}
+
+/* Card Content Padding */
+.devsite-landing-row-3-up .devsite-landing-row-item-description {
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.devsite-landing-row-3-up .devsite-landing-row-item-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Card Eyebrow Label */
+.devsite-landing-row-3-up .devsite-landing-row-item-labels {
+    margin: 0 0 8px 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.devsite-landing-row-3-up .devsite-label {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: var(--devsite-label-light) !important;
+    font-family: var(--devsite-font-headline) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    line-height: 16px !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase !important;
+    display: inline-block;
+}
+
+.dark .devsite-landing-row-3-up .devsite-label {
+    color: var(--devsite-label-dark) !important;
+}
+
+/* Card Title */
+.devsite-landing-row-3-up .devsite-landing-row-item h3 {
+    font-family: var(--devsite-font-headline);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    border: none;
+}
+
+.devsite-landing-row-3-up .devsite-landing-row-item h3 a.android-fully-clickable-link {
+    color: var(--devsite-card-title-light);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.dark .devsite-landing-row-3-up .devsite-landing-row-item h3 a.android-fully-clickable-link {
+    color: var(--devsite-card-title-dark);
+}
+
+/* Title Color on Card Hover */
+.devsite-landing-row-item.android-fully-clickable:hover h3 a.android-fully-clickable-link,
+.devsite-landing-row-item.android-fully-clickable:focus-within h3 a.android-fully-clickable-link {
+    color: var(--devsite-card-hover-title-light) !important;
+    text-decoration: none !important;
+}
+
+.dark .devsite-landing-row-item.android-fully-clickable:hover h3 a.android-fully-clickable-link,
+.dark .devsite-landing-row-item.android-fully-clickable:focus-within h3 a.android-fully-clickable-link {
+    color: var(--devsite-card-hover-title-dark) !important;
+}
+
+/* Full Card Clickable Overlay */
+.devsite-landing-row-3-up a.android-fully-clickable-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: 1;
+}
+
+/* Card Description */
+.devsite-landing-row-3-up .devsite-landing-row-item-description-content {
+    font-family: var(--devsite-font-text);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--devsite-card-desc-light);
+    margin: 0;
+    padding: 0;
+}
+
+.dark .devsite-landing-row-3-up .devsite-landing-row-item-description-content {
+    color: var(--devsite-card-desc-dark);
+}
+
+/* RTL Layout Support */
+[dir="rtl"] .devsite-landing-row-header-text h2#core-areas,
+[dir="rtl"] .devsite-landing-row-item-description {
+    text-align: right;
+}
+[dir="rtl"] .devsite-landing-row-item-labels {
+    text-align: right;
+}
