@@ -112,11 +112,363 @@
         </div>
     </nav>
 
-    <!-- Main Research Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-8 py-20 flex justify-center items-center flex-1 text-center">
-        <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white" data-i18n="researchComingSoon">
-            Research coming soon
-        </h1>
+    <!-- Main Research Content: Core Areas -->
+    <main class="w-full flex-1 py-10 sm:py-14">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <!-- Section 1: Core areas Header & 1-Up Featured Card (User interfaces) -->
+            <section class="devsite-landing-row devsite-landing-row-1-up devsite-landing-row-no-image-background devsite-landing-row-67 devsite-landing-row-padding-xlarge android-callout mb-10" header-position="top">
+                <header class="devsite-landing-row-header mb-8 text-center sm:text-start">
+                    <div class="devsite-landing-row-header-text">
+                        <h1 id="core-areas" data-text="Core areas" class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white" data-i18n="coreAreasTitle">
+                            Core areas
+                        </h1>
+                        <p class="mt-2.5 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl" data-i18n="coreAreasSubtitle">
+                            Essential Android development areas, architecture, guides, and platform APIs.
+                        </p>
+                    </div>
+                </header>
+
+                <div class="devsite-landing-row-group">
+                    <div class="devsite-landing-row-item android-item-background-grey-900 android-item-dark-background-grey-1000 p-6 sm:p-10 md:p-12 rounded-3xl bg-[#202124] dark:bg-[#121212] text-white flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-12 shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-gray-800" description-position="bottom">
+                        <div class="devsite-landing-row-item-media devsite-landing-row-item-media-left w-full md:w-1/2 flex items-center justify-center">
+                            <figure class="devsite-landing-row-item-image w-full max-w-[464px] flex justify-center">
+                                <picture>
+                                    <source class="devsite-dark-theme" srcset="/assets/Image/cluster-illustrations/ui-guidelines_dt.svg" media="(prefers-color-scheme: dark)">
+                                    <img alt="User interfaces" src="/assets/Image/cluster-illustrations/ui-guidelines.svg" class="w-full max-h-64 object-contain dark:hidden" loading="lazy">
+                                    <img alt="User interfaces" src="/assets/Image/cluster-illustrations/ui-guidelines_dt.svg" class="w-full max-h-64 object-contain hidden dark:block" loading="lazy">
+                                </picture>
+                            </figure>
+                        </div>
+                        <div class="devsite-landing-row-item-description w-full md:w-1/2 flex flex-col justify-between">
+                            <div class="devsite-landing-row-item-body">
+                                <h2 id="user-interfaces" data-text="User interfaces" class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 hide-from-toc no-link" data-i18n="coreUiTitle">
+                                    User interfaces
+                                </h2>
+                                <div class="devsite-landing-row-item-description-content text-gray-300 text-sm sm:text-base leading-relaxed mb-8" data-i18n="coreUiDesc">
+                                    The guides you need to write the code for your UI—whether you're using Jetpack Compose or view-based APIs, or migrating from views to Compose.
+                                </div>
+                                <div class="devsite-landing-row-item-buttons">
+                                    <a href="https://developer.android.com/develop/ui" target="_blank" rel="noopener noreferrer" class="button inline-flex items-center justify-center h-12 px-8 rounded-full text-base font-medium border-2 border-white text-[#202124] bg-white hover:bg-gray-100 dark:border-white dark:bg-white dark:text-[#202124] dark:hover:bg-gray-200 transition-all duration-200 shadow-md active:scale-95" data-i18n="coreUiBtn">
+                                        Develop your UI
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: 3-Up Grid of Core Areas -->
+            <section class="devsite-landing-row devsite-landing-row-3-up android-xsmall-headings mb-12" header-position="top">
+                <div class="devsite-landing-row-inner">
+                    <div class="devsite-landing-row-group grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        <!-- 1. Data & files -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="data-files" data-text="Data & files" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/topics/data" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardDataTitle">Data &amp; files</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardDataDesc">
+                                        Store, manage, and share data.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. Permissions -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelSecurity">Security</span>
+                                    </div>
+                                    <h3 id="permissions" data-text="Permissions" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/topics/permissions/overview" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardPermsTitle">Permissions</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardPermsDesc">
+                                        Access and protect restricted data and actions.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. User identity -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelSecurity">Security</span>
+                                    </div>
+                                    <h3 id="user-identity" data-text="User identity" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/training/sign-in" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardIdentityTitle">User identity</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardIdentityDesc">
+                                        Manage user identity and related data.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Navigation -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelArch">App architecture</span>
+                                    </div>
+                                    <h3 id="navigation" data-text="Navigation" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/navigation/use-graph/navigate" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardNavTitle">Navigation</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardNavDesc">
+                                        Navigate between screens and apps.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 5. Intents and intent filters -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="intents-and-intent-filters" data-text="Intents and intent filters" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/components/intents-filters" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardIntentsTitle">Intents and intent filters</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardIntentsDesc">
+                                        Request actions from other apps.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. Background tasks -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="background-tasks" data-text="Background tasks" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/develop/background-work/background-tasks" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardTasksTitle">Background tasks</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardTasksDesc">
+                                        Run app tasks in the background.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. Services -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="services" data-text="Services" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/components/services" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardServicesTitle">Services</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardServicesDesc">
+                                        Perform long-running background operations.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 8. Alarms -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="alarms" data-text="Alarms" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/training/scheduling" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardAlarmsTitle">Alarms</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardAlarmsDesc">
+                                        Run scheduled operations in the background.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9. Audio & video -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelDevCenter">Dev Center</span>
+                                    </div>
+                                    <h3 id="audio-video" data-text="Audio & video" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/topics/media" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardAudioVideoTitle">Audio &amp; video</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardAudioVideoDesc">
+                                        Play and record audio and video.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 10. Camera -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelDevCenter">Dev Center</span>
+                                    </div>
+                                    <h3 id="camera" data-text="Camera" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/training/camera/choose-camera-library" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardCameraTitle">Camera</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardCameraDesc">
+                                        Easily use the camera.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 11. Sensors -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="sensors" data-text="Sensors" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/topics/sensors/sensors_overview" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardSensorsTitle">Sensors</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardSensorsDesc">
+                                        Orient your app in the real world.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 12. User location -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="user-location" data-text="User location" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/training/location" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardLocationTitle">User location</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardLocationDesc">
+                                        Make your app location aware.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 13. Connectivity -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="connectivity" data-text="Connectivity" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/develop/connectivity" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardConnectivityTitle">Connectivity</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardConnectivityDesc">
+                                        Connect your app through various protocols.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 14. App compatibility -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGuides">Guides</span>
+                                    </div>
+                                    <h3 id="app-compatibility" data-text="App compatibility" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/app-compatibility" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardCompatTitle">App compatibility</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardCompatDesc">
+                                        Maintain backward compatibility.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 15. App bundles -->
+                        <div class="devsite-landing-row-item devsite-landing-row-item-no-media android-item-background-white android-item-dark-background-black fully-clickable android-fully-clickable p-6 sm:p-7 rounded-3xl border border-gray-200/90 dark:border-gray-700/90 bg-white dark:bg-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group block" description-position="bottom">
+                            <div class="devsite-landing-row-item-description flex flex-col justify-between h-full">
+                                <div class="devsite-landing-row-item-body">
+                                    <div class="devsite-landing-row-item-labels mb-2.5">
+                                        <span class="devsite-label text-xs font-bold text-adguard dark:text-blue-400 uppercase tracking-wider" data-i18n="coreLabelGooglePlay">Google Play</span>
+                                    </div>
+                                    <h3 id="app-bundles" data-text="App bundles" class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-adguard transition-colors hide-from-toc no-link">
+                                        <a href="https://developer.android.com/guide/app-bundle" target="_blank" rel="noopener noreferrer" class="android-fully-clickable-link flex items-center justify-between gap-2">
+                                            <span data-i18n="coreCardBundlesTitle">App bundles</span>
+                                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-adguard opacity-0 group-hover:opacity-100 transition-all"></i>
+                                        </a>
+                                    </h3>
+                                    <div class="devsite-landing-row-item-description-content text-gray-600 dark:text-gray-400 text-sm leading-relaxed" data-i18n="coreCardBundlesDesc">
+                                        Publish your app to Google Play.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </main>
 
     <!-- Footer -->
