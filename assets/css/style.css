@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Explicit Google Sans Font Declarations (Headings, Menus, Buttons, UI) */
 @font-face {
@@ -314,10 +314,11 @@ html[lang="ar"] p, html[lang="ar"] li, html[lang="ar"] span, html[lang="ar"] a, 
 
 /* Card Description */
 .devsite-card-description {
-    font-family: var(--font-text, 'Google Sans Text', sans-serif);
-    font-size: 14.5px;
-    line-height: 22px;
+    font-family: var(--font-text, 'Google Sans Text', 'Roboto', sans-serif);
+    font-size: 16px;
+    line-height: 1.65;
     color: #444746;
+    font-weight: 400;
     margin-bottom: 24px;
 }
 
@@ -499,3 +500,105 @@ html[lang="ar"] p, html[lang="ar"] li, html[lang="ar"] span, html[lang="ar"] a, 
     box-shadow: 0 0 0 1px #1f2937, 0 0 0 3px #60a5fa;
 }
 
+
+/* Search input hover & focus border color */
+.hover-search-input:hover {
+    border-color: #2563eb;
+}
+.hover-search-input:focus {
+    border-color: #2563eb;
+}
+.dark .hover-search-input:hover {
+    border-color: #3b82f6;
+}
+.dark .hover-search-input:focus {
+    border-color: #3b82f6;
+}
+
+/* Article card capsule stats */
+.article-card-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    position: relative;
+    z-index: 2;
+}
+.article-card-stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px 4px 8px;
+    border-radius: 9999px;
+    background-color: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+    white-space: nowrap;
+}
+.dark .article-card-stat-pill {
+    background-color: #1f2937;
+    border-color: #374151;
+    color: #d1d5db;
+}
+.article-card-stat-pill i {
+    color: #2563eb;
+    font-size: 11px;
+}
+.dark .article-card-stat-pill i {
+    color: #60a5fa;
+}
+
+
+/* ==========================================================================
+   GLOBAL UNIFIED DESCRIPTION TYPOGRAPHY
+   Reference: VMP / project detail description (Google Sans Text, 16px, 1.65)
+   Applies to: projects cards, news cards, research, articles, project detail pages
+   ========================================================================== */
+
+/* --- 1 & 2. devsite-card-description & landing row descriptions are set at source above --- */
+
+/* --- 3. News cards article descriptions (p.text-sm.leading-relaxed inside article) --- */
+article p.text-sm,
+article p.text-base,
+article .text-gray-600,
+article .dark\:text-gray-400 {
+    font-family: var(--font-text, 'Google Sans Text', 'Roboto', sans-serif) !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+    font-weight: 400 !important;
+}
+
+/* --- 4. Project detail pages: hero description paragraph --- */
+main > .space-y-12 > div > p,
+main > .space-y-10 > div > p,
+main p[data-i18n*="desc"],
+main p[data-i18n*="Desc"] {
+    font-family: var(--font-text, 'Google Sans Text', 'Roboto', sans-serif) !important;
+    font-size: 16px !important;
+    line-height: 1.65 !important;
+    font-weight: 400 !important;
+}
+
+/* --- 5. Project detail pillar/feature card descriptions (text-sm inside rounded cards) --- */
+.p-6 > p.text-sm,
+.p-5 > p.text-sm,
+[class*="rounded"] > p.text-sm.text-gray-600,
+[class*="rounded"] > p.text-sm.leading-relaxed {
+    font-family: var(--font-text, 'Google Sans Text', 'Roboto', sans-serif) !important;
+    font-size: 14.5px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+/* --- 6. Article / research standalone page body text --- */
+.prose p,
+.article-body p,
+[class*="prose"] p {
+    font-family: var(--font-text, 'Google Sans Text', 'Roboto', sans-serif) !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    font-weight: 400 !important;
+}

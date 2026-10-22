@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Android Developers DevSite Landing Rows - 100% Faithful Stylesheet
    Matching developer.android.com "Core areas" Component
    ========================================================================== */
@@ -215,10 +215,10 @@
 }
 
 .devsite-landing-row-1-up .devsite-landing-row-item-description-content {
-    font-family: var(--devsite-font-text);
+    font-family: 'Google Sans Text', 'Google Sans', 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 1.65;
     color: #ffffff;
     margin: 0 0 32px 0;
 }
@@ -459,10 +459,10 @@
 
 /* Card Description */
 .devsite-landing-row-3-up .devsite-landing-row-item-description-content {
-    font-family: var(--devsite-font-text);
-    font-size: 14px;
+    font-family: 'Google Sans Text', 'Google Sans', 'Roboto', sans-serif;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 1.65;
     color: var(--devsite-card-desc-light);
     margin: 0;
     padding: 0;

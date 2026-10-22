@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" id="htmlTag">
 <head>
     <meta charset="UTF-8">
@@ -119,10 +119,27 @@
 
     <!-- Main Blog Feed Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-8 py-12 md:py-16 flex-1 w-full">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-gray-100 dark:border-gray-800 gap-4">
-            <div>
+        <div class="flex flex-col mb-10 pb-6 border-b border-gray-100 dark:border-gray-800 gap-4">
+            <div class="flex items-center justify-between gap-4">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white" data-i18n="blogTitle">News</h1>
-                <p class="text-gray-500 dark:text-gray-400 mt-2 text-base md:text-lg">Keep up to date with what's going on in the @hamzabellouch universe: every source; one place.</p>
+                <button id="searchToggleBtn" onclick="toggleSearch()" class="flex items-center justify-center w-10 h-10 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard focus:outline-none transition-all duration-200" aria-label="Toggle search">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+            </div>
+            <p class="text-gray-500 dark:text-gray-400 text-base md:text-lg">Keep up to date with what's going on in the @hamzabellouch universe: every source; one place.</p>
+            <!-- Search Bar -->
+            <div id="searchBar" class="hidden">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 pointer-events-none"></i>
+                    <input
+                        id="searchInput"
+                        type="text"
+                        placeholder="Search news..."
+                        oninput="filterNews()"
+                        class="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition-all duration-200 text-sm hover-search-input" style="--tw-ring-color: rgba(37,99,235,0.35);"
+                    >
+                </div>
+                <p id="searchNoResults" class="hidden mt-4 text-center text-gray-500 dark:text-gray-400 text-sm">No results found.</p>
             </div>
         </div>
 
@@ -825,5 +842,46 @@
     <!-- Scripts -->
     <script src="/assets/js/translations.js?v=4"></script>
     <script src="/assets/js/main.js?v=4"></script>
+
+    <!-- Search Script -->
+    <script>
+        function toggleSearch() {
+            const bar = document.getElementById('searchBar');
+            const input = document.getElementById('searchInput');
+            const isHidden = bar.classList.contains('hidden');
+            bar.classList.toggle('hidden');
+            if (isHidden) {
+                setTimeout(() => input.focus(), 50);
+            } else {
+                input.value = '';
+                filterNews();
+            }
+        }
+
+        function filterNews() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const sections = document.querySelectorAll('main .space-y-14 > section');
+            let totalVisible = 0;
+
+            sections.forEach(section => {
+                const articles = section.querySelectorAll('article');
+                let sectionVisible = 0;
+                articles.forEach(article => {
+                    const text = article.textContent.toLowerCase();
+                    if (!query || text.includes(query)) {
+                        article.style.display = '';
+                        sectionVisible++;
+                        totalVisible++;
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+                section.style.display = sectionVisible === 0 ? 'none' : '';
+            });
+
+            const noResults = document.getElementById('searchNoResults');
+            noResults.classList.toggle('hidden', totalVisible > 0 || !query);
+        }
+    </script>
 </body>
 </html>
