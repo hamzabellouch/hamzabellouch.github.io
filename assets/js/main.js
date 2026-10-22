@@ -1,4 +1,4 @@
-﻿// Shared Core JavaScript for hamzabellouch.github.io
+// Shared Core JavaScript for hamzabellouch.github.io
 
 // 1. Theme (Dark / Light) Management
 function initTheme() {
@@ -546,14 +546,14 @@ function initMaintenanceBanner() {
     banner.id = 'siteMaintenanceBanner';
     banner.setAttribute('role', 'status');
     banner.setAttribute('aria-live', 'polite');
-    banner.className = 'w-full transition-colors duration-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 text-[#202124] dark:text-[#e8f5e9]';
+    banner.className = 'w-full transition-colors duration-300 bg-[#ceead6]/80 dark:bg-[#134229]/80 backdrop-blur-md border-b border-[#a8dab5]/50 dark:border-[#1e5235]/60 text-[#202124] dark:text-[#e8f5e9]';
 
     banner.innerHTML = `
         <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3 sm:py-3.5">
-            <p class="m-0 text-sm sm:text-[15px] font-bold text-gray-900 dark:text-white leading-snug" data-i18n="maintenanceBannerTitle">
+            <p class="m-0 text-sm sm:text-[15px] font-bold text-[#202124] dark:text-[#e8f5e9] leading-snug" data-i18n="maintenanceBannerTitle">
                 ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerTitle) || 'The website is currently undergoing scheduled maintenance.'}
             </p>
-            <p class="m-0 mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400 leading-relaxed" data-i18n="maintenanceBannerDesc">
+            <p class="m-0 mt-1 text-xs sm:text-sm text-[#3c4043] dark:text-[#c4eed0] leading-relaxed" data-i18n="maintenanceBannerDesc">
                 ${(typeof translations !== 'undefined' && translations[currentLang]?.maintenanceBannerDesc) || 'We are performing periodic updates to enhance performance and features. Please stay tuned and check back soon.'}
             </p>
         </div>
@@ -565,6 +565,14 @@ function initMaintenanceBanner() {
     } else {
         nav.appendChild(banner);
     }
+
+    const updateNavHeaderHeight = () => {
+        if (nav.firstElementChild) {
+            nav.style.setProperty('--nav-header-height', `${nav.firstElementChild.offsetHeight}px`);
+        }
+    };
+    updateNavHeaderHeight();
+    window.addEventListener('resize', updateNavHeaderHeight, { passive: true });
 }
 
 // 12. Initialize on DOM Load

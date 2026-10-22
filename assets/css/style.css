@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Explicit Google Sans Font Declarations (Headings, Menus, Buttons, UI) */
 @font-face {
@@ -567,3 +567,40 @@ main p[data-i18n*="Desc"] {
     line-height: 1.75 !important;
     font-weight: 400 !important;
 }
+
+/* ==========================================================================
+   Maintenance Banner (Frosted Glass Translucent Green)
+   Matching the exact 80% opacity and backdrop-blur of the main nav bar
+   ========================================================================== */
+nav:has(#siteMaintenanceBanner) {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.8) 0px,
+        rgba(255, 255, 255, 0.8) var(--nav-header-height, 72px),
+        transparent var(--nav-header-height, 72px)
+    ) !important;
+}
+
+.dark nav:has(#siteMaintenanceBanner) {
+    background: linear-gradient(
+        to bottom,
+        rgba(17, 24, 39, 0.8) 0px,
+        rgba(17, 24, 39, 0.8) var(--nav-header-height, 72px),
+        transparent var(--nav-header-height, 72px)
+    ) !important;
+}
+
+#siteMaintenanceBanner {
+    background-color: rgba(206, 234, 214, 0.8) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(168, 218, 181, 0.5);
+}
+
+.dark #siteMaintenanceBanner {
+    background-color: rgba(19, 66, 41, 0.8) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30, 82, 53, 0.6);
+}
+
