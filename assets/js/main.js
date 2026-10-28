@@ -501,36 +501,50 @@ function initOverviewCounters() {
     if (!counters.length) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const card = document.getElementById('overviewCard') || counters[0].closest('.rounded-2xl') || counters[0].parentElement;
 
-    counters.forEach(counter => {
-        const target = Number(counter.dataset.target);
-        const prefix = counter.dataset.prefix || '';
+    function animateCounters() {
+        counters.forEach(counter => {
+            const target = Number(counter.dataset.target);
+            const prefix = counter.dataset.prefix || '';
 
-        if (!Number.isFinite(target)) return;
+            if (!Number.isFinite(target)) return;
 
-        if (reduceMotion) {
-            counter.textContent = `${prefix}${target}`;
-            return;
-        }
-
-        const duration = Math.min(1800, Math.max(700, 600 + target * 5));
-        const startTime = performance.now();
-
-        const animate = currentTime => {
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            const easedProgress = 1 - Math.pow(1 - progress, 3);
-            counter.textContent = `${prefix}${Math.round(target * easedProgress)}`;
-
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            } else {
+            if (reduceMotion) {
                 counter.textContent = `${prefix}${target}`;
+                return;
             }
-        };
 
-        counter.textContent = `${prefix}0`;
-        requestAnimationFrame(animate);
-    });
+            if (counter._counterAnimId) {
+                cancelAnimationFrame(counter._counterAnimId);
+            }
+
+            const duration = Math.min(1800, Math.max(700, 600 + target * 5));
+            const startTime = performance.now();
+
+            const animate = currentTime => {
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+                counter.textContent = `${prefix}${Math.round(target * easedProgress)}`;
+
+                if (progress < 1) {
+                    counter._counterAnimId = requestAnimationFrame(animate);
+                } else {
+                    counter.textContent = `${prefix}${target}`;
+                    counter._counterAnimId = null;
+                }
+            };
+
+            counter.textContent = `${prefix}0`;
+            counter._counterAnimId = requestAnimationFrame(animate);
+        });
+    }
+
+    animateCounters();
+
+    if (card) {
+        card.addEventListener('mouseenter', animateCounters);
+    }
 }
 
 // 11. Maintenance Banner Management
