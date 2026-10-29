@@ -69,6 +69,7 @@ function setLanguage(lang) {
     
     // Update interactive protection status if on home page
     updateStatusText();
+    renderReviewsCapsule();
 }
 
 // 3. Mobile Navigation Menu
@@ -589,6 +590,252 @@ function initMaintenanceBanner() {
     window.addEventListener('resize', updateNavHeaderHeight, { passive: true });
 }
 
+// ==========================================
+// 13. Project Reviews & Interactive Rating Modal
+// ==========================================
+let currentSelectedRating = 0;
+
+const ratingLabelsMap = {
+    en: ['', 'Poor', 'Fair', 'Good', 'Very Good', 'Excellent!'],
+    ar: ['', 'ضعيف', 'مقبول', 'جيد', 'جيد جداً', 'ممتاز!'],
+    fr: ['', 'Médiocre', 'Passable', 'Bien', 'Très bien', 'Excellent !'],
+    es: ['', 'Deficiente', 'Regular', 'Bueno', 'Muy bueno', '¡Excelente!'],
+    de: ['', 'Mangelhaft', 'Ausreichend', 'Gut', 'Sehr gut', 'Hervorragend!'],
+    tr: ['', 'Zayıf', 'Orta', 'İyi', 'Çok İyi', 'Mükemmel!'],
+    ru: ['', 'Плохо', 'Нормально', 'Хорошо', 'Очень хорошо', 'Отлично!'],
+    zh: ['', '较差', '一般', '良好', '非常好', '极佳！'],
+    ja: ['', '不満', '普通', '良い', 'とても良い', '非常に高評価！'],
+    ko: ['', '미흡', '보통', '좋음', '매우 좋음', '우수함!']
+};
+
+function getReviewsCount() {
+    try {
+        const stored = localStorage.getItem('hb_reviews_count');
+        if (stored) {
+            const parsed = parseInt(stored, 10);
+            if (!isNaN(parsed) && parsed >= 400) return parsed;
+        }
+    } catch (e) {}
+    return 400;
+}
+
+function getUserRating() {
+    try {
+        const stored = localStorage.getItem('hb_user_rating');
+        if (stored) {
+            const parsed = parseInt(stored, 10);
+            if (!isNaN(parsed) && parsed >= 1 && parsed <= 5) return parsed;
+        }
+    } catch (e) {}
+    return 0;
+}
+
+function renderReviewsCapsule() {
+    const capsuleStars = document.getElementById('capsule-stars-container');
+    const reviewsText = document.getElementById('reviews-text');
+    if (!reviewsText && !capsuleStars) return;
+
+    const count = getReviewsCount();
+    const userRating = getUserRating();
+
+    // Render stars inside the capsule
+    if (capsuleStars) {
+        if (userRating > 0) {
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= userRating) {
+                    starsHtml += '<i class="fa-solid fa-star text-yellow-400"></i>';
+                } else {
+                    starsHtml += '<i class="fa-regular fa-star text-yellow-400/50"></i>';
+                }
+            }
+            capsuleStars.innerHTML = starsHtml;
+        } else {
+            capsuleStars.innerHTML = '<i class="fa-solid fa-star text-yellow-400"></i>';
+        }
+    }
+
+    // Render text with updated count
+    if (reviewsText) {
+        const lang = currentLang || localStorage.getItem('lang') || 'en';
+        let baseText = (typeof translations !== 'undefined' && translations[lang] && translations[lang].reviews)
+            ? translations[lang].reviews
+            : '+400 user reviews - Excellent!';
+        reviewsText.textContent = baseText.replace('+400', `+${count}`).replace('400', `${count}`);
+    }
+}
+
+function openReviewsModal() {
+    const modal = document.getElementById('reviews-modal');
+    if (!modal) return;
+
+    const formState = document.getElementById('reviews-modal-form-state');
+    const successState = document.getElementById('reviews-modal-success-state');
+    if (formState) formState.classList.remove('hidden');
+    if (successState) successState.classList.add('hidden');
+
+    // Pre-populate with previous user rating if available
+    const existingRating = getUserRating();
+    currentSelectedRating = existingRating;
+    highlightModalStars(existingRating);
+    updateRatingLabel(existingRating);
+
+    const submitBtn = document.getElementById('modal-submit-rating-btn');
+    if (submitBtn) {
+        submitBtn.disabled = existingRating === 0;
+    }
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    // Animate content scale & opacity
+    requestAnimationFrame(() => {
+        modal.classList.add('opacity-100');
+        const content = document.getElementById('reviews-modal-content');
+        if (content) {
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }
+    });
+}
+
+function closeReviewsModal() {
+    const modal = document.getElementById('reviews-modal');
+    if (!modal || modal.classList.contains('hidden')) return;
+
+    const content = document.getElementById('reviews-modal-content');
+    if (content) {
+        content.classList.remove('scale-100', 'opacity-100');
+        content.classList.add('scale-95', 'opacity-0');
+    }
+    modal.classList.remove('opacity-100');
+
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }, 200);
+}
+
+function highlightModalStars(count) {
+    const starBtns = document.querySelectorAll('.modal-star-btn');
+    starBtns.forEach(btn => {
+        const starIdx = parseInt(btn.getAttribute('data-star'), 10);
+        const icon = btn.querySelector('i');
+        if (!icon) return;
+        if (starIdx <= count) {
+            btn.classList.add('text-amber-400');
+            btn.classList.remove('text-gray-300', 'dark:text-gray-700');
+            icon.classList.remove('fa-regular');
+            icon.classList.add('fa-solid');
+        } else {
+            btn.classList.remove('text-amber-400');
+            btn.classList.add('text-gray-300', 'dark:text-gray-700');
+            icon.classList.remove('fa-solid');
+            icon.classList.add('fa-regular');
+        }
+    });
+}
+
+function updateRatingLabel(rating) {
+    const labelEl = document.getElementById('modal-rating-label');
+    if (!labelEl) return;
+
+    if (!rating || rating === 0) {
+        labelEl.textContent = '';
+        return;
+    }
+
+    const lang = currentLang || localStorage.getItem('lang') || 'en';
+    const labels = ratingLabelsMap[lang] || ratingLabelsMap.en;
+    labelEl.textContent = labels[rating] || '';
+}
+
+function previewStarRating(starIndex) {
+    highlightModalStars(starIndex);
+    updateRatingLabel(starIndex);
+}
+
+function resetStarHover() {
+    highlightModalStars(currentSelectedRating);
+    updateRatingLabel(currentSelectedRating);
+}
+
+function selectProjectRating(starIndex) {
+    currentSelectedRating = starIndex;
+    highlightModalStars(starIndex);
+    updateRatingLabel(starIndex);
+
+    const submitBtn = document.getElementById('modal-submit-rating-btn');
+    if (submitBtn) {
+        submitBtn.disabled = false;
+    }
+}
+
+function submitProjectRating() {
+    if (!currentSelectedRating || currentSelectedRating < 1) return;
+
+    try {
+        const hasRated = localStorage.getItem('hb_user_has_rated') === 'true';
+        if (!hasRated) {
+            const currentCount = getReviewsCount();
+            localStorage.setItem('hb_reviews_count', String(currentCount + 1));
+            localStorage.setItem('hb_user_has_rated', 'true');
+        }
+        localStorage.setItem('hb_user_rating', String(currentSelectedRating));
+    } catch (e) {}
+
+    renderReviewsCapsule();
+
+    // Animate capsule badge on home page
+    const capsuleBtn = document.getElementById('reviews-capsule-btn');
+    if (capsuleBtn) {
+        capsuleBtn.classList.add('ring-2', 'ring-amber-400', 'scale-105');
+        setTimeout(() => {
+            capsuleBtn.classList.remove('ring-2', 'ring-amber-400', 'scale-105');
+        }, 800);
+    }
+
+    // Show success state
+    const formState = document.getElementById('reviews-modal-form-state');
+    const successState = document.getElementById('reviews-modal-success-state');
+    if (formState) formState.classList.add('hidden');
+    if (successState) successState.classList.remove('hidden');
+
+    // Auto close after 1.8 seconds
+    setTimeout(() => {
+        closeReviewsModal();
+    }, 1800);
+}
+
+function initReviewsModal() {
+    renderReviewsCapsule();
+
+    // Attach star button hover & click listeners
+    const starBtns = document.querySelectorAll('.modal-star-btn');
+    starBtns.forEach(btn => {
+        const starIdx = parseInt(btn.getAttribute('data-star'), 10);
+        btn.addEventListener('mouseenter', () => previewStarRating(starIdx));
+        btn.addEventListener('click', () => selectProjectRating(starIdx));
+    });
+
+    // Close modal on click outside backdrop
+    const modal = document.getElementById('reviews-modal');
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeReviewsModal();
+            }
+        });
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeReviewsModal();
+        }
+    });
+}
+
 // 12. Initialize on DOM Load
 document.addEventListener('DOMContentLoaded', () => {
     initMaintenanceBanner();
@@ -598,4 +845,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initNewsCardsStats();
     setLanguage(currentLang);
     initOverviewCounters();
+    initReviewsModal();
 });

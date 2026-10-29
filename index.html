@@ -169,9 +169,11 @@
             <!-- Left Content -->
             <div class="flex-1 space-y-8">
                 <div class="flex flex-wrap items-center gap-2.5">
-                    <div class="inline-flex items-center gap-2 bg-blue-50 dark:bg-gray-800/50 text-adguard px-3 py-1 rounded-full text-sm font-semibold border border-blue-100 dark:border-gray-700">
-                        <i class="fa-solid fa-star text-yellow-400"></i>
-                        <span data-i18n="reviews">+400 user reviews - Excellent!</span>
+                    <div id="reviews-capsule-btn" onclick="openReviewsModal()" role="button" tabindex="0" class="inline-flex items-center gap-2 bg-blue-50 hover:bg-blue-100/90 dark:bg-gray-800/50 dark:hover:bg-gray-800 text-adguard px-3 py-1 rounded-full text-sm font-semibold border border-blue-100 dark:border-gray-700 transition-all duration-200 active:scale-95 shadow-xs cursor-pointer group select-none" title="Rate our projects">
+                        <span id="capsule-stars-container" class="inline-flex items-center gap-0.5 text-yellow-400 text-xs sm:text-sm">
+                            <i class="fa-solid fa-star"></i>
+                        </span>
+                        <span id="reviews-text" data-i18n="reviews">+400 user reviews - Excellent!</span>
                     </div>
                     <div id="site-views-badge" class="inline-flex items-center gap-2 bg-gray-100/90 dark:bg-gray-800/80 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium border border-gray-200/80 dark:border-gray-700/80 shadow-sm" title="Total Website Visits">
                         <i class="fa-solid fa-eye text-adguard"></i>
@@ -394,6 +396,71 @@
             <span data-i18n="privacyPolicy">Privacy Policy</span>
         </a>
     </footer>
+
+    <!-- Reviews / Rating Modal -->
+    <div id="reviews-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity duration-300" role="dialog" aria-modal="true" aria-labelledby="modal-rate-title">
+        <div id="reviews-modal-content" class="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-100 dark:border-gray-800 text-center transform scale-95 opacity-0 transition-all duration-300">
+            <!-- Close button -->
+            <button type="button" onclick="closeReviewsModal()" class="absolute top-4 right-4 rtl:right-auto rtl:left-4 w-9 h-9 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer" aria-label="Close">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <!-- Form State -->
+            <div id="reviews-modal-form-state">
+                <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-500 text-3xl shadow-sm">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <h3 id="modal-rate-title" class="text-2xl font-bold text-gray-900 dark:text-white mb-2" data-i18n="rateModalTitle">
+                    Rate Our Projects
+                </h3>
+                <p id="modal-rate-subtitle" class="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed" data-i18n="rateModalSubtitle">
+                    How was your experience with our tools and solutions? Tap a star to set your rating.
+                </p>
+
+                <!-- 5 Stars -->
+                <div id="modal-stars-container" class="flex items-center justify-center gap-2 sm:gap-3 py-2 mb-3" onmouseleave="resetStarHover()">
+                    <button type="button" data-star="1" class="modal-star-btn text-3xl sm:text-4xl text-gray-300 dark:text-gray-700 hover:scale-125 transition-all duration-150 p-1 cursor-pointer focus:outline-none" aria-label="1 star">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <button type="button" data-star="2" class="modal-star-btn text-3xl sm:text-4xl text-gray-300 dark:text-gray-700 hover:scale-125 transition-all duration-150 p-1 cursor-pointer focus:outline-none" aria-label="2 stars">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <button type="button" data-star="3" class="modal-star-btn text-3xl sm:text-4xl text-gray-300 dark:text-gray-700 hover:scale-125 transition-all duration-150 p-1 cursor-pointer focus:outline-none" aria-label="3 stars">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <button type="button" data-star="4" class="modal-star-btn text-3xl sm:text-4xl text-gray-300 dark:text-gray-700 hover:scale-125 transition-all duration-150 p-1 cursor-pointer focus:outline-none" aria-label="4 stars">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                    <button type="button" data-star="5" class="modal-star-btn text-3xl sm:text-4xl text-gray-300 dark:text-gray-700 hover:scale-125 transition-all duration-150 p-1 cursor-pointer focus:outline-none" aria-label="5 stars">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                </div>
+
+                <div id="modal-rating-label" class="h-6 text-sm font-semibold text-amber-500 mb-6 transition-all duration-150"></div>
+
+                <button id="modal-submit-rating-btn" type="button" onclick="submitProjectRating()" disabled class="w-full py-3 px-6 rounded-full font-semibold text-sm transition-all duration-200 shadow-md bg-adguard hover:bg-adguardDark text-white disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer active:scale-98">
+                    <span data-i18n="rateModalSubmit">Submit Rating</span>
+                </button>
+            </div>
+
+            <!-- Success State -->
+            <div id="reviews-modal-success-state" class="hidden py-4 space-y-4">
+                <div class="w-16 h-16 mx-auto rounded-full bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 flex items-center justify-center text-3xl shadow-sm">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white" data-i18n="rateModalSuccessTitle">
+                    Thank You!
+                </h3>
+                <p id="modal-success-message" class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="rateModalSuccessMsg">
+                    Your rating has been recorded and added to our reviews.
+                </p>
+                <button type="button" onclick="closeReviewsModal()" class="w-full py-2.5 px-6 rounded-full font-semibold text-sm transition-all duration-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 cursor-pointer">
+                    <span data-i18n="rateModalClose">Done</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="/assets/js/translations.js?v=3"></script>
