@@ -466,6 +466,7 @@ function initNewsCardsStats() {
         const footerRow = document.createElement('div');
         footerRow.setAttribute('data-news-card-stats', '');
         footerRow.className = 'mt-auto pt-4 flex items-center justify-between gap-2 flex-wrap border-t border-gray-100 dark:border-gray-700/60 w-full';
+        footerRow.style.borderTop = 'none'; footerRow.style.paddingTop = '0'; // Hidden until re-enabled
 
         authorBadge.classList.remove('mt-auto');
         authorBadge.parentNode.insertBefore(footerRow, authorBadge);
@@ -484,6 +485,7 @@ function initNewsCardsStats() {
                 <span class="font-bold text-gray-800 dark:text-gray-200 card-shares">...</span>
             </span>
         `;
+        statsPill.style.display = 'none'; // Hidden until re-enabled
         footerRow.appendChild(statsPill);
 
         const viewsEl = statsPill.querySelector('.card-views');
