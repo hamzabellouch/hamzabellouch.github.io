@@ -278,6 +278,7 @@ function initBlogShareAndStats() {
     const viewsBadge = document.createElement('div');
     viewsBadge.className = 'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100/90 dark:bg-gray-800/90 border border-gray-200/80 dark:border-gray-700/80 text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 shadow-sm';
     viewsBadge.setAttribute('title', 'Article Views / Reads');
+    viewsBadge.style.display = 'none'; // Hidden until re-enabled
     viewsBadge.innerHTML = `
         <i class="fa-solid fa-eye text-adguard text-sm"></i>
         <span id="blog-views-count" class="font-bold text-gray-900 dark:text-white">...</span>
@@ -297,12 +298,14 @@ function initBlogShareAndStats() {
     
     const divider = document.createElement('span');
     divider.className = 'text-gray-300 dark:text-gray-600 font-normal select-none';
+    divider.style.display = 'none'; // Hidden until re-enabled
     divider.textContent = '|';
 
     const sharesCountSpan = document.createElement('span');
     sharesCountSpan.id = 'blog-shares-count';
     sharesCountSpan.className = 'font-bold text-gray-700 dark:text-gray-300';
     sharesCountSpan.setAttribute('title', 'Total Shares');
+    sharesCountSpan.style.display = 'none'; // Hidden until re-enabled
     sharesCountSpan.textContent = '...';
 
     shareCapsule.appendChild(shareBtn);
