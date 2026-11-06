@@ -680,7 +680,7 @@ nav:has(#siteMaintenanceBanner) {
 .story-modal-content {
     position: relative;
     width: 100%;
-    max-width: 420px;
+    max-width: 560px;
     max-height: 90vh;
     border-radius: 16px;
     overflow: hidden;
@@ -786,7 +786,7 @@ nav:has(#siteMaintenanceBanner) {
 /* Story Image */
 .story-image-container {
     width: 100%;
-    aspect-ratio: 9 / 16;
+    aspect-ratio: 3 / 4;
     display: flex;
     align-items: center;
     justify-content: center;
