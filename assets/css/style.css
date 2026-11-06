@@ -612,8 +612,10 @@ nav:has(#siteMaintenanceBanner) {
 
 /* Profile Avatar in Nav */
 .story-avatar {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
     border-radius: 50%;
     object-fit: cover;
     display: block;
@@ -625,56 +627,32 @@ nav:has(#siteMaintenanceBanner) {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
     border-radius: 50%;
-    padding: 3px;
     cursor: pointer;
     flex-shrink: 0;
-    background: transparent;
-    transition: all 0.3s ease;
+    box-sizing: content-box;
 }
 
-/* Blue gradient ring when there IS a story */
+/* Blue ring when there IS a story */
 .story-ring.has-story {
-    background: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa);
-    animation: storyRingPulse 2.5s ease-in-out infinite;
+    border: 2.5px solid #2563eb;
+    padding: 2px;
 }
 
 /* No ring when there is no story */
 .story-ring.no-story {
-    background: transparent;
+    border: none;
     padding: 0;
-    width: 36px;
-    height: 36px;
     cursor: default;
-    animation: none;
 }
 
-.story-ring.no-story .story-avatar {
-    width: 36px;
-    height: 36px;
-}
-
-/* Inner white gap between ring and avatar */
+/* Inner white gap between ring and avatar (via avatar border) */
 .story-ring.has-story .story-avatar {
-    border: 2px solid #ffffff;
-    width: 100%;
-    height: 100%;
+    border: none;
 }
 
-.dark .story-ring.has-story .story-avatar {
-    border-color: #111827;
-}
-
-/* Subtle pulse animation for the ring */
-@keyframes storyRingPulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-    50% { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
-}
-
-.story-ring.has-story:hover {
-    transform: scale(1.08);
+.dark .story-ring.has-story {
+    border-color: #3b82f6;
 }
 
 /* ==========================================================================
