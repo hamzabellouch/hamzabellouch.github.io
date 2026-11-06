@@ -60,7 +60,11 @@
                 <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu" title="Menu">
                     <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
                 </button>
-                <a href="/" class="flex items-center gap-2">
+                <a href="/" class="flex items-center gap-3">
+                    <!-- Profile Picture with Story Ring -->
+                    <div id="storyRingWrapper" class="story-ring has-story" onclick="event.preventDefault(); openStoryViewer();" title="View Story" role="button" tabindex="0">
+                        <img src="/assets/Image/hamzabellouch.jpg" alt="Hamza Bellouch" class="story-avatar">
+                    </div>
                     <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
                 </a>
             </div>
@@ -468,8 +472,117 @@
         </div>
     </div>
 
+    <!-- Story Viewer Modal -->
+    <div id="storyViewerModal" class="story-modal" onclick="closeStoryViewer(event)">
+        <div class="story-modal-content" onclick="event.stopPropagation()">
+            <!-- Progress Bar -->
+            <div class="story-progress-bar">
+                <div class="story-progress-track">
+                    <div id="storyProgressFill" class="story-progress-fill"></div>
+                </div>
+            </div>
+            <!-- Header -->
+            <div class="story-header">
+                <div class="story-header-left">
+                    <img src="/assets/Image/hamzabellouch.jpg" alt="Hamza Bellouch" class="story-header-avatar">
+                    <span class="story-header-name">Hamza Bellouch</span>
+                    <span id="storyTimestamp" class="story-header-time">Just now</span>
+                </div>
+                <button onclick="closeStoryViewer()" class="story-close-btn" aria-label="Close Story">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <!-- Story Image -->
+            <div class="story-image-container">
+                <img id="storyImage" src="" alt="Story" class="story-image">
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="/assets/js/translations.js?v=3"></script>
     <script src="/assets/js/main.js?v=4"></script>
+
+    <!-- Story System Script -->
+    <script>
+    (function() {
+        const stories = [
+            { image: '/assets/Image/web-marker.jpg', timestamp: 'Just now' }
+        ];
+
+        const hasStories = stories.length > 0;
+        const wrapper = document.getElementById('storyRingWrapper');
+        const modal = document.getElementById('storyViewerModal');
+        const progressFill = document.getElementById('storyProgressFill');
+        const storyImage = document.getElementById('storyImage');
+        const storyTimestamp = document.getElementById('storyTimestamp');
+
+        let storyTimer = null;
+        let currentStoryIndex = 0;
+        const STORY_DURATION = 6000;
+
+        if (wrapper) {
+            if (hasStories) {
+                wrapper.classList.add('has-story');
+                wrapper.classList.remove('no-story');
+            } else {
+                wrapper.classList.remove('has-story');
+                wrapper.classList.add('no-story');
+            }
+        }
+
+        window.openStoryViewer = function() {
+            if (!hasStories || !modal) return;
+            currentStoryIndex = 0;
+            showStory(currentStoryIndex);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeStoryViewer = function(e) {
+            if (e && e.target !== modal && !e.target.closest('.story-close-btn')) return;
+            if (!modal) return;
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            clearInterval(storyTimer);
+            if (progressFill) progressFill.style.width = '0%';
+        };
+
+        function showStory(index) {
+            if (index >= stories.length) {
+                window.closeStoryViewer();
+                return;
+            }
+            const story = stories[index];
+            if (storyImage) storyImage.src = story.image;
+            if (storyTimestamp) storyTimestamp.textContent = story.timestamp;
+
+            clearInterval(storyTimer);
+            if (progressFill) progressFill.style.width = '0%';
+
+            let elapsed = 0;
+            const interval = 30;
+            storyTimer = setInterval(function() {
+                elapsed += interval;
+                const pct = Math.min((elapsed / STORY_DURATION) * 100, 100);
+                if (progressFill) progressFill.style.width = pct + '%';
+                if (elapsed >= STORY_DURATION) {
+                    clearInterval(storyTimer);
+                    currentStoryIndex++;
+                    showStory(currentStoryIndex);
+                }
+            }, interval);
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                clearInterval(storyTimer);
+            }
+        });
+    })();
+    </script>
+
 </body>
 </html>

@@ -604,3 +604,228 @@ nav:has(#siteMaintenanceBanner) {
     border-bottom: 1px solid rgba(30, 82, 53, 0.6);
 }
 
+
+
+/* ==========================================================================
+   Story Ring & Story Viewer System
+   ========================================================================== */
+
+/* Profile Avatar in Nav */
+.story-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Story Ring Wrapper */
+.story-ring {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 3px;
+    cursor: pointer;
+    flex-shrink: 0;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Blue gradient ring when there IS a story */
+.story-ring.has-story {
+    background: linear-gradient(135deg, #2563eb, #3b82f6, #60a5fa);
+    animation: storyRingPulse 2.5s ease-in-out infinite;
+}
+
+/* No ring when there is no story */
+.story-ring.no-story {
+    background: transparent;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    cursor: default;
+    animation: none;
+}
+
+.story-ring.no-story .story-avatar {
+    width: 36px;
+    height: 36px;
+}
+
+/* Inner white gap between ring and avatar */
+.story-ring.has-story .story-avatar {
+    border: 2px solid #ffffff;
+    width: 100%;
+    height: 100%;
+}
+
+.dark .story-ring.has-story .story-avatar {
+    border-color: #111827;
+}
+
+/* Subtle pulse animation for the ring */
+@keyframes storyRingPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    50% { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2); }
+}
+
+.story-ring.has-story:hover {
+    transform: scale(1.08);
+}
+
+/* ==========================================================================
+   Story Viewer Modal (Instagram-style fullscreen)
+   ========================================================================== */
+
+.story-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.story-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.story-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    max-height: 90vh;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.92);
+    transition: transform 0.3s ease;
+}
+
+.story-modal.active .story-modal-content {
+    transform: scale(1);
+}
+
+/* Progress Bar */
+.story-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 8px 12px 0;
+}
+
+.story-progress-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.story-progress-fill {
+    height: 100%;
+    background: #ffffff;
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.03s linear;
+}
+
+/* Story Header */
+.story-header {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.story-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.story-header-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+.story-header-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.story-header-time {
+    font-family: var(--font-text);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Close Button */
+.story-close-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.story-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Story Image */
+.story-image-container {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .story-modal-content {
+        max-width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+}
