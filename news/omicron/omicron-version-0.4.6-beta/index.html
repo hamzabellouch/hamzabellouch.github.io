@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlTag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omicron version 0.4.6-beta | Hamza Bellouch</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/assets/Image/hamzabellouch.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/Image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/Image/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/Image/hamzabellouch.jpg">
+    
+    <!-- Tailwind & Fonts -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        adguard: '#2563eb',
+                        adguardDark: '#1d4ed8',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 transition-colors duration-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-8 py-4">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors" aria-label="Toggle navigation menu">
+                    <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-gray-100/80 dark:bg-gray-800/80 border border-gray-200/80 dark:border-gray-700/80 shadow-sm text-sm font-semibold text-gray-600 dark:text-gray-400">
+                <a href="/projects/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navProducts">Projects</a>
+                <a href="/labs/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navLabs">Labs</a>
+                <a href="/news/" class="px-3.5 py-1.5 rounded-full bg-white dark:bg-gray-900 text-adguard font-bold shadow-sm transition-all duration-200" data-i18n="navBlog">News</a>
+                <a href="/research/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navResearch">Research</a>
+                <a href="/articles/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navArticles">Articles</a>
+                <a href="/support/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navSupport">Support</a>
+                <a href="/partners/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900/60 hover:text-adguard dark:hover:text-adguard hover:shadow-sm transition-all duration-200" data-i18n="navPartners">Partners &amp; Sponsors</a>
+            </div>
+            
+            <div class="flex items-center gap-2 sm:gap-4">
+                <button onclick="toggleTheme()" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none rounded-full text-sm p-2.5 transition-colors" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun dark:hidden block"></i>
+                </button>
+
+                <!-- Language Dropdown -->
+                <div class="relative group z-50">
+                    <button class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm font-semibold py-2 px-3 sm:px-4 rounded-full transition-colors flex items-center gap-2">
+                        <span id="currentLangText">EN </span> <i class="fa-solid fa-chevron-down text-xs text-gray-500"></i>
+                    </button>
+                    <div id="langDropdownMenu" class="absolute right-0 mt-1 w-44 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                        <a href="javascript:void(0)" onclick="setLanguage('ar')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-t-xl transition-colors">العربية (AR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('en')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">English (EN)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('fr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Français (FR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('es')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Español (ES)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('de')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Deutsch (DE)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('tr')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Türkçe (TR)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ru')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">Русский (RU)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('zh')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">中文 (ZH)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ja')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">日本語 (JA)</a>
+                        <a href="javascript:void(0)" onclick="setLanguage('ko')" class="block px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard rounded-b-xl transition-colors">한국어 (KO)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden px-4 sm:px-8 pt-2 pb-4 border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur transition-all duration-300 space-y-1 shadow-lg">
+            <a href="/projects/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-cubes w-5 text-center text-adguard"></i>
+                <span data-i18n="navProducts">Projects</span>
+            </a>
+            <a href="/labs/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-vial w-5 text-center text-adguard"></i>
+                <span data-i18n="navLabs">Labs</span>
+            </a>
+            <a href="/news/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-bold text-adguard bg-blue-50 dark:bg-gray-800 transition-colors">
+                <i class="fa-solid fa-newspaper w-5 text-center text-adguard"></i>
+                <span data-i18n="navBlog">News</span>
+            </a>
+            <a href="/research/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-flask w-5 text-center text-adguard"></i>
+                <span data-i18n="navResearch">Research</span>
+            </a>
+                        <a href="/articles/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-file-lines w-5 text-center text-adguard"></i>
+                <span data-i18n="navArticles">Articles</span>
+            </a>
+            <a href="/support/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-circle-question w-5 text-center text-adguard"></i>
+                <span data-i18n="navSupport">Support</span>
+            </a>
+            <a href="/partners/" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-800 hover:text-adguard dark:hover:text-adguard transition-colors">
+                <i class="fa-solid fa-handshake w-5 text-center text-adguard"></i>
+                <span data-i18n="navPartners">Partners &amp; Sponsors</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Blog Article Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16 flex-1 w-full">
+        <!-- Back Button -->
+        <a href="/news/" class="inline-flex items-center gap-2 text-sm font-bold text-adguard hover:text-adguardDark mb-8 transition-colors group">
+            <i class="fa-solid fa-arrow-left rtl:rotate-180 group-hover:-translate-x-1 rtl:group-hover:translate-x-1 transition-transform"></i>
+            <span data-i18n="backToBlog">Back to News</span>
+        </a>
+
+        <!-- Article Header -->
+        <div class="space-y-4 mb-8">
+            <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400 font-medium" data-i18n="blog25Meta">
+                November 08, 2026 · Omicron · New version · Release notes
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight" data-i18n="blog25Title">
+                Omicron v0.4.6-beta
+            </h1>
+            <div class="flex items-center gap-3 pt-2">
+                <img src="/assets/Image/hamzabellouch.jpg" alt="Hamza Bellouch" class="w-10 h-10 rounded-full object-cover border border-gray-200 dark:border-gray-700">
+                <div>
+                    <div class="font-bold text-sm text-gray-900 dark:text-white" data-i18n="blog25Author">Hamza Bellouch</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400" data-i18n="authorRole25">CEO &amp; Founder of tknoglobal</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="rounded-3xl overflow-hidden mb-10 shadow-lg bg-gray-100 dark:bg-gray-800 aspect-[16/9]">
+            <img src="/assets/Image/Omicron.png" alt="Omicron version 0.4.6-beta" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Article Body -->
+        <article class="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-6 leading-relaxed">
+            <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200 leading-relaxed" data-i18n="blog25Intro">
+                We are excited to announce Omicron v0.4.6-beta! This release delivers a sweeping set of UX refinements spanning playlist grouping for images and videos, an interactive Status page viewer, quick-clear controls across all input fields, smarter download directory management, Material 3 upgrades, IME keyboard fixes, and a fully revamped Troubleshooting section with new developer profile cards.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog25Subhead1">
+                Playlist Grouping, Image Downloads &amp; Status Viewer
+            </h2>
+            <p data-i18n="blog25Body1">
+                Omicron v0.4.6-beta introduces powerful playlist grouping on both the Home page and in the Downloads library. Active multi-image downloads of 4 or more items are consolidated into a single card with an IMAGES badge, while completed images group into a playlist-style card with a dedicated sub-page. YouTube video playlists with 4 or more videos get the same treatment with a VIDEOS badge and an expandable bottom sheet for per-video control. The completely redesigned Status page viewer adds a horizontal swipe pager, an interactive dots indicator, tap-to-toggle video playback, a scrubbable seek bar with live timestamps, and full gesture-based browsing in the Saved tab.
+            </p>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog25Subhead2">
+                Changes — November 08, 2026
+            </h2>
+            <ul class="space-y-3 list-none pl-0">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat1">Unified Sponsor and Star buttons into a single interactive capsule.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat2">Capped maximum rate limit to 999 GB across all units (up to 999 in GB, 999,000 in MB, and 999,000,000 in KB).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat3">Renamed Download archive to Duplicate videos with the tab_inactive icon in General settings.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat4">Added GitHub developer card in Troubleshooting.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat5">Added Threads developer card in Troubleshooting.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat6">Added Github.io developer portfolio card in Troubleshooting.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat7">Added Google developer profile card in Troubleshooting.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat8">Added custom vector icons and full multilingual support for all new cards.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat9">Checkmark icon integrated into all Save and Confirm action buttons across app dialogs.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat10">Quick clear circular button added to the Edit Display Name field in the Profile section.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat11">Quick clear circular button added to the Edit Username field in the Profile section.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat12">Quick clear circular button added to the SponsorBlock categories field in General settings.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat13">Quick clear circular button added to the Proxy configuration field in Network settings.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat14">Quick clear circular button added to the Rename Item field in the Downloads screen.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat15">48-hour update check interval to prevent repeated notifications on every app launch.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat16">Set Directory option with a dynamic checkmark folder icon when a custom destination is selected.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat17">Reset Directory option with a folder delete icon to quickly revert to the default downloads folder.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat18">Accurate error toast stating "Failed to check for latest update" whenever the network check fails.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat19">Fixed APK download pipeline to ensure direct saving to the chosen or default directory.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat20">Upgraded the New Task modal in Running Tasks to Material 3.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat21">Fixed the background page shift issue when opening the keyboard.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat22">Isolated dialog window behavior keeping the underlying tasks page static.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat23">Seamless IME keyboard insets handling with automatic sheet elevation.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat24">Consistent bottom sheet experience aligned with the Home download sheet.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat25">Native gesture support for smooth drag down to dismiss and backdrop dismissal.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat26">Unified capsule Cancel button style across all app dialogs featuring an outlined circle X icon.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat27">Persistent decorative outer ring added around the profile picture with adjusted thickness and spacing.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat28">Swapped the Copy and Share action buttons in the Downloads media details sheet so Copy comes first.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat29">Removed the inactive Preset option from the Playlist format selection dialog to streamline the interface with Custom only.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat30">Added Dynamic Color theme sharing and importing using shareable theme codes.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat31">Added image and photo gallery downloading capabilities.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat32">Streamlined image format selection by unifying image download options under a single Images mode.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat33">Home page grouping for active multi-image downloads of 4 or more items into a single card with an IMAGES badge.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat34">Interactive bottom sheet on the Home page to monitor individual image progress and manage tasks.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat35">Downloads library grouping for 4 or more completed images into a single playlist-style card.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat36">Dedicated Image Playlist sub-page in Downloads with back navigation and full media card controls.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat37">Real-time archive and favorite gesture synchronization inside playlist sub-pages.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat38">Home page grouping for YouTube video playlists with 4 or more videos into a single card with a VIDEOS badge.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat39">Expandable bottom sheet for active video playlists to inspect and control individual video downloads.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat40">Downloads library grouping for 4 or more completed videos from the same playlist.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat41">Dedicated Video Playlist sub-page in Downloads with swipe actions and context menus preserved.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat42">Multi-language localization for badges and page titles across English, Arabic, and French.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat43">"New" capsule badge placed next to the Status page title with matching theme colors.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat44">Horizontal swipe pager to smoothly navigate between all status photos and videos.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat45">Interactive dots indicator at the bottom displaying total media count and active page position.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat46">Dedicated video Play and Pause button with tap-to-toggle playback controls.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat47">Interactive scrubbable video progress seek bar with live timestamp tracking.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat48">Full swipe browsing and page indicator dots enabled inside the Saved tab viewer.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat49">Streamlined the delete capsule button label to Delete instead of Delete Status.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat50">Inline divider line starting directly beside the Media Info title instead of appearing above it in the Home Action Sheet.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat51">Symmetrical spacing with equal vertical padding balanced above and below the Media Info header.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-check text-adguard mt-1.5 shrink-0"></i>
+                    <span data-i18n="blog25Feat52">Dynamic layout alignment that adapts properly for both RTL and LTR display languages.</span>
+                </li>
+            </ul>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white pt-4" data-i18n="blog25Subhead3">
+                Downloads &amp; Release Availability
+            </h2>
+            <p data-i18n="blog25Body2">
+                Omicron v0.4.6-beta is available now. Download the latest build from our official GitHub release page or contribute to development.
+            </p>
+
+            <!-- Actions / Feedback Box -->
+            <div class="mt-10 p-6 md:p-8 bg-blue-50 dark:bg-gray-800/80 rounded-2xl border border-blue-100 dark:border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1" data-i18n="feedbackTitle25">Ready to test Omicron v0.4.6-beta?</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" data-i18n="feedbackDesc25">Download the APK release directly or explore the open-source repository on GitHub.</p>
+                </div>
+                <div class="flex flex-wrap items-center gap-3 shrink-0">
+                    <a href="https://github.com/hamzabellouch/omicron/releases/tag/v0.4.6-beta" target="_blank" rel="noopener noreferrer" class="bg-adguard hover:bg-adguardDark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-solid fa-download text-lg"></i>
+                        <span data-i18n="btnDownloadReleases">Download Releases</span>
+                    </a>
+                    <a href="https://github.com/hamzabellouch/omicron" target="_blank" rel="noopener noreferrer" class="bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-white font-bold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5">
+                        <i class="fa-brands fa-github text-xl"></i>
+                        <span data-i18n="btnGithubBeta">View on GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-6 px-4 flex flex-wrap justify-center items-center gap-3 border-t border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 shadow-sm">
+            <span dir="ltr">hamzabellouch © 2016–2026</span>
+            <span>-</span>
+            <span data-i18n="allRightsReserved">All Rights Reserved</span>
+        </div>
+        <a href="/privacy/" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-adguard dark:hover:border-adguard text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-adguard dark:hover:text-adguard shadow-sm transition-all duration-300">
+            <span data-i18n="privacyPolicy">Privacy Policy</span>
+        </a>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/translations.js?v=4"></script>
+    <script src="/assets/js/main.js?v=4"></script>
+</body>
+</html>
