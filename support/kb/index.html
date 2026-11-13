@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" id="htmlTag">
 <head>
     <meta charset="UTF-8">
@@ -29,9 +29,13 @@
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans antialiased min-h-screen flex flex-col">
     <nav class="sticky top-0 z-50 bg-white/85 dark:bg-gray-900/85 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4 px-4 sm:px-8 py-4">
-            <a href="/" class="flex items-center gap-2 shrink-0">
-                <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
-            </a>
+            <a href="/" class="flex items-center gap-3">
+                    <!-- Profile Picture with Story Ring -->
+                    <div id="storyRingWrapper" class="story-ring has-story" title="Hamza Bellouch">
+                        <img src="/assets/Image/hamzabellouch.jpg" alt="Hamza Bellouch" class="story-avatar">
+                    </div>
+                    <span class="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-adguard transition-colors">Hamza Bellouch</span>
+                </a>
             <div class="hidden lg:flex items-center gap-1 p-1.5 rounded-full bg-gray-100/80 dark:bg-gray-800/80 text-sm font-semibold text-gray-600 dark:text-gray-400">
                 <a href="/projects/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900 hover:text-adguard transition-colors">Projects</a>
                 <a href="/labs/" class="px-3.5 py-1.5 rounded-full hover:bg-white dark:hover:bg-gray-900 hover:text-adguard transition-colors">Labs</a>
