@@ -16,17 +16,41 @@
 <body>
     <p>Redirecting to <a href="/privacy/">Privacy Policy</a>...</p>
     <script>
-        function toggleMaintenanceBanner() {
-            var banner = document.getElementById('maintenanceBanner');
-            if (!banner) return;
-            var isHidden = banner.classList.contains('hidden');
-            if (isHidden) {
-                banner.classList.remove('hidden');
-            } else {
-                banner.classList.add('hidden');
-            }
-        }
-    </script>
+        (function() {
+            var _timer = null;
+            window.toggleMaintenanceBanner = function() {
+                var banner = document.getElementById('maintenanceBanner');
+                var countdown = document.getElementById('maintenanceCountdown');
+                var ring = document.getElementById('maintenanceRing');
+                if (!banner) return;
 
+                // If already visible → hide and cancel timer
+                if (!banner.classList.contains('hidden')) {
+                    if (_timer) { clearInterval(_timer); _timer = null; }
+                    banner.classList.add('hidden');
+                    return;
+                }
+
+                // Show banner, reset countdown to 5
+                banner.classList.remove('hidden');
+                var timeLeft = 5;
+                var CIRCUMFERENCE = 100;
+                if (countdown) countdown.textContent = timeLeft;
+                if (ring) ring.style.strokeDasharray = CIRCUMFERENCE + ' ' + CIRCUMFERENCE;
+
+                if (_timer) { clearInterval(_timer); _timer = null; }
+                _timer = setInterval(function() {
+                    timeLeft--;
+                    var fraction = timeLeft / 5;
+                    if (countdown) countdown.textContent = timeLeft;
+                    if (ring) ring.style.strokeDasharray = (CIRCUMFERENCE * fraction) + ' ' + CIRCUMFERENCE;
+                    if (timeLeft <= 0) {
+                        clearInterval(_timer); _timer = null;
+                        banner.classList.add('hidden');
+                    }
+                }, 1000);
+            };
+        })();
+    </script>
 </body>
 </html>

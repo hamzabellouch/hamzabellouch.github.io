@@ -128,11 +128,27 @@
         </div>
     </nav>
     <!-- Maintenance Banner (hidden by default, toggled by warning icon) -->
-    <div id="maintenanceBanner" class="hidden w-full bg-amber-50 dark:bg-amber-950/40 border-b border-amber-200 dark:border-amber-800/60 overflow-hidden transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex items-start sm:items-center gap-4">
-            <div class="shrink-0 w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-500 text-lg">
+    <div id="maintenanceBanner" class="hidden w-full bg-amber-50 dark:bg-amber-950/40 border-b border-amber-200 dark:border-amber-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex items-center gap-4">
+            <div class="shrink-0 w-9 h-9 rounded-full bg-amber-100 dark:bg-amber-900/50 flex items-center justify-center text-amber-500 text-base">
                 <i class="fa-solid fa-triangle-exclamation"></i>
             </div>
+            <p class="flex-1 font-semibold text-amber-900 dark:text-amber-200 text-sm sm:text-base leading-snug">
+                This website is currently undergoing scheduled maintenance.
+            </p>
+            <!-- Countdown ring -->
+            <div class="shrink-0 relative w-10 h-10 flex items-center justify-center">
+                <svg class="absolute inset-0 w-10 h-10 -rotate-90" viewBox="0 0 36 36">
+                    <circle cx="18" cy="18" r="15.9" fill="none" stroke="#fcd34d" stroke-width="2.5" stroke-opacity="0.3"/>
+                    <circle id="maintenanceRing" cx="18" cy="18" r="15.9" fill="none" stroke="#f59e0b" stroke-width="2.5"
+                            stroke-dasharray="100 100" stroke-linecap="round"
+                            style="transition: stroke-dasharray 0.9s linear;"/>
+                </svg>
+                <span id="maintenanceCountdown" class="relative z-10 text-amber-700 dark:text-amber-300 font-bold text-sm">5</span>
+            </div>
+        </div>
+    </div>
+
             <div class="flex-1 min-w-0">
                 <p class="font-semibold text-amber-900 dark:text-amber-200 text-sm sm:text-base leading-tight mb-0.5">The website is currently undergoing scheduled maintenance.</p>
                 <p class="text-amber-800/80 dark:text-amber-300/80 text-xs sm:text-sm leading-relaxed">We are performing periodic updates to enhance performance and features. Please stay tuned and check back soon.</p>
