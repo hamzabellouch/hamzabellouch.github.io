@@ -15,5 +15,18 @@
 </head>
 <body>
     <p>Redirecting to <a href="/privacy/">Privacy Policy</a>...</p>
+    <script>
+        function toggleMaintenanceBanner() {
+            var banner = document.getElementById('maintenanceBanner');
+            if (!banner) return;
+            var isHidden = banner.classList.contains('hidden');
+            if (isHidden) {
+                banner.classList.remove('hidden');
+            } else {
+                banner.classList.add('hidden');
+            }
+        }
+    </script>
+
 </body>
 </html>
